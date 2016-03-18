@@ -1,0 +1,23 @@
+package test;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+import com.my.pagerank.PageRankConstants;
+
+public class MyTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			BufferedReader br = new BufferedReader(
+					new FileReader(PageRankConstants.ROOT_DIR + "//results"));
+			String line;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

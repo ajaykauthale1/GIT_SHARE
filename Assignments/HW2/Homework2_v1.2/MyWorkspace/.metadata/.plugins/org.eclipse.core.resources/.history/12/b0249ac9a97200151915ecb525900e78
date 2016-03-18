@@ -1,0 +1,140 @@
+/**
+ * Class for running page rank algorithm
+ */
+package com.my.pagerank;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author Ajay Kauthale
+ *
+ * @version 1.2
+ */
+public class PageRankInvoker {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// output stream for result file
+		FileOutputStream output = null;
+		// Buffer writer for writing the result file
+		BufferedWriter writer = null;
+		// page map for storing the pages from the TREC collection
+		Map<String, Page> pageMap = new HashMap<String, Page>();
+		// instance of PageRankImpl for running page ranking
+		PageRankInterface pageRank = new PageRankImpl();
+
+		// get initial page map by reading the TREC collection
+		try {
+			pageMap = pageRank.readTRECCollection(pageMap);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		System.out.println("Total Sink Nodes:" + pageRank.getSinkNodes(pageMap).size());
+		System.out.println("Total Source Nodes:" + pageRank.getSourceNodes(pageMap).size());
+		
+		// clear result directory before running new page rank
+		File resultDir = new File(PageRankConstants.ROOT_DIR + "//results");
+		if (resultDir.isDirectory()) {
+			for (File file : resultDir.listFiles()) {
+				file.delete();
+			}
+		}
+
+		// calculate page rank
+		/*pageMap = pageRank.calculatePageRank(pageMap);
+
+		// convert Map<String, Page> to Map<String, Double> since we don't
+		// require in-links and out-links anymore
+		Map<String, Double> smap = new LinkedHashMap<String, Double>();
+		Iterator<String> it = pageMap.keySet().iterator();
+		while (it.hasNext()) {
+			String key = it.next();
+			Double value = pageMap.get(key).getPageRank().doubleValue();
+			smap.put(key, value);
+		}
+
+		// sort map by the page rank values
+		Map<String, Double> sortedPages = new LinkedHashMap<String, Double>();
+
+		List<Map.Entry<String, Double>> entries = new LinkedList<Map.Entry<String, Double>>(smap.entrySet());
+		// sort map by the page rank values
+		Collections.sort(entries, new PageRankComparator());
+
+		for (Map.Entry<String, Double> entry : entries) {
+			sortedPages.put(entry.getKey(), entry.getValue());
+		}
+
+		// write the final page ranking file
+		it = sortedPages.keySet().iterator();
+		File result = new File(PageRankConstants.ROOT_DIR + PageRankConstants.PAGE_RANK_RESULT_PATH + "_final"
+				+ PageRankConstants.EXTENSION);
+
+		try {
+			if (output == null) {
+				output = new FileOutputStream(result);
+			}
+
+			writer = new BufferedWriter(new OutputStreamWriter(output));
+			writer.write("------------------------------------------------------------------------");
+			writer.newLine();
+			writer.write("FINAL PAGE RANK");
+			writer.newLine();
+			writer.write("-------------------------------------------------------------------------");
+			writer.newLine();
+
+			while (it.hasNext()) {
+				String key = it.next();
+				writer.write(key + ":\t " + sortedPages.get(key));
+				writer.newLine();
+			}
+
+			writer.close();
+
+			// write the in-link and out-link count file (top 50)
+			it = sortedPages.keySet().iterator();
+			result = new File(PageRankConstants.ROOT_DIR + PageRankConstants.PAGE_RANK_RESULT_PATH
+					+ PageRankConstants.IN_OUT_LINK + PageRankConstants.EXTENSION);
+
+			output = new FileOutputStream(result);
+
+			writer = new BufferedWriter(new OutputStreamWriter(output));
+			writer.write("------------------------------------------------------------------------");
+			writer.newLine();
+			writer.write("IN AND OUT LINK RESULT");
+			writer.newLine();
+			writer.write("-------------------------------------------------------------------------");
+			writer.newLine();
+			int i = 0;
+
+			while (it.hasNext()) {
+				if (i >= 50) {
+					break;
+				}
+				String key = it.next();
+				writer.write(key + ":\t In-Links: " + pageMap.get(key).getInLinks().size() + "\t Out-Links: "
+						+ pageMap.get(key).getOutLinks().size());
+				writer.newLine();
+				i++;
+			}
+
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
+	}
+
+}

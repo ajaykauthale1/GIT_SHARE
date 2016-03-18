@@ -1,0 +1,17 @@
+package test;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import com.my.pagerank.PageRankConstants;
+
+public class MyTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(
+				new FileReader(PageRankConstants.ROOT_DIR + PageRankConstants.TREC_PATH));
+		String line;
+	}
+
+}

@@ -1,0 +1,28 @@
+/**
+ * Interface for storing all constants required for page ranking
+ */
+package com.my.pagerank;
+
+/**
+ * @author Ajay Kauthale
+ * 
+ * @version 1.0
+ */
+public interface PageRankConstants {
+	/** Total number of pages */
+	static long N = 183811;
+	/** Damping/ Teleportation factor */
+	static Double D = 0.85;
+	/** Current user directory */
+	static String ROOT_DIR = "resources";
+	/** TREC collection path */
+	static String TREC_PATH = "\\trec_collection\\wt2g_inlinks";
+	/** Path of result file */
+	static String PAGE_RANK_RESULT_PATH = "\\results\\result";
+	/** File extension */
+	static String EXTENSION = ".txt";
+	/** Name string for final in-link and out-link file result */
+	static String IN_OUT_LINK = "_in_and_out_links";
+	/** Name string for final in-link and out-link file result */
+	static String IN_OUT_LINK = "_in_and_out_links";
+}

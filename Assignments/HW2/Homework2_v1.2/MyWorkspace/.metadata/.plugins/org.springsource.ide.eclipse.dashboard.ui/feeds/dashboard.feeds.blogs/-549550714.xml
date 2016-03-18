@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Spring</title>
+  <link rel="alternate" href="https://spring.io/blog" />
+  <link rel="self" href="https://spring.io/blog.atom" />
+  <id>http://spring.io/blog.atom</id>
+  <icon>https://spring.io/favicon.ico</icon>
+  <updated>2015-10-16T13:50:18Z</updated>
+  <entry>
+    <title>Spring Boot 1.2.7 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/16/spring-boot-1-2-7-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Stéphane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2015-10-16:2260</id>
+    <updated>2015-10-16T13:50:18Z</updated>
+    <content type="html">&lt;p&gt;Spring Boot 1.2.7 has been released and is available now from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;This maintenance release includes a &lt;a href="https://github.com/spring-projects/spring-boot/issues?q=milestone%3A1.2.7"&gt;number of fixes&lt;/a&gt; and most importantly updates the managed Spring Framework dependency to &lt;a href="https://spring.io/blog/2015/10/15/spring-framework-4-2-2-4-1-8-and-3-2-15-available-now"&gt;version 4.1.8&lt;/a&gt; (which includes an important &lt;a href="http://pivotal.io/security/cve-2015-5211"&gt;security fix&lt;/a&gt;). Spring Boot itself also includes &lt;a href="https://github.com/spring-projects/spring-boot/issues/4015"&gt;a security fix&lt;/a&gt; that impacts applications using Undertow.&lt;/p&gt;&lt;p&gt;We recommend an immediate upgrade for all Spring Boot users.&lt;/p&gt;&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring for Apache Hadoop 2.3 Release Candidate 1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/15/spring-for-apache-hadoop-2-3-release-candidate-1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Thomas Risberg</name>
+    </author>
+    <id>tag:spring.io,2015-10-15:2259</id>
+    <updated>2015-10-15T15:09:00Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce the Spring for Apache Hadoop 2.3 RC1 release.&lt;/p&gt;&lt;p&gt;The most important enhancements in this release: &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Update build to use Spring Framework 4.2.2 &lt;a href="https://jira.spring.io/browse/SHDP-509"&gt;[SHDP-509]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Update build to use Spring Integration 4.2.0 &lt;a href="https://jira.spring.io/browse/SHDP-520"&gt;[SHDP-520]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Add FlushTimeoutTrigger to StoreObjectSupport &lt;a href="https://jira.spring.io/browse/SHDP-526"&gt;[SHDP-526]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Replace internal state machine implementation with new &amp;ldquo;spring-statemachine&amp;rdquo; project &lt;a href="https://jira.spring.io/browse/SHDP-530"&gt;[SHDP-530]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;See the release &lt;a href="http://docs.spring.io/spring-hadoop/docs/2.3.0.RC1/changelog.txt"&gt;changelog&lt;/a&gt; for details.&lt;/p&gt;&lt;p&gt;We continue to provide version specific artifacts with their respective transitive dependencies in the Spring IO milestone repository:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;2.3.0.RC1 (default - Apache Hadoop stable 2.7.1)&lt;/li&gt;
+  &lt;li&gt;2.3.0.RC1-hadoop26 (Apache Hadoop 2.6.0)&lt;/li&gt;
+  &lt;li&gt;2.3.0.RC1-phd30 (Pivotal HD 3.0)&lt;/li&gt;
+  &lt;li&gt;2.3.0.RC1-phd21 (Pivotal HD 2.1)&lt;/li&gt;
+  &lt;li&gt;2.3.0.RC1-cdh5 (Cloudera CDH 5.4)&lt;/li&gt;
+  &lt;li&gt;2.3.0.RC1-hdp23 (Hortonworks HDP 2.3)&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Please provide feedback so we can prioritize the work on new features scheduled for 2.3 and also for the next 2.4 version (see previous &lt;a href="https://spring.io/blog/2015/05/21/spring-for-apache-hadoop-2-2-rc1-released"&gt;blog post&lt;/a&gt; for a list) and any additional feature requests. You can use JIRA issues or GitHub issues (see project page for links).&lt;/p&gt;&lt;p&gt;The project page is at - &lt;a href="http://projects.spring.io/spring-hadoop/"&gt;http://projects.spring.io/spring-hadoop/&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Framework 4.2.2, 4.1.8 and 3.2.15 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/15/spring-framework-4-2-2-4-1-8-and-3-2-15-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Stéphane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2015-10-15:2258</id>
+    <updated>2015-10-15T14:47:06Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team I am pleased to announce that the Spring Framework &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=15267"&gt;4.2.2&lt;/a&gt;, &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=15227"&gt;4.1.8&lt;/a&gt; and &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=15325"&gt;3.2.15&lt;/a&gt; maintenance releases &lt;a href="http://projects.spring.io/spring-framework"&gt;are available now&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Aside from fixing various minor issues across the framework, these releases are designed to prevent &lt;a href="https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/"&gt;Reflected File Download&lt;/a&gt; attacks; check the corresponding &lt;a href="http://pivotal.io/security/cve-2015-5211"&gt;CVE report for details&lt;/a&gt;.&lt;br/&gt;We recommend an immediate upgrade for all Spring Framework 3.x and 4.x users.&lt;/p&gt;&lt;p&gt;Spring Framework 4.2.2 also provides WebSocket support for the recently released servers &lt;a href="https://spring.io/blog/2015/10/14/spring-on-glassfish-4-1-1-and-wildfly-10-undertow-1-3"&gt;Undertow 1.3 and GlassFish 4.1.1&lt;/a&gt;, as well as fine-tuned CORS and JavaScript support.&lt;br/&gt;This release serves as the foundation of the upcoming &lt;a href="https://github.com/spring-projects/spring-boot/milestones"&gt;Spring Boot 1.3&lt;/a&gt;; stay tuned!&lt;/p&gt;&lt;p&gt;&lt;a href="http://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/SPR"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/htmlsingle/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>The Spring Boot Dashboard in STS - Part 2: Working with Cloud Foundry</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/15/the-spring-boot-dashboard-in-sts-part-2-working-with-cloud-foundry" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2015-10-08:2252</id>
+    <updated>2015-10-15T14:32:28Z</updated>
+    <content type="html">&lt;p&gt;Welcome back Spring community,&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In this second part of our blog series about the new Spring Boot Dashboard in the Spring Tool Suite we will move beyond local applications in your workspace and take a look at remote apps deployed to a cloud runtime. If you missed the &lt;a href="https://spring.io/blog/2015/10/08/the-spring-boot-dashboard-in-sts-part-1-local-boot-apps"&gt;first part&lt;/a&gt;, please take a look it to get familiar with the boot dashboard in STS first.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;h2&gt;Cloud runtime support&lt;/h2&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The initial remote target that we support in the Boot Dashboard is Cloud Foundry. Neither the design nor the implementation of the Boot Dashboard limits this to be the only supported remote target, it is just the first one that we worked on.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The goal for us was to provide a similar experience as for local apps, giving you an easy way to interact, start, stop, update, and lookup log output of your Spring Boot apps on Cloud Foundry. Therefore you can add a Cloud Foundry section to the boot dashboard using the big plus icon in the toolbar.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/09-cloudfoundry.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Once you entered your credentials and selected an org/space, a new section will appear in the boot dashboard, listing the apps that are deployed to this space on Cloud Foundry. You can see the name of the app as well as the number of instances that are configured and that are up and running.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/10-cloudsection.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The basic actions work for one or multiple apps on CF in the same or a very similar way to how they work for local apps. You can jump to the console output and it will appear in the console view of STS/Eclipse, you can start and stop apps, you can double-click them to get to a browser window for the running app, you can configure a default path for the app, and you can add/remove tags to/from those apps. You can even execute some of the actions (like start and stop) across targets, if you select multiple entries in the boot dashboard across those target sections.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/11-multiple-apps.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In addition to the common actions that are suitable for local and apps on Cloud Foundry, there are certain additional actions specifically for apps on Cloud Foundry. The boot dashboard allows you, for example, to delete an app entirely from Cloud Foundry, or to easily jump to the web console.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/12-cloud-specific-actions.png"/&gt;&lt;/p&gt;
+&lt;h2&gt;Deploying to Cloud Foundry&lt;/h2&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Up to here, we talked about existing apps on Cloud Foundry. But how do you get your apps deployed to Cloud Foundry? There are various ways, using the CLI or the Eclipse Plugin for Cloud Foundry. The boot dashboard offers you another option: you can drag&amp;drop your Spring Boot application directly onto the Cloud Foundry target in the dashboard and it will deploy the Spring Boot app to CF. This is as easy as its sounds.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/13-dnd-deploy.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;If your application contains a manifest.yml file, this will be used to configure the application for Cloud Foundry. This typically contains the name of the app, the domain, memory settings, number of instances, and potentially a lot more.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;If you don’t have a manifest.yml file in your project, the deploy action will prompt you in a dialog for the basic information it needs to deploy the app.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/14-deploy-dialog.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;But take care: if the project contains a manifest.yml file, it will be used to deploy and configure the app. Changes to the configuration on CF that you might have made via the web console will be lost the next time you restart/redeploy/update your app using the boot dashboard. Either configure everything in the manifest.yml file or go without it altogether - at least for the moment. We will be working to improve this to allow more flexible ways of dealing with manifest.yml files and external changes to the config of your app, but that is something to be done in future releases of STS.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Once the app is deployed, the boot dashboard will keep the association between the project in your workspace and the deployed app on Cloud Foundry (and will show this association in the boot dashboard).&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/15-project-association.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Keeping this association between your workspace project and the app on Cloud Foundry makes changes to this app a lot easier. If you change the code in your workspace and press the (re)start button for the app on CF, the boot dashboard will automatically re-push the app (the changes) to Cloud Foundry.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Once you have deployed your apps on Cloud Foundry, you often don’t need to work on everything locally at the same time. Usually you focus on certain parts of the application and sometimes you would like to use use even both: some services running on Cloud Foundry and some services running on your local machine in your IDE. But how do they interact?&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;h2&gt;Tunneling local services for mixed deployments&lt;/h2&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;As an early experiment, we built a specific feature into the boot dashboard that lets you use all your services and apps on CF and have them call individual services running on your local machine. That way you can focus on individual projects of your landscape and continue to use Cloud Foundry for the rest of your world. You can quickly iterate and work on the code locally - and test it while working with the other parts on Cloud Foundry. Isn’t that great?&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;They way this works is: You have a service discovery mechanism for your microservices in place. At the moment we support the Eureka service discovery service for this feature. You can start your local Spring Boot app using a special action called “(re)start and expose app via ngrok”. Executing this action will (re)start your local app on your machine. At the same time the action will create a public visible tunnel to this app using the ngrok service. As a result, you get a publicly visible URL that routes all its traffic to your local machine and to the local Spring Boot app that is running on your local machine. The app is automatically configured to register with the remote Eureka using this publicly visible tunnel URL.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/16-ngrok-tunnel.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Clients to this service will now get this tunnel URL from Eureka instead of (or in addition to) the default instance of your service that might be running on Cloud Foundry already - and will call your locally running service instead of the one on CF. You can iterate on your local service quickly or even debug it.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;This mixed deployment scenario is obviously not useful for production or team environments, where multiple people are using the applications on CF simultaneously. But this is extremely useful for testing and development environments.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The support for Cloud Foundry is just a starting point here. The Spring Boot Dashboard is by no means limited or focused on Cloud Foundry. Other remote cloud runtimes could and will be added in the future. One of the next runtimes that we are going to work on is Lattice, but other runtimes are very welcome as well. If you are interested in collaborating on this, let us know. The Spring Boot Dashboard is open-source under the EPL and we would be more than happy to collaborate with you on additional features and adding support for more cloud runtimes to it.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;h2&gt;Outlook&lt;/h2&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The third part of this series will introduce you to the built-in support for the Spring Boot Devtools and how you can use them from within the Boot Dashboard to make quick modifications to your apps (even on CF) and how to do remote debugging on CF.&lt;/p&gt;&#xD;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring on GlassFish 4.1.1 and WildFly 10 / Undertow 1.3</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/14/spring-on-glassfish-4-1-1-and-wildfly-10-undertow-1-3" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Juergen Hoeller</name>
+    </author>
+    <id>tag:spring.io,2015-10-14:2257</id>
+    <updated>2015-10-14T13:35:58Z</updated>
+    <content type="html">&lt;p&gt;Even if I pointed out that there are no general news in terms of Java EE 7 platform adoption in &lt;a href="https://spring.io/blog/2015/10/06/a-brief-update-on-java-ee-7-adoption"&gt;last week&amp;rsquo;s blog post&lt;/a&gt; (since there is still no WebSphere Classic, WebLogic, JBoss EAP or even TomEE with full EE 7 support), the two existing open-source EE 7 platform servers - namely, GlassFish and WildFly - made some fine progress in the meantime:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;There&amp;rsquo;s a &lt;b&gt;GlassFish 4.1.1&lt;/b&gt; release now, with many sub-project updates - including Tyrus for its WebSocket support.&lt;/li&gt;
+  &lt;li&gt;And the WildFly team rushes from major release to major release, arriving at &lt;b&gt;WildFly 10 GA&lt;/b&gt; very soon now. The underlying &lt;b&gt;Undertow&lt;/b&gt; web server reached &lt;b&gt;1.3 GA&lt;/b&gt; just a few days ago.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;As you may be aware, we are very actively tracking the evolution of those servers from Spring&amp;rsquo;s side. The upcoming &lt;b&gt;Spring Framework 4.2.2&lt;/b&gt; updates its WebSocket support for compatibility with Tyrus 1.9 to 1.12 and therefore GlassFish 4.1.1, as well as for compatibility with the just released Undertow 1.3 GA and therefore WildFly 10.&lt;/p&gt;&lt;p&gt;So if you&amp;rsquo;re using Spring&amp;rsquo;s WebSocket support on either of those servers, simply upgrade to Spring Framework 4.2.2 (once released later this week) and the framework will auto-adapt to the most recent API changes in Tyrus and Undertow there, for seamless migrations of Spring applications from earlier versions of GlassFish and WildFly.&lt;/p&gt;&lt;p&gt;P.S.:&lt;br/&gt;Aligned with the core framework, the upcoming &lt;b&gt;Spring Boot 1.3 release candidate&lt;/b&gt; will ship with Undertow 1.3 GA for its embedded Undertow support.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Statemachine 1.0.0 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/13/spring-statemachine-1-0-0-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Janne Valkealahti</name>
+    </author>
+    <id>tag:spring.io,2015-10-10:2255</id>
+    <updated>2015-10-13T08:03:52Z</updated>
+    <content type="html">&lt;p&gt;We’re pleased to announce a release of &lt;a href="http://projects.spring.io/spring-statemachine"&gt;Spring Statemachine 1.0.0&lt;/a&gt;. I&amp;rsquo;d like to start by saying thank you for all who contributed in any way to make this happen. Artifacts are available either from &lt;a href="http://repo1.maven.org/maven2/org/springframework/statemachine/"&gt;Maven Central&lt;/a&gt; or from &lt;a href="http://repo.spring.io/libs-release/org/springframework/statemachine/"&gt;Spring Repository&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;What we actually got into this first release:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Easy to use flat one level state machine for simple use cases.&lt;/li&gt;
+  &lt;li&gt;Hierarchical state machine structure to ease complex state configuration.&lt;/li&gt;
+  &lt;li&gt;State machine regions to provide even more complex state configurations.&lt;/li&gt;
+  &lt;li&gt;Usage of triggers, transitions, guards and actions.&lt;/li&gt;
+  &lt;li&gt;Type safe configuration adapter.&lt;/li&gt;
+  &lt;li&gt;Builder pattern for easy instantiation for use outside of Spring Application context&lt;/li&gt;
+  &lt;li&gt;Recipes for usual use cases&lt;/li&gt;
+  &lt;li&gt;Distributed state machine based on a Zookeeper&lt;/li&gt;
+  &lt;li&gt;State machine event listeners.&lt;/li&gt;
+  &lt;li&gt;Spring IOC integration to associate beans with a state machine.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Lets take a quick recap how this project was born and how it evolved from first github import into a release. This also gives a little background how a new spring project is born or might be born. Project was kicked off at early parts of this year from a base work done for &lt;a href="http://projects.spring.io/spring-hadoop/"&gt;Spring Hadoop&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For SpringOne 2014 which were held at Dallas we were pushing a new container grouping feature into a Spring YARN which added a more high level functionality atop of YARN containers. These days &lt;a href="http://docs.spring.io/spring-xd/docs/1.2.1.RELEASE/reference/html/#running-on-YARN"&gt;YARN runtime for Spring XD&lt;/a&gt; and new &lt;a href="http://docs.spring.io/spring-cloud-dataflow/docs/1.0.0.M1/reference/html/getting-started-deploying-spring-cloud-dataflow.html#_deploying_on_yarn"&gt;Spring Cloud Dataflow YARN deployer&lt;/a&gt; are based on that. Communication with a Hadoop YARN resource manager is asynchronous by its nature so I ended up having a lot of trouble by trying to implement this specific part of a codebase without using a proper state machine concepts. Believe me when I say that I tried, tried really hard not to use a proper states and after a week or so I had to face a reality and face a fact that I tried to out-code my own code. I kinda ended up having something which marginally worked but if I touched any parts of that code hell broke loose. I rm&amp;rsquo;d everything and said to myself, &amp;ldquo;goddammit Janne, I need a state machine&amp;rdquo;.&lt;/p&gt;&lt;p&gt;After I completed a base implementation of a state machine, literally all my problems vanished, simply because a state machine was now controlling all the logic which had to happen in a specific order while all communication towards a YARN resource manager still happened asynchronously. And yes, now that we&amp;rsquo;ve stepped into a release phase, it gives us an option to replace Spring YARN internal state machine with this release.&lt;/p&gt;&lt;p&gt;Idea was born that it would probably be a really good idea to fork this specific state machine code into its own project, enhance it a little and fire up a new Spring Project and see if it gets any traction. If being honest I was a little surprised how much interest it got with this tech which is more that 50 years old. Good and solid concepts just don&amp;rsquo;t die nor they need to die!&lt;/p&gt;&lt;p&gt;Few words about a challenges I faced during this journey getting from an idea into a release:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Simple state machine without nested states and implementation hooks(i.e listeners) is very easy to implement.&lt;/li&gt;
+  &lt;li&gt;Introducing a deep nested states is where things gets a little complicated especially when you throw in various other features like entry/exit actions, different transition types and guards. I faced a lot of trouble with transitions between sub-states which had a different parent state.&lt;/li&gt;
+  &lt;li&gt;Adding orthogonal regions makes things even more complicated simply because in theory a state machine is single threaded but regions are independent and can be executed parallel. Lot of work went in to have base support for executing regions independently.&lt;/li&gt;
+  &lt;li&gt;Distributed state machine based on a zookeeper(via SPI abstraction) was a little crazy thing to do. Some would not even try it and testing is a nightmare(cannot be done via simple unit tests). I used &lt;code&gt;Aphyr&amp;#39;s&lt;/code&gt; &lt;a href="http://jepsen.io/"&gt;Jepsen&lt;/a&gt; framework for this which, if mildly speaking, put things is pieces, but eventually allowed me to find all sort of bugs when you step out from a single JVM and start to work with a distributed JVM&amp;rsquo;s. This was a painful but interesting journey.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Many people have asked if we have a roadmap? Short answer is yes and no. Yes because we definitely have a lot of stuff we want to implement and no because project has been driven by requests from a community. I started to follow &lt;a href="https://en.wikipedia.org/wiki/UML_state_machine"&gt;UML state machine spec&lt;/a&gt; for base features but eventually about 50% of extra features were requested by users. UML spec if very vague for some of its specification features and leaves a lot of details into the implentation itself. If you want something, speak up and go to &lt;a href="https://github.com/spring-projects/spring-statemachine/issues"&gt;GitHub Issues&lt;/a&gt;. Want to contribute, PR something(even a simple fix for a typo is very much appreciated!).&lt;/p&gt;&lt;p&gt;What we know so far:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Version 1.0.x will not add any new features which would change core concepts, but will continue to add normal maintanance/bug fixes. We may add new features which will enhance existing concepts.&lt;/li&gt;
+  &lt;li&gt;Version 1.1.x will focus on topics like security and execution model. We&amp;rsquo;re looking to have an easy integration with &lt;code&gt;Spring Security&lt;/code&gt;, &lt;code&gt;Spring Session&lt;/code&gt; to secure state machine actions. For execution we&amp;rsquo;re looking to replace or give an shot for &lt;a href="http://projectreactor.io"&gt;Reactor&lt;/a&gt; in favor of normal Framework task scheduling/execution.&lt;/li&gt;
+  &lt;li&gt;Version 2.x(in foreseeable future) will raise baseline with Spring Framework 5 and JDK8. 1.x serie will keep baseline with Spring Framework 4 and JDK7.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Try it, feel it, sniff it, and let us know what you think!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - October 13, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/13/this-week-in-spring-october-13-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-10-13:2256</id>
+    <updated>2015-10-13T07:24:15Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installation of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Krakow, Poland, for &lt;a href="http://15.jdd.org.pl/"&gt;JDD&lt;/a&gt; and then it&amp;rsquo;s off to St. Petersburg, Russia for the &lt;a href="http://jokerconf.com/en/"&gt;Joker conference&lt;/a&gt;! &lt;/p&gt;&lt;p&gt;We&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;After an extensive gestation period, one of our mad scientists &lt;a href="http://spring.io/blog/2015/10/07/spring-rest-docs-1-0-0-release"&gt;Andy Wilkinson just announced the first GA release of the Spring REST Docs project&lt;/a&gt; which makes it easy to pull together automatic and human-augmented API documentation based on the tests used to exercise the APIs under test. Spring REST Docs has become a runaway success and it&amp;rsquo;s definitely worth your time.&lt;/li&gt;
+  &lt;li&gt;Spring Tool Suite lead Martin Lippert just published a nice blog on the powerful &lt;a href="http://spring.io/blog/2015/10/08/the-spring-boot-dashboard-in-sts-part-1-local-boot-apps"&gt;local Spring Boot applications feature in STS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Dr. Mark Pollack just &lt;a href="https://spring.io/blog/2015/10/08/spring-xd-1-3-m1-released"&gt;announced the release of Spring XD 1.3M1&lt;/a&gt; which includes updates to the included Spring Integration and Hadoop revisions, updated UI experiences, a Cassandra Sink, a header-enricher processor and much more; check it out!&lt;/li&gt;
+  &lt;li&gt;Benedikt Ritter has put together a detailed &lt;a href="https://blog.codecentric.de/en/2015/10/deploying-spring-boot-applications-to-heroku/"&gt;post on deploying Spring Boot applications to Heroku&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Dan Vega&amp;rsquo;s published a quick walkthrough &lt;a href="https://www.youtube.com/watch?v=QTB_1HVVe-Q"&gt;of the various features in Spring Tool Suite on YouTube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Michael Simmons has an interesting post covering &lt;a href="http://info.michael-simons.eu/2015/10/09/building-cloud-native-apps-with-spring-boot-in-aachens-euregjug/"&gt;Spring ninja Stéphane Nicoll&amp;rsquo;s talk introducing current and new features in Spring Boot&lt;/a&gt; at the Aachens &lt;a href="http://euregjug.eu/"&gt;EuregJUG&lt;/a&gt; this year.&lt;/li&gt;
+  &lt;li&gt;Pas Apicella put together a nice look at &lt;a href="http://theblasfrompas.blogspot.com/2015/10/ibm-bluemix-spring-boot-elasticsearch.html"&gt;using Spring Boot and ElasticSearch repositories with IBM Bluemix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;the &lt;em&gt;CodeWithC&lt;/em&gt; blog has a post on converting older Spring &lt;a href="http://www.codewithc.com/converting-the-sample-application-to-spring-boot"&gt;applications to use Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;our pal Petri Kainulainen is at it again, &lt;a href="http://www.petrikainulainen.net/programming/spring-framework/spring-from-the-trenches-using-type-converters-with-spring-mvc/"&gt;this time with a post on using type converters with Spring MVC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Jakub Narloch has put together a look at using &lt;a href="https://jmnarloch.wordpress.com/2015/10/07/spring-cloud-feign-spdyhttp2/"&gt;Spring Cloud and Feign along with SPDY and HTTP2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Our pal Ryan Baxter is at it again in his tutorial series on using Spring Cloud atop IBM Bluemix (which, after all, is a Cloud Foundry variant) with a &lt;a href="http://ryanjbaxter.com/2015/10/12/building-cloud-native-apps-with-spring-part-5/"&gt;post looking at circuit breakers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>React.js and Spring Data REST: Part 4 - Events</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/13/react-js-and-spring-data-rest-part-4-events" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Greg Turnquist</name>
+    </author>
+    <id>tag:spring.io,2015-10-06:2245</id>
+    <updated>2015-10-13T07:00:00Z</updated>
+    <content type="html">&lt;div id="preamble"&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In the &lt;a href="https://spring.io/blog/2015/09/29/react-js-and-spring-data-rest-part-3-conditional-operations"&gt;previous session&lt;/a&gt;, you introduced conditional updates to avoid collisions with other users when editing the same data. You also learned how to version data on the backend with optimistic locking. You got a tip off if someone edited the same record so you could refresh the page and get the update.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;That&amp;#8217;s good. But do you know what&amp;#8217;s even better? Having the UI dynamically respond when other people update the resources.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In this session you&amp;#8217;ll learn how to use Spring Data REST&amp;#8217;s built in event system to detect changes in the backend and publish updates to ALL users through Spring&amp;#8217;s WebSocket support. Then you&amp;#8217;ll be able to dynamically adjust clients as the data updates.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Feel free to &lt;a href="https://github.com/gregturn/react-and-spring-data-rest/tree/master/events"&gt;grab the code&lt;/a&gt; from this repository and follow along. This session is based on the previous session&amp;#8217;s app with extra things added.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_adding_spring_websocket_support_to_the_project"&gt;Adding Spring WebSocket support to the project&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Before getting underway, you need to add a dependency to your project&amp;#8217;s pom.xml file:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;dependency&amp;gt;&#xD;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;&#xD;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-websocket&amp;lt;/artifactId&amp;gt;&#xD;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;This bring in Spring Boot&amp;#8217;s WebSocket starter.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_configuring_websockets_with_spring"&gt;Configuring WebSockets with Spring&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;&lt;a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#websocket"&gt;Spring comes with powerful WebSocket support&lt;/a&gt;. One thing to recognize is that a WebSocket is a very low level protocol. It does little more than offer the means to transmit data between client and server. The recommendation is to use a sub-protocol (STOMP for this session) to actually encode data and routes.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The follow code is used to configure WebSocket support on the server side:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Component&#xD;
+@EnableWebSocketMessageBroker&#xD;
+public class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfigurer {&#xD;
+&#xD;
+	static final String MESSAGE_PREFIX = "/topic";&#xD;
+&#xD;
+	@Override&#xD;
+	public void registerStompEndpoints(StompEndpointRegistry registry) {&#xD;
+		registry.addEndpoint("/payroll").withSockJS();&#xD;
+	}&#xD;
+&#xD;
+	@Override&#xD;
+	public void configureMessageBroker(MessageBrokerRegistry registry) {&#xD;
+		registry.enableSimpleBroker(MESSAGE_PREFIX);&#xD;
+		registry.setApplicationDestinationPrefixes("/app");&#xD;
+	}&#xD;
+}&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="ulist"&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;code&gt;@EnableWebSocketMessageBroker&lt;/code&gt; turns on WebSocket support.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;code&gt;AbstractWebSocketMessageBrokerConfigurer&lt;/code&gt; provides a convenient base class to configure basic features.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;strong&gt;MESSAGE_PREFIX&lt;/strong&gt; is the prefix you will prepend to every message&amp;#8217;s route.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;code&gt;registerStompEndpoints()&lt;/code&gt; is used to configure the endpoint on the backend for clients and server to link (&lt;code&gt;/payroll&lt;/code&gt;).&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;code&gt;configureMessageBroker()&lt;/code&gt; is used to configure the broker used to relay messages between server and client.&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;With this configuration, it&amp;#8217;s now possible to tap into Spring Data REST events and publish them over a WebSocket.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_subscribing_to_spring_data_rest_events"&gt;Subscribing to Spring Data REST events&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Spring Data REST generates several &lt;a href="http://docs.spring.io/spring-data/rest/docs/current/reference/html/#events"&gt;application events&lt;/a&gt; based on actions occurring on the repositories. The follow code shows how to subscribe to some of these events:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Component&#xD;
+@RepositoryEventHandler(Employee.class)&#xD;
+public class EventHandler {&#xD;
+&#xD;
+	private final SimpMessagingTemplate websocket;&#xD;
+&#xD;
+	private final EntityLinks entityLinks;&#xD;
+&#xD;
+	@Autowired&#xD;
+	public EventHandler(SimpMessagingTemplate websocket, &#xD;
+				EntityLinks entityLinks) {&#xD;
+		this.websocket = websocket;&#xD;
+		this.entityLinks = entityLinks;&#xD;
+	}&#xD;
+&#xD;
+	@HandleAfterCreate&#xD;
+	public void newEmployee(Employee employee) {&#xD;
+		this.websocket.convertAndSend(&#xD;
+		  MESSAGE_PREFIX + "/newEmployee", getPath(employee));&#xD;
+	}&#xD;
+&#xD;
+	@HandleAfterDelete&#xD;
+	public void deleteEmployee(Employee employee) {&#xD;
+		this.websocket.convertAndSend(&#xD;
+		  MESSAGE_PREFIX + "/deleteEmployee", getPath(employee));&#xD;
+	}&#xD;
+&#xD;
+	@HandleAfterSave&#xD;
+	public void updateEmployee(Employee employee) {&#xD;
+		this.websocket.convertAndSend(&#xD;
+		  MESSAGE_PREFIX + "/updateEmployee", getPath(employee));&#xD;
+	}&#xD;
+&#xD;
+	/**&#xD;
+	 * Take an {@link Employee} and get the URI using &#xD;
+	 * Spring Data REST's {@link EntityLinks}.&#xD;
+	 *&#xD;
+	 * @param employee&#xD;
+	 */&#xD;
+	private String getPath(Employee employee) {&#xD;
+	  return this.entityLinks.linkForSingleResource(employee.getClass(),&#xD;
+			employee.getId()).toUri().getPath();&#xD;
+	}&#xD;
+&#xD;
+}&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="ulist"&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;code&gt;@RepositoryEventHandler(Employee.class)&lt;/code&gt; flags this class to trap events based on &lt;strong&gt;employees&lt;/strong&gt;.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;code&gt;SimpMessagingTemplate&lt;/code&gt; and &lt;code&gt;EntityLinks&lt;/code&gt; are autowired from the application context.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+The &lt;code&gt;@HandleXYZ&lt;/code&gt; annotations flag the methods that need to listen to. These methods must be public.&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Each of these handler methods invokes &lt;code&gt;SimpMessagingTemplate.convertAndSend()&lt;/code&gt; to transmit a message over the WebSocket. This is a pub-sub approach so that one message is relayed to every attached consumer.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The route of each message is different, allowing multiple messages to be sent to distinct receivers on the client while only needing one open WebSocket, a resource-efficient approach.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;&lt;code&gt;getPath()&lt;/code&gt; uses Spring Data REST&amp;#8217;s &lt;code&gt;EntityLinks&lt;/code&gt; to look up the path for a given class type and id. To serve the client&amp;#8217;s needs, this &lt;code&gt;Link&lt;/code&gt; object is converted to a Java URI with its path extracted.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="admonitionblock note"&gt;&#xD;
+&lt;table&gt;&#xD;
+&lt;tr&gt;&#xD;
+&lt;td class="icon"&gt;&#xD;
+&lt;div class="title"&gt;Note&lt;/div&gt;&#xD;
+&lt;/td&gt;&#xD;
+&lt;td class="content"&gt;&#xD;
+&lt;code&gt;EntityLinks&lt;/code&gt; comes with several utility methods to programmatically find the paths of various resources, whether single or for collections.&#xD;
+&lt;/td&gt;&#xD;
+&lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In essense, you are listening for create, update, and delete events, and after they are completed, sending notice of them to all clients. It&amp;#8217;s also possible to intercept such operations BEFORE they happen, and perhaps log them, block them for some reason, or decorate the domain objects with extra information. (In the next session, we&amp;#8217;ll see a VERY handy use for this!)&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_configuring_a_javascript_websocket"&gt;Configuring a JavaScript WebSocket&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Next step is to write some client-side code to consume WebSocket events. The follow chunk in them main app pulls in a module.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;var stompClient = require('./websocket-listener')&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;That module is shown below:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;define(function(require) {&#xD;
+	'use strict';&#xD;
+&#xD;
+	var SockJS = require('sockjs-client'); &lt;b class="conum"&gt;(1)&lt;/b&gt;&#xD;
+	require('stomp-websocket'); &lt;b class="conum"&gt;(2)&lt;/b&gt;&#xD;
+&#xD;
+	return {&#xD;
+		register: register&#xD;
+	};&#xD;
+&#xD;
+	function register(registrations) {&#xD;
+		var socket = SockJS('/payroll'); &lt;b class="conum"&gt;(3)&lt;/b&gt;&#xD;
+		var stompClient = Stomp.over(socket);&#xD;
+		stompClient.connect({}, function(frame) {&#xD;
+			registrations.forEach(function (registration) { &lt;b class="conum"&gt;(4)&lt;/b&gt;&#xD;
+			  stompClient.subscribe(registration.route, registration.callback);&#xD;
+			});&#xD;
+		});&#xD;
+	}&#xD;
+&#xD;
+});&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="colist arabic"&gt;&#xD;
+&lt;ol&gt;&#xD;
+&lt;li&gt;&#xD;
+You pull in the SockJS JavaScript library for talking over WebSockets.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You pull in the stomp-websocket JavaScript library to use the STOMP sub-protocol.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+Here is where the WebSocket is pointed at the application&amp;#8217;s &lt;code&gt;/payroll&lt;/code&gt; endpoint.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+Iterate over the array of &lt;code&gt;registrations&lt;/code&gt; supplied so each can subscribe for callback as messages arrive.&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ol&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Each registration entry has a &lt;code&gt;route&lt;/code&gt; and a &lt;code&gt;callback&lt;/code&gt;. In the next section, you can see how to register event handlers.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_registering_for_websocket_events"&gt;Registering for WebSocket events&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In React, a component&amp;#8217;s &lt;code&gt;componentDidMount()&lt;/code&gt; is the function that gets called after it has been rendered in the DOM. That is also the right time to register for WebSocket events, because the component is now online and ready for business. Checkout the code below:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;componentDidMount: function () {&#xD;
+    this.loadFromServer(this.state.pageSize);&#xD;
+    stompClient.register([&#xD;
+        {route: '/topic/newEmployee', callback: this.refreshAndGoToLastPage},&#xD;
+        {route: '/topic/updateEmployee', callback: this.refreshCurrentPage},&#xD;
+        {route: '/topic/deleteEmployee', callback: this.refreshCurrentPage}&#xD;
+    ]);&#xD;
+},&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The first line is the same as before, where all the employees are fetched from the server using page size. The second line shows an array of JavaScript objects being registered for WebSocket events, each with a &lt;code&gt;route&lt;/code&gt; and a &lt;code&gt;callback&lt;/code&gt;.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;When a new employee is created, the behavior is to refresh the data set and then use the paging links to navigate to the &lt;strong&gt;last&lt;/strong&gt; page. Why refresh the data before navigating to the end? It&amp;#8217;s possible that adding a new record causes a new page to get created. While it&amp;#8217;s possible to calculate if this will happen, it subverts the point of hypermedia. Instead of cobbling together customize page counts, it&amp;#8217;s better to use existing links and only go down that road if there is a performance-driving reason to do so.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;When an employee is updated or deleted, the behavior is to refresh the current page. When you update a record, it impacts the page your are viewing. When you delete a record on the current page, a record from the next page will get pulled into the current one, hence the need to also refresh the current page.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="admonitionblock note"&gt;&#xD;
+&lt;table&gt;&#xD;
+&lt;tr&gt;&#xD;
+&lt;td class="icon"&gt;&#xD;
+&lt;div class="title"&gt;Note&lt;/div&gt;&#xD;
+&lt;/td&gt;&#xD;
+&lt;td class="content"&gt;&#xD;
+There is no requirement for these WebSocket messages to start with &lt;code&gt;/topic&lt;/code&gt;. It is simply a common convention that indicates pub-sub semantics.&#xD;
+&lt;/td&gt;&#xD;
+&lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In the next section, you can see the actual operations to perform these operations.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_reacting_to_websocket_events_and_updating_the_ui_state"&gt;Reacting to WebSocket events and updating the UI state&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The following chunk of code contains the two callbacks used to update UI state when a WebSocket event is received.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;refreshAndGoToLastPage: function (message) {&#xD;
+    follow(client, root, [{&#xD;
+        rel: 'employees',&#xD;
+        params: {size: this.state.pageSize}&#xD;
+    }]).done(response =&amp;gt; {&#xD;
+        this.onNavigate(response.entity._links.last.href);&#xD;
+    })&#xD;
+},&#xD;
+&#xD;
+refreshCurrentPage: function (message) {&#xD;
+    follow(client, root, [{&#xD;
+        rel: 'employees',&#xD;
+        params: {&#xD;
+            size: this.state.pageSize,&#xD;
+            page: this.state.page.number&#xD;
+        }&#xD;
+    }]).then(employeeCollection =&amp;gt; {&#xD;
+        this.links = employeeCollection.entity._links;&#xD;
+        this.page = employeeCollection.entity.page;&#xD;
+&#xD;
+        return employeeCollection.entity._embedded.employees.map(employee =&amp;gt; {&#xD;
+            return client({&#xD;
+                method: 'GET',&#xD;
+                path: employee._links.self.href&#xD;
+            })&#xD;
+        });&#xD;
+    }).then(employeePromises =&amp;gt; {&#xD;
+        return when.all(employeePromises);&#xD;
+    }).then(employees =&amp;gt; {&#xD;
+        this.setState({&#xD;
+            page: this.page,&#xD;
+            employees: employees,&#xD;
+            attributes: Object.keys(this.schema.properties),&#xD;
+            pageSize: this.state.pageSize,&#xD;
+            links: this.links&#xD;
+        });&#xD;
+    });&#xD;
+},&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;&lt;code&gt;refreshAndGoToLastPage()&lt;/code&gt; uses the familiar &lt;code&gt;follow()&lt;/code&gt; function to navigate to the &lt;strong&gt;employees&lt;/strong&gt; link with the &lt;strong&gt;size&lt;/strong&gt; parameter applied, plugging in &lt;code&gt;this.state.pageSize&lt;/code&gt;. When the response is received, you then invoke the same &lt;code&gt;onNavigate()&lt;/code&gt; function from the last session, and jump to the &lt;strong&gt;last&lt;/strong&gt; page, the one where the new record will be found.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;&lt;code&gt;refreshCurrentPage()&lt;/code&gt; also uses the &lt;code&gt;follow()&lt;/code&gt; function but applies &lt;code&gt;this.state.pageSize&lt;/code&gt; to &lt;strong&gt;size&lt;/strong&gt; and &lt;code&gt;this.state.page.number&lt;/code&gt; to &lt;strong&gt;page&lt;/strong&gt;. This fetches the same page you are currently looking at and updates the state accordingly.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="admonitionblock note"&gt;&#xD;
+&lt;table&gt;&#xD;
+&lt;tr&gt;&#xD;
+&lt;td class="icon"&gt;&#xD;
+&lt;div class="title"&gt;Note&lt;/div&gt;&#xD;
+&lt;/td&gt;&#xD;
+&lt;td class="content"&gt;&#xD;
+This behavior tells every client to refresh their current page when an update or delete message is sent. It&amp;#8217;s possible that their current page may have nothing to do with the current event. However, it can be tricky to figure that out. What if the record that was deleted was on page two and you are looking at page three? Every entry would change. But is this desired behavior at all? Maybe, maybe not.&#xD;
+&lt;/td&gt;&#xD;
+&lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_moving_state_management_out_of_the_local_updates"&gt;Moving state management out of the local updates&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Before you finish this section, there is something to recognize. You just added a new way for the state in the UI to get updated: when a WebSocket message arrives. But the old way to update the state is still there.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;To simplify your code&amp;#8217;s management of state, remove the old way. In other words, submit your &lt;strong&gt;POST&lt;/strong&gt;, &lt;strong&gt;PUT&lt;/strong&gt;, and &lt;strong&gt;DELETE&lt;/strong&gt; calls, but don&amp;#8217;t use their results to update the UI&amp;#8217;s state. Instead, wait for the WebSocket event to circle back and then do the update.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The follow chunk of code shows the same &lt;code&gt;onCreate()&lt;/code&gt; function as the previous session, only simplified:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;onCreate: function (newEmployee) {&#xD;
+    follow(client, root, ['employees']).done(response =&amp;gt; {&#xD;
+        client({&#xD;
+            method: 'POST',&#xD;
+            path: response.entity._links.self.href,&#xD;
+            entity: newEmployee,&#xD;
+            headers: {'Content-Type': 'application/json'}&#xD;
+        })&#xD;
+    })&#xD;
+},&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Here, the &lt;code&gt;follow()&lt;/code&gt; function is used to get to the &lt;strong&gt;employees&lt;/strong&gt; link, and then the &lt;strong&gt;POST&lt;/strong&gt; operation is applied. Notice how &lt;code&gt;client({method: 'GET' &amp;#8230;&amp;#8203;})&lt;/code&gt; has no &lt;code&gt;then()&lt;/code&gt; or &lt;code&gt;done()&lt;/code&gt; like before? The event handler to listen for updates is now found in &lt;code&gt;refreshAndGoToLastPage()&lt;/code&gt; which you just looked at.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_putting_it_all_together"&gt;Putting it all together&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;With all these mods in place, fire up the app (&lt;code&gt;./mvnw spring-boot:run&lt;/code&gt;) and poke around with it. Open up two browser tabs and resize so you can see them both. Start making updates in one and see how they instantly update the other tab. Open up your phone and visit the same page. Find a friend and ask him or her to do the same thing. You might find this type of dynamic updating more keen.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Want a challenge? Try the exercise from the previous session where you open the same record in two different browser tabs. Try to update it in one and NOT see it update in the other. If it&amp;#8217;s possible, the conditional PUT code should still protect you. But it may be trickier to pull that off!&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_review"&gt;Review&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In this session:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="ulist"&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&#xD;
+You configured Spring&amp;#8217;s WebSocket suport with SockJS fallback.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You subscribed for create, update, and delete events from Spring Data REST to dynamically update the UI.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You published the URI of affected REST resources along with a contextual message ("/topic/newEmployee", "/topic/updateEmployee", etc.).&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You registered WebSocket listeners in the UI to listen for these events.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You wired the listeners to handlers to update the UI state.&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;With all these features, it&amp;#8217;s easy to run two browsers, side-by-side, and see how updating one ripples to the other.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Issues?&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;While multiple displays nicely update, polishing the precise behavior is warranted. For example, creating a new user will cause ALL users to jump to the end. Any thoughts on how this should be handled?&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Paging is useful, but offers a tricky state to manage. The costs are low on this sample app, and React at very efficient at updating the DOM without causing lots of flickering in the UI. But with a more complex app, not all of these approaches will fit.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;When designing with paging in mind, you have to decide what is the expected behavior between clients and if there needs to updates or not. Depending on your requirements and performance of the system, the existing navigational hypermedia may be sufficent.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring XD 1.3 M1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/08/spring-xd-1-3-m1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mark Pollack</name>
+    </author>
+    <id>tag:spring.io,2015-10-08:2254</id>
+    <updated>2015-10-08T20:56:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the Spring XD team, I am very pleased to announce the first milestone release of Spring XD 1.3&lt;/p&gt;&lt;p&gt;This release includes &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=11401&amp;version=15099"&gt;bug fixes and some enhancements&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hadoop distribution version updates to Apache Hadoop 2.7.1 and Hortonworks Data Platform 2.3. Pivotal Hadoop 2.1, 3.0 and Cloudera Hadoop 5.4&lt;/li&gt;
+  &lt;li&gt;Spark 1.3.1 Support&lt;/li&gt;
+  &lt;li&gt;Cassandra Sink&lt;/li&gt;
+  &lt;li&gt;Header Enricher Processor&lt;/li&gt;
+  &lt;li&gt;Bug fixes to the Flo Designer UI and Admin UI&lt;/li&gt;
+  &lt;li&gt;Gpfdist sink now supports update operations and full range of control file options&lt;/li&gt;
+  &lt;li&gt;Update to Spring Integration 4.2 which provides performance improvements when monitoring is enabled.&lt;/li&gt;
+  &lt;li&gt;Upgrade to Spring Data Gosling Release train&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;You can &lt;a href="http://repo.spring.io/milestone/org/springframework/xd/spring-xd/1.3.0.M1/spring-xd-1.3.0.M1-dist.zip"&gt;download the zip distribution&lt;/a&gt; or install on OSX &lt;a href="http://docs.spring.io/spring-xd/docs/1.3.0.M1/reference/html/#osx-homebrew-installation"&gt;using homebrew&lt;/a&gt;. On RHEL/CentOS you can &lt;a href="https://github.com/spring-projects/spring-xd/wiki/Installing-Spring-XD-using-RPM-on-RHEL-CentOS-v.-6.x"&gt;install using rpm&lt;/a&gt;. The &lt;a href="https://network.pivotal.io/products/p-spring-flo/"&gt;updated Flo UI&lt;/a&gt; is also available as a separate download.&lt;/p&gt;&lt;p&gt;Looking ahead, 1.3 release candidate will include a new DSL for creating Batch Jobs as well as a new version of Flo to author and visualize Jobs. The 1.3 release candidate is targeted for October 22 and 1.3 GA by the first week of November. &lt;/p&gt;&lt;p&gt;After the 1.3 GA release, the 1.x release line will be in maintenance mode, addressing only bug fixes. The next release line introduces a major redesign to the underlying architecture. The Spring XD Zookeeper based runtime will be replaced by a &lt;a href="http://docs.spring.io/spring-cloud-dataflow/docs/1.0.0.M1/reference/html/getting-started-deploying-spring-cloud-dataflow.html"&gt;service provider interface&lt;/a&gt; (SPI) that delegates to native platform capabilities for running and scaling applications. Given the major change to the architecture, the next release line is rebranded as &lt;a href="http://cloud.spring.io/spring-cloud-dataflow/"&gt;Spring Cloud Data Flow&lt;/a&gt; to better represent XD reimagined with a cloud native programming and operational model. For more details, please refer to the recent &lt;a href="http://blog.pivotal.io/pivotal-cloud-foundry/products/introducing-spring-cloud-data-flow"&gt;launch blog&lt;/a&gt; and stay tuned for an upcoming engineering blog on Spring Cloud Data Flow.&lt;/p&gt;&lt;p&gt;Feedback is very important, so please get in touch with questions and comments via&lt;br/&gt;* &lt;a href="http://stackoverflow.com/questions/tagged/spring-xd"&gt;StackOverflow&lt;/a&gt; &lt;code&gt;spring-xd&lt;/code&gt; tag&lt;br/&gt;* &lt;a href="https://jira.spring.io/browse/XD/?selectedTab=com.atlassian.jira.jira-projects-plugin:summary-panel"&gt;Spring JIRA&lt;/a&gt; or &lt;a href="https://github.com/spring-projects/spring-xd/issues"&gt;GitHub Issues&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>The Spring Boot Dashboard in STS - Part 1: Local Boot Apps</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/08/the-spring-boot-dashboard-in-sts-part-1-local-boot-apps" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2015-10-08:2251</id>
+    <updated>2015-10-08T13:03:31Z</updated>
+    <content type="html">&lt;p&gt;Welcome Spring community,&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;This is the first of three blog entries introducing you to the new Spring Boot Dashboard in STS. You will see how to use the Spring Boot Dashboard in the IDE, learn about the various features it provides, and how it helps you while developing applications based on Spring Boot. Since the Spring Boot Dashboard was introduced in the &lt;a href="https://spring.io/blog/2015/10/06/spring-tool-suite-3-7-1-released"&gt;recently released STS 3.7.1&lt;/a&gt;, you will need that version to follow this blog series. If you don't have that installed yet, please go to &lt;a href="http://spring.io/tools/"&gt;http://spring.io/tools/&lt;/a&gt; and grab your copy of it.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Spring Boot is now a widely adopted technology to simplify your life when implementing Spring applications for the enterprise. Especially suitable for creating microservice-based applications, it has changed the way we think about small and easy to configure Spring applications dramatically. Together with Spring Cloud, it opens the door to truly cloud-native applications, composed out of probably many microservices.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;This dramatic shift in our architectural thinking needs to be reflected in our IDEs as well. Most of our traditional Java IDEs out there were invented not only in the pre-cloud-native era, but in the pre-cloud and to a certain degree in the pre-distributed era of programming. The same is true for the Spring Tool Suite and its base, the Eclipse IDE. It is time to push those IDEs into the cloud-native era. This was the starting point for the Spring Boot Dashboard. Its focus is to help you deal with a potentially larger number of Spring-Boot-based microservice applications and make your life as a developer a lot easier when working on those projects in your IDE.&lt;/p&gt;&#xD;
+&lt;/div&gt;
+&lt;h2&gt;The Spring Boot Dashboard&lt;/h2&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Starting small and incrementally, the Spring Boot Dashboard comes as an additional view in STS/Eclipse. You can open it by pressing the Spring Boot button in your main toolbar. It opens up a simple view that is in sync with your workspace projects, showing those projects of your workspace that are Spring Boot projects.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/01-dashboard.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The main purpose of the Boot Dashboard is to give you quick access to the things you do every day, every hour, or even more frequently. You can quickly start your boot apps (in run or debug mode) by selecting them in the boot dashboard and pressing the "run" or "debug" action in the toolbar. There is no faster way to launch your boot app than this. And since you probably are going to change code and want to restart your app, the action lets you restart your boot app, if it is already running. Change your code, press the "run" button in the boot dashboard, and your boot app gets stopped and restarted for you. Again, a simple one-click action.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/02-start-single.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The great thing about these actions (and many more) in the boot dashboard is that they operate on single or multiple projects at the same time. If you want to start or stop a bunch of boot apps at the same time, for example to startup a set of collaborating services, just select them all in the dashboard and press "run". That's it.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/03-start-multiple.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;As soon as you adopt Spring Boot 1.3 in your projects, you will notice additional goodies showing up in the Boot Dashboard. As soon as your boot app is being started, the boot dashboard visualizes that the app is starting - and it distinguishes between its startup phase (the VM is running, but the app is still initializing) and it is truly running and ready to use. The progress icon indicates the app is still starting up, the green "up" icon shows up as soon as the app is fully initialized and running. You don't need to observe the log output until some "server started" message shows up or something like that. The boot dashboards icons will let you know.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/04-starting.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Once the app is running, the port that it listens on will show up in the boot dashboard - for your convenience. You don't have to scan the log output anymore to find out what port is being used by the app. The dashboard displays that information automatically. And in case you would like to jump to the console output of a running boot app, there is a quick action for that as well.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;Often there is no need anymore to know about the port of a running app - since you don't have to open a browser tab for the app yourself. Double-click on the project in the boot dashboard and it will open a new browser tab for you - directly navigating to the apps default URL.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/05-browser.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;By default, this opens an Eclipse/STS internal browser view. If you prefer to use an external browser, you can set this in the preferences.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;In case this default URL is not the one you would like to visit by default, you can customize that. Open the properties view, select the project in the boot dashboard and enter the default URL extension that you prefer. The double-click will open the default URL of the app + your customized extension to it.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/06-path.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In case you are not sure what URL extensions your application defines, you can select the “Request Mappings” tab in the properties view. All the request mappings of the running app are listed - your self-defined ones at the top, the ones coming from libraries at the bottom of that list. Double-clicking on the URL extension opens a browser for that extension, double-clicking on the code pointer opens the corresponding file of your project in an editor and jumps to the line that defines the request mapping.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/07-request-mappings.png"/&gt;&lt;/p&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The more microservice projects you have in your workspace, the more likely it is that you don’t work on all of them at the same time. You would like to focus on a subset. In Eclipse/STS, you might have created a working set, for example. The boot dashboard allows you to tag projects with an arbitrary number of tags (again, in the properties view). Those tags can then be used in the filter box (at the top of the boot dashboard) to reduce the number of projects that show up in the boot dashboard.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/sts/nan/v371/img/blog-series/08-filter.png"/&gt;&lt;/p&gt;
+&lt;h2&gt;Outlook&lt;/h2&gt;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The second part of this series will introduce you to the Cloud Foundry integration of the Boot dashboard, how to deploy microservices to CF from within the boot dashboard, and how to use local boot apps in combination with those deployed on CF.&lt;/p&gt;&#xD;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring REST Docs 1.0.0.RELEASE</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/07/spring-rest-docs-1-0-0-release" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Andy Wilkinson</name>
+    </author>
+    <id>tag:spring.io,2015-10-07:2250</id>
+    <updated>2015-10-07T16:02:41Z</updated>
+    <content type="html">&lt;p&gt;I&amp;rsquo;m delighted to announce that &lt;a href="https://github.com/spring-projects/spring-restdocs"&gt;Spring REST Docs&lt;/a&gt; 1.0.0.RELEASE has been released. It&amp;rsquo;s available from Maven Central and our &lt;a href="https://repo.spring.io/release"&gt;release repository&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-is-spring-rest-docs" class="anchor" name="what-is-spring-rest-docs"&gt;&lt;/a&gt;What is Spring REST Docs?&lt;/h2&gt;&lt;p&gt;Spring REST Docs helps you to document RESTful services. It combines hand-written documentation written with Asciidoctor and auto-generated snippets produced with Spring MVC Test. This approach frees you from the limitations imposed by tools like &lt;a href="http://swagger.io"&gt;Swagger&lt;/a&gt;. It helps you to produce documentation that is accurate, concise, and well-structured. This documentation then allows your users to get the information they need with a minimum of fuss.&lt;/p&gt;&lt;p&gt;If you&amp;rsquo;d like to see some documentation produced using Spring REST Docs, please look at the sample &lt;a href="http://docs.spring.io/spring-restdocs/docs/1.0.0.RELEASE/samples/restful-notes/api-guide.html"&gt;API guide&lt;/a&gt; and &lt;a href="http://docs.spring.io/spring-restdocs/docs/1.0.0.RELEASE/samples/restful-notes/getting-started-guide.html"&gt;Getting Started Guide&lt;/a&gt; for a simple RESTful notes service.&lt;/p&gt;&lt;h2&gt;&lt;a href="#getting-started" class="anchor" name="getting-started"&gt;&lt;/a&gt;Getting started&lt;/h2&gt;&lt;p&gt;To get started with Spring REST Docs, please refer to the &lt;a href="http://docs.spring.io/spring-restdocs/docs/current/reference/html5/#getting-started"&gt;getting started section&lt;/a&gt; of the &lt;a href="http://docs.spring.io/spring-restdocs/docs/1.0.0.RELEASE/reference/html5/"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#thank-you" class="anchor" name="thank-you"&gt;&lt;/a&gt;Thank you&lt;/h2&gt;&lt;p&gt;My sincere thanks to the members of the Spring community who have helped to shape Spring REST Docs 1.0. It would not be the same without your feature suggestions, pull requests, and bug reports. Thank you.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - October 6th, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/07/this-week-in-spring-october-6th-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-10-07:2249</id>
+    <updated>2015-10-07T05:25:54Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installation of &lt;em&gt;This Week in Spring&lt;/em&gt;! As usual we&amp;rsquo;ve got a lot to cover this week so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;I love the &lt;a href="http://start.spring.io"&gt;new Spring Initializr&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Spring Tool Suite &lt;a href="http://spring.io/blog/2015/10/06/spring-tool-suite-3-7-1-released"&gt;lead Martin Lippert just announced STS 3.7.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring framework lead Juergen Hoeller has put together a lovely post that speaks &lt;a href="http://spring.io/blog/2015/10/06/a-brief-update-on-java-ee-7-adoption"&gt;to how to read claimed Java EE 7 proliferation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Jaime Lopez - who was in some of my talks at Spring I/O in Barcelona, Spain, earlier this year - &lt;a href="http://blog.mimacom.com/introduction-to-spring-boot/"&gt;wrote an &lt;em&gt;amazing&lt;/em&gt; introduction to Spring Boot&lt;/a&gt; - check it out!&lt;/li&gt;
+  &lt;li&gt;This blog nicely introduces using Spring&amp;rsquo;s &lt;code&gt;AbstractFeedView&lt;/code&gt;, powered by the ROME RSS and Atom library, &lt;a href="http://kielczewski.eu/2015/10/adding-rss-to-spring-boot-application-with-rome/"&gt;to build feeds for a web application&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Want to run Spring Boot &lt;a href="https://www.voxxed.com/blog/2015/10/creating-rest-web-services-with-spring-boot-hosted-on-payara-micro/"&gt;on the Glassfish-powered Payara Micro&lt;/a&gt;?&lt;/li&gt;
+  &lt;li&gt;Hey, the &lt;em&gt;ProgrammingFree&lt;/em&gt; YouTube video channel has a nice post &lt;a href="https://www.youtube.com/watch?v=XO-OdIXNU_o&amp;feature=youtu.be"&gt;on using Spring Security and Spring to build a simple application&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;the &lt;a href="https://www.youtube.com/watch?v=iJjXQJ4IXpI"&gt;4cats.io YouTube channel&lt;/a&gt; has all manner of cool Chinese-language videos on Spring Boot!&lt;/li&gt;
+  &lt;li&gt;David Parish put together a nice &lt;a href="https://bp3.zendesk.com/hc/en-us/articles/210443048"&gt;post on running Spring Boot applications on Websphere&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Alberto Souza put together a nice Portguese-language &lt;a href="https://domineospring.wordpress.com/2015/10/02/primeiros-passos-com-o-spring-integration/"&gt;post on using Spring Integration&lt;/a&gt;&lt;br/&gt;-&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>A brief update on Java EE 7 adoption</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/06/a-brief-update-on-java-ee-7-adoption" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Juergen Hoeller</name>
+    </author>
+    <id>tag:spring.io,2015-10-06:2248</id>
+    <updated>2015-10-06T15:37:00Z</updated>
+    <content type="html">&lt;p&gt;A reminder: Every time somebody shows you a survey result with a Java EE 7 usage column, in particular when talking about production usage, double-check what they actually asked for. Does Hibernate 4.3 usage count as Java EE 7, just because it&amp;rsquo;s JPA 2.1 (EE 7 level but run standalone)? Does Tomcat 8 usage count as Java EE 7, just because it&amp;rsquo;s Servlet 3.1? And of course, does running a Spring application with any such individual providers count as EE 7?&lt;/p&gt;&lt;p&gt;Take such statistics with a big grain of salt: They typically do not ask for &amp;ldquo;native Java EE 7 platform usage&amp;rdquo; but are being presented that way eventually. Why is it a safe assumption that they did not ask for full Java EE 7 platform usage in production? Well, remember my &lt;a href="https://spring.io/blog/2015/06/04/happy-second-birthday-java-ee-7-how-is-it-going-in-production"&gt;blog post from back in June&lt;/a&gt;, which is still as valid in late 2015. In the meantime, the only real news is that there is no news since IBM released their EE 7 support in WebSphere&amp;rsquo;s Liberty Profile. All in all, responders to such survey questions are likely to answer based on &amp;ldquo;I&amp;rsquo;m using one or more specifications from that umbrella&amp;rdquo;, not on &amp;ldquo;I&amp;rsquo;m using the full platform in its intended form&amp;rdquo;.&lt;/p&gt;&lt;p&gt;FWIW, we decided to raise our &lt;a href="https://spring.io/blog/2015/06/10/feedback-welcome-spring-5-system-requirements"&gt;Spring Framework 5 system requirements&lt;/a&gt; not only to JDK 8+ but also to JPA 2.1+ and Bean Validation 1.1+. After all, by Q4 2016 (our Spring 5 GA target), those specs will be 3.5 years old already, so we&amp;rsquo;re willing to require them at that point. And we&amp;rsquo;ll still support Servlet 3.0+, so EE 6 baselined servers with JPA 2.1 mixed in will be alright.&lt;/p&gt;&lt;p&gt;&lt;i&gt;To avoid any misunderstandings: Spring 4.x has been shipping full support for JPA 2.1 and other EE 7 level specs since 2013, side by side with our JPA 2.0 / EE 6 support. The above is just referring to requiring JPA 2.1+ as of Spring Framework 5.0 towards the end of 2016, making it incompatible with underlying server infrastructure that remains bound to JPA 2.0.&lt;/i&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Evolving Spring Initializr</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/06/evolving-spring-initializr" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Brian Clozel</name>
+    </author>
+    <id>tag:spring.io,2015-10-06:2246</id>
+    <updated>2015-10-06T09:30:00Z</updated>
+    <content type="html">&lt;p&gt;We&amp;rsquo;re happy to release today the new version of Spring Initializr at &lt;a href="https://start.spring.io"&gt;https://start.spring.io&lt;/a&gt; !&lt;/p&gt;&lt;p&gt;What started out as a small, in-house web application that generates Spring Boot projects, grew into something bigger than we expected. You can now use Spring Initializr on the web, in your favorite IDE (Eclipse STS and IntelliJ IDEA) and even with your command-line tools (try &lt;code&gt;curl https://start.spring.io&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;In the meantime, the Spring portfolio is growing and we received a lot of useful feedback from the Spring community. Because nothing beats actual data, we&amp;rsquo;ve improved the service to export its metrics to a centralized redis instance, before the summer. This allows us to keep a reliable set of statistics for a long period of activity (and regardless of the number of instances we deploy on &lt;a href="http://run.pivotal.io/"&gt;Pivotal Web Services&lt;/a&gt;).&lt;/p&gt;&lt;p&gt;Spring Initializr now generates roughly &lt;strong&gt;50.000 projects a month&lt;/strong&gt;, mostly Java (98%) web applications using Maven (80%), Java 8 (82%) and jar packaging (83%). The most widely used starters are web (63%), Spring Data JPA (25%), Spring Security (21%) and MySQL (19%). We noticed that most users generate their projects using the default settings. Early June, we &lt;a href="https://github.com/spring-io/initializr/pull/118"&gt;switched the default Java version to 8&lt;/a&gt; and noticed a ramp up of Java 8-based projects since then.&lt;/p&gt;&lt;p&gt;We redesigned Spring Initializr to improve the experience for both newcomers and experienced users; it should be easy to generate a project very quickly if you know what you want, but the app should also provide guidance when needed. That&amp;rsquo;s why we added a new search engine but also complete descriptions for all dependencies.&lt;/p&gt;&lt;p&gt;For example, we&amp;rsquo;ve noticed that &amp;ldquo;AOP&amp;rdquo; is the 6th most widely used starter! We believe it’s a misunderstanding, as you don&amp;rsquo;t need this dependency to have DI or proxy support in your application. It&amp;rsquo;s only required if you want to use AspectJ or create your own aspects.&lt;/p&gt;&lt;p&gt;Send us feedback on Twitter &lt;a href="https://twitter.com/springcentral"&gt;@springcentral&lt;/a&gt; and on the &lt;a href="https://github.com/spring-io/initializr"&gt;github project page&lt;/a&gt; (of course, this is open source)!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Tool Suite 3.7.1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/06/spring-tool-suite-3-7-1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2015-10-06:2247</id>
+    <updated>2015-10-06T09:15:09Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;&lt;p&gt;I am happy to announce the 3.7.1 release of the Spring Tool Suite, our Eclipse-based tooling.&lt;/p&gt;&lt;p&gt;Highlights from this release include:&lt;/p&gt;
+&lt;ul&gt;&#xD;
+&lt;li&gt;updated to Eclipse Mars.1 (4.5.1), including a number of fixes for JDT and m2e&lt;/li&gt;&#xD;
+&lt;li&gt;updated to Pivotal tc Server 3.1.2&lt;/li&gt;&#xD;
+&lt;li&gt;various improvements to the Spring Boot YML properties editor&lt;/li&gt;&#xD;
+&lt;li&gt;improvements to the Spring Boot Starter wizard&lt;/li&gt;&#xD;
+&lt;li&gt;new support for Spring Boot Devtools, including ability to attach Java debugger to CF deployed apps.&lt;/li&gt;&#xD;
+&lt;li&gt;the new spring boot dashboard, currently in beta, but definitely the highlight of this release&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;p&gt;To download the distributions, please go visit:&lt;/p&gt;
+&lt;ul&gt;&#xD;
+&lt;li&gt;Spring Tool Suite: &lt;a href="https://spring.io/tools/sts/all"&gt;https://spring.io/tools/sts/all&lt;/a&gt;&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;p&gt;Detailed new and noteworthy notes can be found here: &lt;a href="http://docs.spring.io/sts/nan/v371/NewAndNoteworthy.html"&gt;STS 3.7.1 New &amp;amp; Noteworthy&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;STS 3.7.2 is scheduled to ship in December 2015.&lt;/p&gt;&lt;p&gt;Enjoy!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - September 29, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/09/30/this-week-in-spring-september-29-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-09-30:2244</id>
+    <updated>2015-09-30T05:21:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installation of &lt;em&gt;This Week in Spring&lt;/em&gt;! To those of you reading from the US, let me be the first to wish you a &lt;a href="https://twitter.com/search?q=national+coffee+day&amp;ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Esearch"&gt;very happy national coffee day&lt;/a&gt;! As usual, we&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;have you been checking &lt;a href="http://www.annotatedspring.com/"&gt;out the Annotated Spring site&lt;/a&gt;? It&amp;rsquo;s &lt;em&gt;wonderful&lt;/em&gt;! Packed with easily digsted screencasts on getting started with Spring (sort of like the Rails Casts of yore)&lt;/li&gt;
+  &lt;li&gt;our pal Greg Turnquist is at it again, with part 3 of his &lt;a href="http://spring.io/blog/2015/09/29/react-js-and-spring-data-rest-part-3-conditional-operations"&gt;epic React.js and Spring Data REST tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;not one to relax, Greg &lt;em&gt;also&lt;/em&gt; posted an awesome new guide on building &lt;a href="http://spring.io/blog/2015/09/28/check-out-the-new-creating-crud-ui-with-vaadin-guide"&gt;CRUD applications with Vaadin and Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data ninja &lt;a href="http://spring.io/blog/2015/09/22/spring-for-apache-hadoop-2-3-milestone-3-released"&gt;Thomas Risberg has just announced Spring for Apache Hadoop 2.3 M3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Integration Java Config DSL lead Artem Bilan just announced the 1.1 GA release! &lt;a href="http://spring.io/blog/2015/09/22/java-dsl-for-spring-integration-1-1-ga-is-available"&gt;This is a &lt;em&gt;huge&lt;/em&gt; release with lots of good stuff, so check it out&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I just noticed this book by Geoffroy Warin, &lt;a href="http://www.amazon.fr/Mastering-Spring-MVC-Geoffroy-Warin-ebook/dp/B00ZCECXPY"&gt;&lt;em&gt;Mastering Spring MVC 4&lt;/em&gt;&lt;/a&gt;, is now available&lt;/li&gt;
+  &lt;li&gt;our pal Nicolas Frankel has put together &lt;a href="https://blog.frankel.ch/going-the-microservices-way-part-1"&gt;a first look at understandig microservices&lt;/a&gt; with Spring Boot&lt;/li&gt;
+  &lt;li&gt;check out this 9 minute video clip &lt;a href="http://www.informit.com/articles/article.aspx?p=2437436"&gt;on monitoring microservices from Phil Webb and my training video, &lt;em&gt;Building Microservices with Spring Boot&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Rob Hinds has put together an introductory post &lt;a href="https://dzone.com/articles/spring-boot-netflix-oss-an-adventure-into-microser-1"&gt;to the Netflix OSS stack with Spring Cloud&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://www.oakdalesoft.com/2015/09/spring-boot-with-jsfprimefaces/"&gt;Want to get JSF running on Spring Boot&lt;/a&gt;?&lt;/li&gt;
+  &lt;li&gt;Boyko Dimitrov put together a nice post on using &lt;a href="http://blog.dreamix.eu/webothers/configuring-google-as-oauth2-authorization-provider-in-spring-boot"&gt;Spring Boot&amp;rsquo;s OAuth2 support with Google as a provider&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Patrick Grimard has a &lt;em&gt;wonderful&lt;/em&gt; post on using Spring MVC&amp;rsquo;s new server-side &lt;a href="http://patrickgrimard.com/2015/09/27/ejs-script-templates-with-spring-boot/"&gt;JavaScript view renderer to render EJS script templates&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Christophe Labouisse is back with a &lt;a href="http://www.labouisse.com/how-to/2015/09/23/elk-docker-and-spring-boot/"&gt;post on managing Spring Boot logs with ELK and Docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>React.js and Spring Data REST: Part 3 - Conditional Operations</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/09/29/react-js-and-spring-data-rest-part-3-conditional-operations" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Greg Turnquist</name>
+    </author>
+    <id>tag:spring.io,2015-09-29:2243</id>
+    <updated>2015-09-29T12:00:06Z</updated>
+    <content type="html">&lt;div id="preamble"&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In the &lt;a href="https://spring.io/blog/2015/09/15/react-js-and-spring-data-rest-part-2-hypermedia"&gt;previous session&lt;/a&gt;, you found out how to turn on Spring Data REST&amp;#8217;s hypermedia controls, have the UI navigate by paging, and dynamically resize based on changing the page size. You added the ability to create and delete employees and have the pages adjust. But no solution is complete with taking into consideration updates made by other users on the same bit of data you are currently editing.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Feel free to &lt;a href="https://github.com/gregturn/react-and-spring-data-rest/tree/master/conditional"&gt;grab the code&lt;/a&gt; from this repository and follow along. This session is based on the previous session&amp;#8217;s app with extra things added.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_to_put_or_not_to_put_that_is_the_question"&gt;To PUT or not to PUT, that is the question&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;When you fetch a resource, there is risk is that it might go stale if someone else updates it. To deal with this, Spring Data REST integrates two technologies: versioning of resources and ETags.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;By versioning resources on the backend and using ETags in the frontend, it is possible to conditially PUT a change. In other words, you can detect if a resource has changed and prevent a PUT (or a PATCH) from stomping on someone else&amp;#8217;s update. Let&amp;#8217;s check it out.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_versioning_rest_resources"&gt;Versioning REST resources&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;To support versioning of resources, define a version attribute for your domain objects that need this type of protection.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="title"&gt;src/main/java/com/greglturnquist/payroll/Employee.java&lt;/div&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Data&#xD;
+@Entity&#xD;
+public class Employee {&#xD;
+&#xD;
+	private @Id @GeneratedValue Long id;&#xD;
+	private String firstName;&#xD;
+	private String lastName;&#xD;
+	private String description;&#xD;
+&#xD;
+	private @Version @JsonIgnore Long version;&#xD;
+&#xD;
+	private Employee() {}&#xD;
+&#xD;
+	public Employee(String firstName, String lastName, String description) {&#xD;
+		this.firstName = firstName;&#xD;
+		this.lastName = lastName;&#xD;
+		this.description = description;&#xD;
+	}&#xD;
+}&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="ulist"&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;p&gt;The &lt;strong&gt;version&lt;/strong&gt; field is annoated with &lt;code&gt;javax.persistence.Version&lt;/code&gt;. It causes a value to be automatically stored and updated everytime a row is inserted and updated.&lt;/p&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;When fetching an individual resource (not a collection resource), Spring Data REST will automatically add an &lt;a href="http://tools.ietf.org/html/rfc7232#section-2.3"&gt;ETag response header&lt;/a&gt; with the value of this field.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_fetching_individual_resources_and_their_headers"&gt;Fetching individual resources and their headers&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In the &lt;a href="https://spring.io/blog/2015/09/15/react-js-and-spring-data-rest-part-2-hypermedia"&gt;previous session&lt;/a&gt; you used the collection resource to gather data and populate the UI&amp;#8217;s HTML table. With Spring Data REST, the &lt;strong&gt;_embedded&lt;/strong&gt; data set is considered a preview of data. While useful for glancing at data, to get headers like ETags, you need to fetch each resource individually.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In this version, &lt;code&gt;loadFromServer&lt;/code&gt; is updated to fetch the collection and then use the URIs to retrieve each individual resource.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="title"&gt;src/main/resources/static/app.jsx - Fetching each resource&lt;/div&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;loadFromServer: function (pageSize) {&#xD;
+    follow(client, root, [&#xD;
+        {rel: 'employees', params: {size: pageSize}}]&#xD;
+    ).then(employeeCollection =&amp;gt; {&#xD;
+        return client({&#xD;
+            method: 'GET',&#xD;
+            path: employeeCollection.entity._links.profile.href,&#xD;
+            headers: {'Accept': 'application/schema+json'}&#xD;
+        }).then(schema =&amp;gt; {&#xD;
+            this.schema = schema.entity;&#xD;
+            this.links = employeeCollection.entity._links;&#xD;
+            return employeeCollection;&#xD;
+        });&#xD;
+    }).then(employeeCollection =&amp;gt; {&#xD;
+        return employeeCollection.entity._embedded.employees.map(employee =&amp;gt;&#xD;
+                client({&#xD;
+                    method: 'GET',&#xD;
+                    path: employee._links.self.href&#xD;
+                })&#xD;
+        );&#xD;
+    }).then(employeePromises =&amp;gt; {&#xD;
+        return when.all(employeePromises);&#xD;
+    }).done(employees =&amp;gt; {&#xD;
+        this.setState({&#xD;
+            employees: employees,&#xD;
+            attributes: Object.keys(this.schema.properties),&#xD;
+            pageSize: pageSize,&#xD;
+            links: this.links&#xD;
+        });&#xD;
+    });&#xD;
+},&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="olist arabic"&gt;&#xD;
+&lt;ol class="arabic"&gt;&#xD;
+&lt;li&gt;&#xD;
+The &lt;code&gt;follow()&lt;/code&gt; function goes to the &lt;strong&gt;employees&lt;/strong&gt; collection resource.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+The &lt;code&gt;then(employeeCollection &amp;#8658; &amp;#8230;&amp;#8203;)&lt;/code&gt; clause creates a call to fetch JSON Schema data. This has a sub-then clause to store the metadata and navigational links in the &lt;code&gt;&amp;lt;App/&amp;gt;&lt;/code&gt; component.&#xD;
+&lt;div class="ulist"&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&#xD;
+Notice that this embedded promise returns the employeeCollection. That way, the collection can be passed onto the next call while letting you grab the metadata along the way.&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+The second &lt;code&gt;then(employeeCollection &amp;#8658; &amp;#8230;&amp;#8203;)&lt;/code&gt; clause converts the collection of employees into an array of GET promises to fetch each individual resource. &lt;strong&gt;This is what you need to fetch an ETag header for each employee.&lt;/strong&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+The &lt;code&gt;then(employeePromises &amp;#8658; &amp;#8230;&amp;#8203;)&lt;/code&gt; clause takes the array of GET promises and merges them into a single promise with &lt;code&gt;when.all()&lt;/code&gt;, resolved when all the GET promises are resolved.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;code&gt;loadFromServer&lt;/code&gt; wraps up with &lt;code&gt;done(employees &amp;#8658; &amp;#8230;&amp;#8203;)&lt;/code&gt; where the UI state is updated using this amalgamation of data.&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ol&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;This chain is implemented in other places as well. For example, &lt;code&gt;onNavigate()&lt;/code&gt;, which is used to jump to different pages, has been updated to fetch individual resources. Since it&amp;#8217;s mostly the same as what&amp;#8217;s shown above, it&amp;#8217;s been left out of this session.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_updating_existing_resources"&gt;Updating existing resources&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In this session, you are adding an &lt;code&gt;UpdateDialog&lt;/code&gt; React component to edit existing employee records.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="title"&gt;src/main/resources/static/app.jsx - UpdateDialog component&lt;/div&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;var UpdateDialog = React.createClass({&#xD;
+&#xD;
+    handleSubmit: function (e) {&#xD;
+        e.preventDefault();&#xD;
+        var updatedEmployee = {};&#xD;
+        this.props.attributes.forEach(attribute =&amp;gt; {&#xD;
+            updatedEmployee[attribute] = React.findDOMNode(this.refs[attribute]).value.trim();&#xD;
+        });&#xD;
+        this.props.onUpdate(this.props.employee, updatedEmployee);&#xD;
+        window.location = "#";&#xD;
+    },&#xD;
+&#xD;
+    render: function () {&#xD;
+        var inputs = this.props.attributes.map(attribute =&amp;gt;&#xD;
+                &amp;lt;p key={this.props.employee.entity[attribute]}&amp;gt;&#xD;
+                    &amp;lt;input type="text" placeholder={attribute}&#xD;
+                           defaultValue={this.props.employee.entity[attribute]}&#xD;
+                           ref={attribute} className="field" /&amp;gt;&#xD;
+                &amp;lt;/p&amp;gt;&#xD;
+        );&#xD;
+&#xD;
+        var dialogId = "updateEmployee-" + this.props.employee.entity._links.self.href;&#xD;
+&#xD;
+        return (&#xD;
+            &amp;lt;div key={this.props.employee.entity._links.self.href}&amp;gt;&#xD;
+                &amp;lt;a href={"#" + dialogId}&amp;gt;Update&amp;lt;/a&amp;gt;&#xD;
+                &amp;lt;div id={dialogId} className="modalDialog"&amp;gt;&#xD;
+                    &amp;lt;div&amp;gt;&#xD;
+                        &amp;lt;a href="#" title="Close" className="close"&amp;gt;X&amp;lt;/a&amp;gt;&#xD;
+&#xD;
+                        &amp;lt;h2&amp;gt;Update an employee&amp;lt;/h2&amp;gt;&#xD;
+&#xD;
+                        &amp;lt;form&amp;gt;&#xD;
+                            {inputs}&#xD;
+                            &amp;lt;button onClick={this.handleSubmit}&amp;gt;Update&amp;lt;/button&amp;gt;&#xD;
+                        &amp;lt;/form&amp;gt;&#xD;
+                    &amp;lt;/div&amp;gt;&#xD;
+                &amp;lt;/div&amp;gt;&#xD;
+            &amp;lt;/div&amp;gt;&#xD;
+        )&#xD;
+    }&#xD;
+&#xD;
+});&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;This new component has both a &lt;code&gt;handleSubmit()&lt;/code&gt; function as well as the expected &lt;code&gt;render()&lt;/code&gt; function, similar to the &lt;code&gt;&amp;lt;CreateDialog /&amp;gt;&lt;/code&gt; component.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Let&amp;#8217;s dig into these functions in reverse order, and first look at the &lt;code&gt;render()&lt;/code&gt; function.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="sect2"&gt;&#xD;
+&lt;h3 id="_rendering"&gt;Rendering&lt;/h3&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;This component uses the same CSS/HTML tactics to show and hide the dialog as the &lt;code&gt;&amp;lt;CreateDialog /&amp;gt;&lt;/code&gt; from the previous session.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;It converts the array of JSON Schema attributes into an array of HTML inputs, wrapped in paragraph elements for styling. This is also the same as the &lt;code&gt;&amp;lt;CreateDialog /&amp;gt;&lt;/code&gt; with one difference: the fields are loaded with &lt;strong&gt;this.props.employee&lt;/strong&gt;. In the CreateDialog component, the fields are empty.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The &lt;strong&gt;id&lt;/strong&gt; field is built differently. There is only one CreateDialog link on the entire UI, but a separate UpdateDialog link for every row displayed. Hence, the &lt;strong&gt;id&lt;/strong&gt; field is based on the &lt;strong&gt;self&lt;/strong&gt; link&amp;#8217;s URI. This is used in both the &amp;lt;div&amp;gt; element&amp;#8217;s React &lt;strong&gt;key&lt;/strong&gt; as well as the HTML anchor tag and the hidden pop-up.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="sect2"&gt;&#xD;
+&lt;h3 id="_handling_user_input"&gt;Handling user input&lt;/h3&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The submit button is linked to the component&amp;#8217;s &lt;code&gt;handleSubmit()&lt;/code&gt; function. This handily uses &lt;code&gt;React.findDOMNode()&lt;/code&gt; to extract the details of the pop-up using &lt;a href="http://facebook.github.io/react/docs/more-about-refs.html"&gt;React refs&lt;/a&gt;.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;After the input values are extracted and loaded into the &lt;code&gt;updatedEmployee&lt;/code&gt; object, the top-level &lt;code&gt;onUpdate()&lt;/code&gt; method is invoked. This continues React&amp;#8217;s style of one-way binding where the functions to call are pushed from upper level components into the lower level ones. This way, state is still managed at the top.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_conditional_put"&gt;Conditional PUT&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;So you&amp;#8217;ve gone to all this effort to embed versioning in the data model. Spring Data REST has served up that value as an ETag response header. Here is where you get to put it to good use!&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="title"&gt;src/main/resources/static/app.jsx - onUpdate function&lt;/div&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;onUpdate: function (employee, updatedEmployee) {&#xD;
+    client({&#xD;
+        method: 'PUT',&#xD;
+        path: employee.entity._links.self.href,&#xD;
+        entity: updatedEmployee,&#xD;
+        headers: {&#xD;
+            'Content-Type': 'application/json',&#xD;
+            'If-Match': employee.headers.Etag&#xD;
+        }&#xD;
+    }).done(response =&amp;gt; {&#xD;
+        this.loadFromServer(this.state.pageSize);&#xD;
+    }, response =&amp;gt; {&#xD;
+        if (response.status.code === 412) {&#xD;
+            alert('DENIED: Unable to update ' +&#xD;
+                employee.entity._links.self.href + '. Your copy is stale.');&#xD;
+        }&#xD;
+    });&#xD;
+},&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;PUT with an &lt;a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.24"&gt;If-Match request header&lt;/a&gt; causes Spring Data REST to check the value against the current version. If the incoming &lt;strong&gt;If-Match&lt;/strong&gt; value doesn&amp;#8217;t match the data store&amp;#8217;s version value, Spring Data REST will fail with an &lt;strong&gt;HTTP 412 Precondition Failed&lt;/strong&gt;.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="admonitionblock note"&gt;&#xD;
+&lt;table&gt;&#xD;
+&lt;tr&gt;&#xD;
+&lt;td class="icon"&gt;&#xD;
+&lt;div class="title"&gt;Note&lt;/div&gt;&#xD;
+&lt;/td&gt;&#xD;
+&lt;td class="content"&gt;&#xD;
+The spec for &lt;a href="https://promisesaplus.com/"&gt;Promises/A+&lt;/a&gt; actually defines their API as &lt;code&gt;then(successFunction, errorFunction)&lt;/code&gt;. So far, you&amp;#8217;ve only seen it used with success functions. In the code fragment above, there are two functions. The success function invokes &lt;code&gt;loadFromServer&lt;/code&gt; while the error function displays a browser alert about the stale data.&#xD;
+&lt;/td&gt;&#xD;
+&lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_putting_it_all_together"&gt;Putting it all together&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;With your &lt;code&gt;UpdateDialog&lt;/code&gt; React component defined and nicely linked to the top-level &lt;code&gt;onUpdate&lt;/code&gt; function, the last step is to wire it into the existing layout of components.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The &lt;code&gt;CreateDialog&lt;/code&gt; created in the previous session was put at the top of the &lt;code&gt;EmployeeList&lt;/code&gt; because there is only one instance. However, &lt;code&gt;UpdateDialog&lt;/code&gt; is tied directly to specific employees. So you can see it plugged in below in the &lt;code&gt;Employee&lt;/code&gt; React component:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="listingblock"&gt;&#xD;
+&lt;div class="title"&gt;src/main/resources/static/app.jsx - Employee with UpdateDialog&lt;/div&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;pre class="highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;var Employee = React.createClass({&#xD;
+    handleDelete: function () {&#xD;
+        this.props.onDelete(this.props.employee);&#xD;
+    },&#xD;
+    render: function () {&#xD;
+        return (&#xD;
+            &amp;lt;tr&amp;gt;&#xD;
+                &amp;lt;td&amp;gt;{this.props.employee.entity.firstName}&amp;lt;/td&amp;gt;&#xD;
+                &amp;lt;td&amp;gt;{this.props.employee.entity.lastName}&amp;lt;/td&amp;gt;&#xD;
+                &amp;lt;td&amp;gt;{this.props.employee.entity.description}&amp;lt;/td&amp;gt;&#xD;
+                &amp;lt;td&amp;gt;&#xD;
+                    &amp;lt;UpdateDialog employee={this.props.employee}&#xD;
+                                  attributes={this.props.attributes}&#xD;
+                                  onUpdate={this.props.onUpdate}/&amp;gt;&#xD;
+                &amp;lt;/td&amp;gt;&#xD;
+                &amp;lt;td&amp;gt;&#xD;
+                    &amp;lt;button onClick={this.handleDelete}&amp;gt;Delete&amp;lt;/button&amp;gt;&#xD;
+                &amp;lt;/td&amp;gt;&#xD;
+            &amp;lt;/tr&amp;gt;&#xD;
+        )&#xD;
+    }&#xD;
+})&lt;/code&gt;&lt;/pre&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In this session, you switch from using the collection resource to individual resources. The fields for an employee record are now found at &lt;code&gt;this.props.employee.entity&lt;/code&gt;. It gives us access to &lt;code&gt;this.props.employee.headers&lt;/code&gt; where we can find ETags.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;There are other headers supported by Spring Data REST (like &lt;a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.29"&gt;Last-Modified&lt;/a&gt;) which aren&amp;#8217;t part of this series. So structuring your data this way is handy.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="admonitionblock important"&gt;&#xD;
+&lt;table&gt;&#xD;
+&lt;tr&gt;&#xD;
+&lt;td class="icon"&gt;&#xD;
+&lt;div class="title"&gt;Important&lt;/div&gt;&#xD;
+&lt;/td&gt;&#xD;
+&lt;td class="content"&gt;&#xD;
+The structure of &lt;code&gt;.entity&lt;/code&gt; and &lt;code&gt;.headers&lt;/code&gt; is only pertinent when using &lt;a href="https://github.com/cujojs/rest"&gt;rest.js&lt;/a&gt; as the REST library of choice. If you use a different library, you will have to adapt as necessary.&#xD;
+&lt;/td&gt;&#xD;
+&lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_seeing_things_in_action"&gt;Seeing things in action&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="olist arabic"&gt;&#xD;
+&lt;ol class="arabic"&gt;&#xD;
+&lt;li&gt;&#xD;
+Start up the app (&lt;code&gt;./mvnw spring-boot:run&lt;/code&gt;).&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+Open up a tab and navigate to &lt;a href="http://localhost:8080" class="bare"&gt;http://localhost:8080&lt;/a&gt;.&#xD;
+&lt;div class="imageblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;img src="https://github.com/gregturn/react-and-spring-data-rest/raw/master/conditional/images/conditional-1.png" alt="conditional 1"&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+Pull up the edit dialog for Frodo.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+Open another tab in your browser and pull up the same record.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+Make a change to the record in the first tab.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+Try to make a change in the second tab.&#xD;
+&lt;div class="imageblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;img src="https://github.com/gregturn/react-and-spring-data-rest/raw/master/conditional/images/conditional-2.png" alt="conditional 2"&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ol&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="imageblock"&gt;&#xD;
+&lt;div class="content"&gt;&#xD;
+&lt;img src="https://github.com/gregturn/react-and-spring-data-rest/raw/master/conditional/images/conditional-3.png" alt="conditional 3"&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;With these mods, you have increased data integrity by avoiding collisions.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;&#xD;
+&lt;h2 id="_review"&gt;Review&lt;/h2&gt;&#xD;
+&lt;div class="sectionbody"&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;In this session:&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="ulist"&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&#xD;
+You configured your domain model with an &lt;code&gt;@Version&lt;/code&gt; field for JPA-based optimistic locking.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You adjusted the frontend to fetch individual resources.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You plugged the ETag header from an individual resource into an &lt;strong&gt;If-Match&lt;/strong&gt; request header to make PUTs conditional.&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+You coded a new UpdateDialog for each employee shown on the list.&#xD;
+&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;With this plugged in, it&amp;#8217;s easy to avoid colliding with other users, or simply overwriting their edits.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;Issues?&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;It&amp;#8217;s certainly nice to know when you&amp;#8217;re editing a bad record. But is it best to wait until you click "Submit" to find out?&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;The logic to fetch resources is very similar in both &lt;code&gt;loadFromServer&lt;/code&gt; and &lt;code&gt;onNavigate&lt;/code&gt;. Do you see ways to avoid duplicate code?&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="paragraph"&gt;&#xD;
+&lt;p&gt;You put the JSON Schema metadata to good use in building up the &lt;code&gt;CreateDialog&lt;/code&gt; and the &lt;code&gt;UpdateDialog&lt;/code&gt; inputs. Do you see other places to use the metadata to makes things more generic? Imagine you wanted to add five more fields to &lt;code&gt;Employee.java&lt;/code&gt;. What would it take to update the UI?&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Check out the new "Creating CRUD UI with Vaadin" guide</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/09/28/check-out-the-new-creating-crud-ui-with-vaadin-guide" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Greg Turnquist</name>
+    </author>
+    <id>tag:spring.io,2015-09-28:2242</id>
+    <updated>2015-09-28T16:15:58Z</updated>
+    <content type="html">&lt;p&gt;Greetings Spring community,&lt;/p&gt;&lt;p&gt;Today we have published a new guide: &lt;a href="https://spring.io/guides/gs/crud-with-vaadin/"&gt;Creating CRUD UI with Vaadin&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;This guide, written by the Vaadin team, shows how to nicely build a UI that taps into Spring Data, but doesn&amp;rsquo;t require writing a single line of JavaScript or HTML code.&lt;/p&gt;&lt;p&gt;Vaadin is real cool:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Comes with its own Spring Boot starter&lt;/li&gt;
+  &lt;li&gt;Works nicely with constructor injection&lt;/li&gt;
+  &lt;li&gt;Makes it dirt simple to plugin persistence solutions like Spring Data&lt;/li&gt;
+  &lt;li&gt;Is armed with an arsenal of plugins to grow into real applications&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Check out this newly minted guide and have fun!&lt;/p&gt;&lt;h4&gt;&lt;a href="#more-guides-coming" class="anchor" name="more-guides-coming"&gt;&lt;/a&gt;More guides coming&lt;/h4&gt;&lt;p&gt;As a follow up to SpringOne 2GX, we have identified some more guides that need to be written. The story of cloud native is sweeping the development community, and people are asking for more solutions. Our job shouldn&amp;rsquo;t be racking and stacking servers or building infrastructure. Instead, we should focus on smooth and easy solutions. Coding things &lt;strong&gt;cloud native&lt;/strong&gt; makes that possible. With Spring Boot and Spring Cloud this has become easier than ever.&lt;/p&gt;&lt;p&gt;Stay tuned!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring for Apache Hadoop 2.3 Milestone 3 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/09/22/spring-for-apache-hadoop-2-3-milestone-3-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Thomas Risberg</name>
+    </author>
+    <id>tag:spring.io,2015-09-22:2241</id>
+    <updated>2015-09-22T16:05:00Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce the Spring for Apache Hadoop 2.3 M3 milestone release.&lt;/p&gt;&lt;p&gt;The most important enhancements in this release: &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Update build to use Spring Framework 4.2.1, Boot 1.3.0.M5, Batch 3.0.5 &lt;a href="https://jira.spring.io/browse/SHDP-509"&gt;[SHDP-509]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Move annotation config to separate sub-project to reduce dependencies for spring-data-hadoop-boot &lt;a href="https://jira.spring.io/browse/SHDP-525"&gt;[SHDP-525]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Add additional properties to Spark Tasklet &lt;a href="https://jira.spring.io/browse/SHDP-397"&gt;[SHDP-397]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Upgrade build to use to Spark 1.5.0 &lt;a href="https://jira.spring.io/browse/SHDP-521"&gt;[SHDP-521]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;See the release &lt;a href="http://docs.spring.io/spring-hadoop/docs/2.3.0.M3/changelog.txt"&gt;changelog&lt;/a&gt; for details.&lt;/p&gt;&lt;p&gt;We continue to provide version specific artifacts with their respective transitive dependencies in the Spring IO milestone repository:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;2.3.0.M3 (default - Apache Hadoop stable 2.7.1)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M3-hadoop26 (Apache Hadoop 2.6.0)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M3-phd30 (Pivotal HD 3.0)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M3-phd21 (Pivotal HD 2.1)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M3-cdh5 (Cloudera CDH 5.4)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M3-hdp23 (Hortonworks HDP 2.3)&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Please provide feedback so we can prioritize the work on new features scheduled for 2.3 (see previous &lt;a href="https://spring.io/blog/2015/05/21/spring-for-apache-hadoop-2-2-rc1-released"&gt;blog post&lt;/a&gt; for a list) and any additional feature requests. You can use JIRA issues or GitHub issues (see project page for links).&lt;/p&gt;&lt;p&gt;The project page is at - &lt;a href="http://projects.spring.io/spring-hadoop/"&gt;http://projects.spring.io/spring-hadoop/&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Java DSL for Spring Integration 1.1 GA is Available</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/09/22/java-dsl-for-spring-integration-1-1-ga-is-available" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Artem Bilan</name>
+    </author>
+    <id>tag:spring.io,2015-09-22:2240</id>
+    <updated>2015-09-22T15:09:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community!&lt;/p&gt;&lt;p&gt;On behalf of Spring Integration team I&amp;rsquo;m pleased to announce that the 1.1 GA of Spring Integration Java DSL is now available from the &lt;a href="https://repo.spring.io/release/"&gt;Release Repository&lt;/a&gt; and &lt;a href="http://search.maven.org/#search|ga|1|spring-integration-java-dsl"&gt;Maven Central&lt;/a&gt;:&lt;/p&gt;&lt;p&gt;For Gradle use this dependency:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;&amp;#39;org.springframework.integration:spring-integration-java-dsl:1.1.0.RELEASE&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For Maven this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;&amp;lt;dependency&amp;gt;&#xD;
+     &amp;lt;groupId&amp;gt;org.springframework.integration&amp;lt;/groupId&amp;gt;&#xD;
+     &amp;lt;artifactId&amp;gt;spring-integration-java-dsl&amp;lt;/artifactId&amp;gt;&#xD;
+     &amp;lt;version&amp;gt;1.1.0.RELEASE&amp;lt;/version&amp;gt;&#xD;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;First of all a big thanks to everyone who visited my &lt;a href="https://2015.event.springone2gx.com/schedule/sessions/spring_integration_java_dsl.html"&gt;talk&lt;/a&gt; at the SpringOne 2GX 2015 last week. An additional thanks for all the feedback we have received.&lt;/p&gt;&lt;p&gt;Thanks to that we were able to add some minor fixes between GA and previous &lt;a href="https://spring.io/blog/2015/09/10/spring-integration-java-dsl-1-1-m2-is-available"&gt;Milestone&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;And as I promised on my talk we added the DSL definition for simple adapters from the Spring Integration Core module.&lt;/p&gt;&lt;p&gt;Let me demonstrate it here one more time and explain on what the solution is based to share some hooks for future contributors:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;@Bean&#xD;
+public IntegrationFlow feedFlow() {&#xD;
+return IntegrationFlows&#xD;
+              .from(s -&amp;gt; s.feed(this.feedUrl, &amp;quot;feedTest&amp;quot;)&#xD;
+                                    .feedFetcher(new FileUrlFeedFetcher())&#xD;
+                                    .metadataStore(metadataStore()),&#xD;
+                             e -&amp;gt; e.poller(p -&amp;gt; p.fixedDelay(100)))&#xD;
+              .channel(c -&amp;gt; c.queue(&amp;quot;entries&amp;quot;))&#xD;
+              .get();&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;It is an &lt;code&gt;IntegrationFlow&lt;/code&gt; definition which starts from the &lt;code&gt;inbound-channel-adapter&lt;/code&gt; for the &lt;code&gt;FeedEntryMessageSource&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;The first Lambda for the &lt;code&gt;.from()&lt;/code&gt; method is a &lt;code&gt;MessageSources&lt;/code&gt; factory which just delegates to the target Namespace Factory:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;public FeedEntryMessageSourceSpec feed(URL feedUrl, String metadataKey) {&#xD;
+	return Feed.inboundAdapter(feedUrl, metadataKey);&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It exists for convenience - to get a gain from IDE auto-completion feature.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;In this case we delegate to the &lt;code&gt;org.springframework.integration.dsl.feed.Feed&lt;/code&gt; Namespace Factory with very short source code:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;public abstract class Feed {&#xD;
+&#xD;
+	public static FeedEntryMessageSourceSpec inboundAdapter(URL feedUrl, &#xD;
+                                      String metadataKey) {&#xD;
+		return new FeedEntryMessageSourceSpec(feedUrl, metadataKey);&#xD;
+	}&#xD;
+&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code&gt;FeedEntryMessageSourceSpec&lt;/code&gt; is an implementation of the &lt;code&gt;MessageSourceSpec&lt;/code&gt; to have a Builder pattern implementation around &lt;code&gt;FeedEntryMessageSource&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;All other components in the Spring Integration Java DSL are built the same way and I hope it looks simple enough to get more and more contribution from the community to address your specific adapters support in the Framework. &lt;/p&gt;&lt;p&gt;Please, stay tuned as we are going to go ahead with the &lt;a href="https://spring.io/blog/2015/08/03/coming-up-in-2016-spring-framework-4-3-5-0"&gt;Spring Framework 5&lt;/a&gt; foundation and more organic integration with Java 8.&lt;/p&gt;&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-integration-java-dsl"&gt;Project Page&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/INTEXT"&gt;JIRA&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration-java-dsl/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.md"&gt;Contributions&lt;/a&gt; | &lt;a href="http://stackoverflow.com"&gt;StackOverflow&lt;/a&gt; (&lt;code&gt;spring-integration&lt;/code&gt; tag)&lt;/p&gt;</content>
+  </entry>
+</feed>

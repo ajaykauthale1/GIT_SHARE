@@ -1,0 +1,131 @@
+package com.my.pagerank;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Class for representing the web page
+ */
+
+/**
+ * @author AjayBaban
+ * 
+ * @version 1.0
+ */
+public class Page {
+	/** The web page id */
+	public String pageId;
+	/** Page rank associated with the page */
+	public Double pageRank;
+	/** */
+	public Set<Page> outLinks = new HashSet<Page>();
+	/** */
+	public Set<Page> inLinks = new HashSet<Page>();
+
+	/**
+	 * Default constructor
+	 */
+	public Page() {
+		super();
+		this.pageId = null;
+		this.pageRank = new Double(0);
+		this.outLinks = new HashSet<Page>();
+		this.inLinks = new HashSet<Page>();
+	}
+
+	/**
+	 * Parameterized constructor
+	 * 
+	 * @param pageNo
+	 *            the web page number
+	 * @param pageRank
+	 *            the page rank of the page
+	 */
+	public Page(String pageNo, Double pageRank) {
+		super();
+		this.pageId = pageNo;
+		this.pageRank = pageRank;
+	}
+
+	/**
+	 * @return the pageRank
+	 */
+	public Double getPageRank() {
+		/*if (pageRank == null || pageRank == 0) {
+			return 0;
+		} else {
+			Double pr = new Double(pageRank).setScale(4, RoundingMode.HALF_UP);
+			return pr.doubleValue();
+		}*/
+		return pageRank;
+	}
+
+	/**
+	 * @param pageRank
+	 *            the pageRank to set
+	 */
+	public void setPageRank(Double pageRank) {
+		this.pageRank = pageRank;
+	}
+
+	/**
+	 * @return the pageId
+	 */
+	public String getPageId() {
+		return pageId;
+	}
+
+	/**
+	 * @param pageId
+	 *            the pageId to set
+	 */
+	public void setPageId(String pageId) {
+		this.pageId = pageId;
+	}
+
+	/**
+	 * @return the outLinks
+	 */
+	public Set<Page> getOutLinks() {
+		return outLinks;
+	}
+
+	/**
+	 * @param outLinks
+	 *            the outLinks to set
+	 */
+	public void setOutLinks(Set<Page> outLinks) {
+		this.outLinks = outLinks;
+	}
+
+	/**
+	 * @return the inLinks
+	 */
+	public Set<Page> getInLinks() {
+		return inLinks;
+	}
+
+	/**
+	 * @param inLinks
+	 *            the inLinks to set
+	 */
+	public void setInLinks(Set<Page> inLinks) {
+		this.inLinks = inLinks;
+	}
+
+	@Override
+	public int hashCode() {
+		return this.pageId.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Page))
+			return false;
+		if (obj == this)
+			return true;
+
+		Page p = (Page) obj;
+		return p.pageId.equals(this.pageId);
+	}
+
+}

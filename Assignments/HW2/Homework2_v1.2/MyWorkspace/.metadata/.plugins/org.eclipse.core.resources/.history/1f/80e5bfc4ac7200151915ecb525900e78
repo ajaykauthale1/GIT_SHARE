@@ -1,0 +1,358 @@
+/**
+ * Implementation class for implementing PageRankInterface methods
+ */
+package com.my.pagerank;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * @author Ajay Kauthale
+ * 
+ * @version 1.1
+ */
+public class PageRankImpl implements PageRankInterface {
+	/** Temporary map of page ranks for each iteration */
+	static Map<String, Double> newPrSet = new HashMap<String, Double>();
+	/** Array for storing perplexities for each iteration */
+	static Double[] perplexity = new Double[100];
+	/** Constant for storing count for perplexity iteration */
+	static int perplexityCount = 0;
+	/** Constant for iteration count */
+	static int iterationCount = 0;
+
+	@Override
+	public Map<String, Page> calculatePageRank(Map<String, Page> pageMap) {
+		// set initial page rank values of all pages to (1/No_Of_Pages) by
+		// distributing it evenly
+		Iterator<String> it = pageMap.keySet().iterator();
+		while (it.hasNext()) {
+			Double pr = new Double(1.0 / PageRankConstants.N);
+			pageMap.get(it.next()).setPageRank(pr);
+		}
+
+		// check if the page rank has converged
+		while (!isConverged(pageMap)) {
+			// calculate page rank sum of sink nodes
+			Double sinkPR = new Double(0);
+			for (Page p : getSinkNodes(pageMap)) {
+				sinkPR += p.getPageRank();
+			}
+
+			// calculate page rank for all pages iteratively
+			it = pageMap.keySet().iterator();
+			while (it.hasNext()) {
+				String pageId = it.next();
+				Page p = pageMap.get(pageId);
+
+				// page rank after teleportation
+				Double newPR = new Double((1 - PageRankConstants.D) / PageRankConstants.N);
+				// distribute remaining sink page rank sum evenly
+				newPR += new Double((PageRankConstants.D * sinkPR) / PageRankConstants.N);
+
+				// add page rank from in-links
+				for (Page q : p.getInLinks()) {
+					Page in = pageMap.get(q.getPageId());
+					if (in.getOutLinks().size() == 0) {
+						break;
+					}
+					// get page rank from each page pointing to p
+					newPR += new Double(
+							PageRankConstants.D * in.getPageRank() / (in.getOutLinks().size()));
+				}
+
+				// add newly calculated page rank for the page into set
+				newPrSet.put(p.getPageId(), newPR);
+			}
+
+			// Update the page map with new page rank
+			it = pageMap.keySet().iterator();
+			while (it.hasNext()) {
+				String pageId = it.next();
+				pageMap.get(pageId).setPageRank(newPrSet.get(pageId));
+			}
+
+			// increment iteration count after each iteration
+			iterationCount++;
+			// write result of the iteration
+			writeResultOfIteration(pageMap);
+		}
+
+		return pageMap;
+	}
+
+	/**
+	 * Method for writing the result of page ranking after each iteration
+	 * 
+	 * @param pageMap
+	 *            the page map after the iteration
+	 */
+	private static void writeResultOfIteration(Map<String, Page> pageMap) {
+		// output stream for result file
+		FileOutputStream output = null;
+		// Buffer writer for writing the result file
+		BufferedWriter writer = null;
+
+		// convert Map<String, Page> to Map<String, Double> since we don't
+		// require in-links and out-links anymore
+		Map<String, Double> smap = new LinkedHashMap<String, Double>();
+		Iterator<String> it = pageMap.keySet().iterator();
+		while (it.hasNext()) {
+			String key = it.next();
+			Double value = pageMap.get(key).getPageRank();
+			smap.put(key, value);
+		}
+
+		// sort map by the page rank values
+		Map<String, Double> sortedPages = new LinkedHashMap<String, Double>();
+
+		List<Map.Entry<String, Double>> entries = new LinkedList<Map.Entry<String, Double>>(smap.entrySet());
+		// sort map by the page rank values
+		Collections.sort(entries, new PageRankComparator());
+
+		for (Map.Entry<String, Double> entry : entries) {
+			sortedPages.put(entry.getKey(), entry.getValue());
+		}
+
+		// write the result file
+		it = sortedPages.keySet().iterator();
+		File result = new File(PageRankConstants.ROOT_DIR + PageRankConstants.PAGE_RANK_RESULT_PATH + "_iteration_"
+				+ iterationCount + PageRankConstants.EXTENSION);
+
+		try {
+			if (output == null) {
+				output = new FileOutputStream(result);
+			}
+
+			writer = new BufferedWriter(new OutputStreamWriter(output));
+			writer.write("------------------------------------------------------------------------");
+			writer.newLine();
+			writer.write("PAGE RANK AFTER ITERATION " + iterationCount);
+			writer.newLine();
+			writer.write("-------------------------------------------------------------------------");
+			writer.newLine();
+
+			while (it.hasNext()) {
+				String key = it.next();
+				writer.write(key + ":\t " + sortedPages.get(key));
+				writer.newLine();
+			}
+
+			writer.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public boolean isConverged(Map<String, Page> pageMap) {
+		// initial entropy value
+		Double entropy = new Double(0);
+
+		// Calculate Shannon's entropy
+		Iterator<String> it = pageMap.keySet().iterator();
+		while (it.hasNext()) {
+			Page p = pageMap.get(it.next());
+			// get page rank for the current page
+			Double pageRank = p.getPageRank();
+			// get log of page rank
+			Double log10 = new Double(Math.log(pageRank));
+			// get log of 2
+			Double log2 = new Double(Math.log(2));
+
+			// entropy = (page rank * log(page rank) to the base 2)
+			entropy += pageRank * (log10 / log2);
+		}
+
+		// get perplexity using formula 2^-(entropy)
+		Double plx = Math.pow(2, -entropy);
+
+		System.out.println("Iteration " + iterationCount + ": " + plx);
+
+		// add perplexity into the array
+		perplexity[++perplexityCount] = plx;
+
+		// check if perplexity change is less than 1 for 4 consecutive iteration
+		if (perplexityCount >= 5) {
+			if (getChangeInPerplexity(perplexity[perplexityCount], perplexity[perplexityCount - 1]) < 1
+					&& getChangeInPerplexity(perplexity[perplexityCount - 1], perplexity[perplexityCount - 2]) < 1
+					&& getChangeInPerplexity(perplexity[perplexityCount - 2], perplexity[perplexityCount - 3]) < 1
+					&& getChangeInPerplexity(perplexity[perplexityCount - 3], perplexity[perplexityCount - 4]) < 1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Method for getting change in two consecutive perplexity
+	 * 
+	 * @param p1
+	 *            perplexity first
+	 * @param p2
+	 *            perplexity second
+	 * 
+	 * @return Double - the change in perplexity
+	 */
+	private Double getChangeInPerplexity(Double p1, Double p2) {
+		return Math.abs(p1 - p2);
+	}
+
+	@Override
+	public Set<Page> getSinkNodes(Map<String, Page> pageMap) {
+		Set<Page> sinkNodeSet = new HashSet<Page>();
+
+		// Iterate over pageMap
+		Iterator<String> it = pageMap.keySet().iterator();
+		while (it.hasNext()) {
+			Page p = pageMap.get(it.next());
+			// check if page has no out links, if yes add to sink node
+			if (p.getOutLinks().size() == 0) {
+				sinkNodeSet.add(p);
+			}
+		}
+
+		return sinkNodeSet;
+	}
+	
+	@Override
+	public Set<Page> getSourceNodes(Map<String, Page> pageMap) {
+		Set<Page> sorceNodeSet = new HashSet<Page>();
+
+		// Iterate over pageMap
+		Iterator<String> it = pageMap.keySet().iterator();
+		while (it.hasNext()) {
+			Page p = pageMap.get(it.next());
+			// check if page has no in links, if yes add to source node
+			if (p.getInLinks().size() == 0) {
+				sorceNodeSet.add(p);
+			}
+		}
+
+		return sorceNodeSet;
+	}
+
+	@SuppressWarnings("resource")
+	@Override
+	public Map<String, Page> readTRECCollection(Map<String, Page> pageMap) throws IOException {
+		// read the TREC collection using buffer
+		BufferedReader br = new BufferedReader(
+				new FileReader(PageRankConstants.ROOT_DIR + PageRankConstants.TREC_PATH));
+		String line;
+
+		// Read the collection line by line
+		while ((line = br.readLine()) != null) {
+			// variable for End Of Line
+			boolean eol = false;
+			Page page = new Page();
+			// Check if no further spaces remains in the line
+			if (line.indexOf(' ') == -1) {
+				// check if page already added, if not then only create new
+				if (!pageMap.containsKey(line)) {
+					page.setPageId(line);
+					pageMap.put(page.getPageId(), page);
+				}
+				continue;
+			}
+
+			// set page id of the page as first string from the line
+			String pageId = line.substring(0, line.indexOf(' '));
+			// check if page already added, if not then only create new,
+			// otherwise get the old page
+			if (!pageMap.containsKey(pageId)) {
+				page.setPageId(pageId);
+			} else {
+				page = pageMap.get(pageId);
+			}
+
+			// all remaining line will represent the in-links
+			String remLine = line.substring(line.indexOf(' ') + 1);
+
+			// add in-links one by one
+			while (!remLine.isEmpty()) {
+				Page inPage = new Page();
+				// check if the line end reached
+				if (remLine.indexOf(' ') == -1) {
+					// set in-link page id
+					inPage.setPageId(remLine.substring(0));
+					// set end of line flag true to avoid further reading
+					eol = true;
+				} else {
+					// set in-link page id
+					inPage.setPageId(remLine.substring(0, remLine.indexOf(' ')));
+				}
+
+				// check if in-link is already present for the page, if yes
+				// do not add duplicates
+				if (!page.getInLinks().contains(inPage)) {
+					// add in-link to page
+					page.getInLinks().add(inPage);
+
+					// Simultaneously check if in-link present in the page map,
+					// if yes add current page is in it's out-link, otherwise
+					// create new page in the map and add out-link
+					if (pageMap.containsKey(inPage.getPageId())) {
+						pageMap.get(inPage.getPageId()).getOutLinks().add(page);
+					} else {
+						pageMap.put(inPage.getPageId(), inPage);
+						pageMap.get(inPage.getPageId()).getOutLinks().add(page);
+					}
+				}
+
+				// check if end of line occurs, if yes then go to next line
+				if (eol) {
+					break;
+				}
+
+				// get remaining line by removing current in-link
+				remLine = remLine.substring(remLine.indexOf(' ') + 1);
+			}
+
+			// if page was not already in map, add it
+			if (!pageMap.containsKey(page.getPageId())) {
+				pageMap.put(page.getPageId(), page);
+			}
+		}
+		return pageMap;
+	}
+
+	public static void setOutLinks(Map<String, Page> pageMap) throws IOException {
+		// read the TREC collection using buffer
+		BufferedReader br = new BufferedReader(
+				new FileReader(PageRankConstants.ROOT_DIR + PageRankConstants.TREC_PATH));
+		String line;
+
+		// Read the collection line by line
+		while ((line = br.readLine()) != null) {
+			Page page = new Page();
+			// Check if no further spaces remains in the line
+			if (line.indexOf(' ') == -1) {
+				continue;
+			}
+			
+			// set page id of the page as first string from the line
+						String pageId = line.substring(0, line.indexOf(' '));
+						
+			// all remaining line will represent the in-links
+			String remLine = line.substring(line.indexOf(' ') + 1);
+			
+		}
+	}
+}

@@ -1,0 +1,55 @@
+/**
+ * Interface for page rank
+ */
+package com.my.pagerank;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * @author Ajay Kauthale
+ * 
+ * @version 1.1
+ */
+public interface PageRankInterface {
+
+	/**
+	 * Method for calculation of the PageRank using pageranking algorithm
+	 * 
+	 * @return Map<String, Page> - the map of <Key, Value> as <PageId, Page> with
+	 *         calculated page rank for each page
+	 */
+	Map<String, Page> calculatePageRank(Map<String, Page> pageMap);
+
+	/**
+	 * Method for checking if the convergence of the page rank values happen
+	 * 
+	 * @param pageMap
+	 *            the page mape from the TREC collection
+	 * @return boolean - true iff page rank values has been converged
+	 */
+	boolean isConverged(Map<String, Page> pageMap);
+
+	/**
+	 * Method for getting all sink nodes for the TREC collection "Sink Node"
+	 * term refer to the pages whoch do not have any out-links
+	 * 
+	 * @param pageMap
+	 *            the page mape from the TREC collection
+	 * @return Set<Page> - the set of sink nodes (pages)
+	 */
+	Set<Page> getSinkNodes(Map<String, Page> pageMap);
+
+	/**
+	 * Method which is used for reading the TREC collection and forming the page
+	 * map. In this method, the in-links and out-links are also stored for each
+	 * page.
+	 * 
+	 * @param pageMap
+	 *            the page mape from the TREC collection
+	 * @return Map<String, Page> - the initial map of <Key, Value> as <PageId,
+	 *         Page>
+	 */
+	Map<String, Page> readTRECCollection(Map<String, Page> pageMap) throws IOException ;
+}
