@@ -1,0 +1,8 @@
+http://commons.apache.org/ : for using StringUtils
+http://www.stackoverflow.com: for getNoOfKeyPhraseEntries() method to get key phrase entry count
+https://docs.oracle.com/javase/tutorial/networking: for URL opening and reading the web page
+http://jsoup.org/cookbook/input/parse-document-from-string: for reading the text from the web page
+
+Third party JARS used:
+apache-commons-lang.jar
+jsoup-1.8.3.jar

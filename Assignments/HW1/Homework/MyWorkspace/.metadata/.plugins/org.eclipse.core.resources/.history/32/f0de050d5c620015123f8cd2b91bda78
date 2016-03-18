@@ -1,0 +1,155 @@
+/**
+ * Web Crawler class for creating simple web crawler
+ */
+package com.my.webcrawler;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+
+/**
+ * @author kauthale.a
+ * 
+ * @version 1.0
+ */
+public class Crawler 
+{
+	/** url which needs to be traversed */
+	private URL seed;
+	/** key phrase which needs to be searched on the given page */
+	private String keyPhrase;
+	/** list for storing traversed web pages */
+	private Map<String, Integer> listOfTraversedURL = new HashMap<String, Integer>();
+	/** list for storing web pages which needs to be traversed */
+	private Map<String, Integer> listOfURLNeedToTraverse = new HashMap<String, Integer>();
+
+	// //////////////// Constructors ////////////////////////////////
+	/**
+	 * Parameterized constructor for crawler
+	 * 
+	 * @param url
+	 *            : url for crawling
+	 * @param keyPhrase
+	 *            : key phrase to search
+	 */
+	public Crawler(URL seed, String keyPhrase) {
+		super();
+		this.seed = seed;
+		this.keyPhrase = keyPhrase;
+		this.listOfTraversedURL = new HashMap<String, Integer>();
+		this.listOfURLNeedToTraverse = new HashMap<String, Integer>();
+	}
+
+	/**
+	 * Default constructor for crawler
+	 */
+	public Crawler() {
+		super();
+	}
+
+	// /////////////// Setter and Getter methods ////////////////////
+
+	/**
+	 * @return the seed
+	 */
+	public URL getSeed() {
+		return seed;
+	}
+
+	/**
+	 * @param seed
+	 *            the seed to set
+	 */
+	public void setSeed(URL seed) {
+		this.seed = seed;
+	}
+
+	/**
+	 * @return the keyPhrase
+	 */
+	public String getKeyPhrase() {
+		return keyPhrase;
+	}
+
+	/**
+	 * @param keyPhrase
+	 *            the keyPhrase to set
+	 */
+	public void setKeyPhrase(String keyPhrase) {
+		this.keyPhrase = keyPhrase;
+	}
+
+	/**
+	 * @return the listOfTraversedURL
+	 */
+	public Map<String, Integer> getListOfTraversedURL() {
+		return listOfTraversedURL;
+	}
+
+	/**
+	 * @param listOfTraversedURL
+	 *            the listOfTraversedURL to set
+	 */
+	public void setListOfTraversedURL(Map<String, Integer> listOfTraversedURL) {
+		this.listOfTraversedURL = listOfTraversedURL;
+	}
+
+	/**
+	 * @return the listOfURLNeedToTraverse
+	 */
+	public Map<String, Integer> getListOfURLNeedToTraverse() {
+		return listOfURLNeedToTraverse;
+	}
+
+	/**
+	 * @param listOfURLNeedToTraverse
+	 *            the listOfURLNeedToTraverse to set
+	 */
+	public void setListOfURLNeedToTraverse(
+			Map<String, Integer> listOfURLNeedToTraverse) {
+		this.listOfURLNeedToTraverse = listOfURLNeedToTraverse;
+	}
+
+	/**
+	 * Method for crawling through web
+	 * 
+	 */
+	public void crawl() {
+		CrawlerInterface impl = new CrawlerImpl();
+		
+		try {
+			// get seed url
+			URL seed = this.getSeed();
+			//TODO need to add logger, but because of time limit added syso
+			System.out.println(seed.toString());
+			// check if url is not null
+			if (seed != null) {
+				// check if url is restricted or not
+				if (!impl.isRetrictedUrl(seed.toString())) {
+					// get number of key phrase entries
+					int noOfEntries = impl.getNoOfKeyPhraseEntries(this);
+					//this.getListOfTraversedURL().put(seed.toString(), noOfEntries);
+					// do not further crawl web page if the key phrase entry not found
+					List<URL> urls = ((noOfEntries == 0) && !StringUtils.isEmpty(this.keyPhrase)) ? null : impl.listOfUrl(this);
+
+					// update the list of urls which need to crawl
+					if (urls != null) {
+						for (URL url : urls) {
+							if (url != null && !this.getListOfTraversedURL().containsKey(url.toString())) {
+								this.getListOfURLNeedToTraverse().put(url.toString(), 0);
+							}
+						}
+					}
+				}
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

@@ -1,0 +1,227 @@
+/**
+ * Class for implementing CrawlerInterface methods
+ */
+package com.my.webcrawler;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.commons.lang.StringUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+/**
+ * @author kauthale.a
+ *
+ * @version 1.0
+ */
+public class CrawlerImpl implements CrawlerInterface 
+{
+	// Pattern for matching the "http://en.wikipedia.org/wiki" present or not
+	static Pattern urlPatern = Pattern.compile(CrawlerConstants.SEED_PREFIX);
+	// Pattern for matching the "/wiki" present or not
+	static Pattern relativeUrlPatern = Pattern.compile(CrawlerConstants.RELATIVE_SEED_PREFIX);
+	// Matcher for matching the seed url to the wiki pattern
+	static Matcher urlMatch = null;
+	// Matcher for matching the seed url to the wiki pattern
+	static Matcher relativeUrlMatch = null;
+
+	@Override
+	public List<URL> listOfUrl(Crawler crawler) throws IOException {
+		// constant for storing the line in the web page
+		String pageLine;
+		// list for storing all the urls present in the web page
+		List<URL> urlList = new ArrayList<URL>();
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(crawler.getSeed().openStream()));
+		// get urls present in the web page
+		while ((pageLine = in.readLine()) != null) {
+			if (StringUtils.containsIgnoreCase(pageLine, "href")) {
+				// extract the url from the href tag
+				String url = extractURL(pageLine);
+				if (url != null) {
+					urlList.add(new URL(url));
+				}
+			}
+		}
+
+		return urlList;
+	}
+
+	@Override
+	public int getNoOfKeyPhraseEntries(Crawler crawler) throws IOException {
+		int noOfEntries = 0;
+		// use Jsoup to get text from body tag
+		//Jsoup.connect(crawler.getSeed().toString()).get();
+		Document textDocument = Jsoup.parse(crawler.getSeed(), 1000);
+		Element text = textDocument.body();
+
+		// get count of key phrase entries into the web page
+		for (Element textNode : text.getAllElements()) {
+			noOfEntries += StringUtils.countMatches(textNode.text().toString(), crawler.getKeyPhrase());
+		}
+		
+		return noOfEntries;
+	}
+
+	@Override
+	public boolean isRetrictedUrl(String seed) {
+		// Boolean for storing restriction
+		boolean isRestricted = false;
+		// if given url is null then retrict it
+		if (seed == null) {
+			return true;
+		}
+
+		// if seed page is main page then restrict it from crawling
+		if (StringUtils.equals(CrawlerConstants.SEED_AVOID, seed.toString())
+				|| StringUtils.equals(CrawlerConstants.RELATIVE_SEED_AVOID, seed.toString())) {
+			isRestricted = true;
+		}
+
+		urlMatch = urlPatern.matcher(seed.toString());
+		relativeUrlMatch = relativeUrlPatern.matcher(seed.toString());
+
+		if (!isRestricted) {
+			// if pattern is of type wiki page then allow it
+			if (urlMatch.find() && seed.startsWith(CrawlerConstants.SEED_PREFIX)) {
+				isRestricted = false;
+			} else if (relativeUrlMatch.find() && seed.toString().startsWith(CrawlerConstants.RELATIVE_SEED_PREFIX)) {
+				isRestricted = false;
+			} else {
+				isRestricted = true;
+			}
+
+			// check if the given url string contains more than one colon, if
+			// yes then it should be help or admin page
+			if (!isRestricted && StringUtils.countMatches(seed.toString(), ":") > 1) {
+				isRestricted = true;
+			}
+		}
+
+		return isRestricted;
+	}
+
+	/**
+	 * method for extracting Url from the given tag
+	 * 
+	 * @param tag:
+	 *            String of html tag
+	 * @return String: the extracted Url from the string
+	 * @throws MalformedURLException
+	 */
+	public String extractURL(String tag) throws MalformedURLException {
+		// constant for storing extracted url
+		String url = null;
+
+		// get url enclosed in the href tag, when href tag using single quote
+		// for url
+		url = StringUtils.substringBetween(tag, "href='", "'");
+		// check if href tag is in upper case
+		if (url == null) {
+			url = StringUtils.substringBetween(tag, "HREF='", "'");
+		}
+
+		// if url is still null, which means href tag is using double quote for
+		// url
+		if (url == null) {
+			url = StringUtils.substringBetween(tag, "href=\"", "\"");
+			// check if href tag is in upper case
+			if (url == null) {
+				url = StringUtils.substringBetween(tag, "HREF=\"", "\"");
+			}
+		}
+
+		if (!isRetrictedUrl(url)) {
+			urlMatch = urlPatern.matcher(url);
+			relativeUrlMatch = relativeUrlPatern.matcher(url);
+			// if pattern is of type wiki page then return url
+			if (urlMatch.find() && url.startsWith(CrawlerConstants.SEED_PREFIX)) {
+				return url;
+			} else if (relativeUrlMatch.find() && url.startsWith(CrawlerConstants.RELATIVE_SEED_PREFIX)) {
+				if (StringUtils.countMatches(url, ":") >= 1) {
+					url = null;
+				} else {
+					url = StringUtils.replace(url, CrawlerConstants.RELATIVE_SEED_PREFIX, CrawlerConstants.SEED_PREFIX);
+				}
+			} else {
+				url = null;
+			}
+		} else {
+			url = null;
+		}
+
+		return url;
+	}
+
+	@Override
+	public CrawledPages crawlThroughWeb(Crawler cw, String keyPhrase, CrawledPages pageInfo)
+			throws MalformedURLException {
+		// if crawler is null then return
+		if (cw == null) {
+			return null;
+		}
+		// get total number of web pages crawled
+		int countOfTraversedPages = pageInfo.getListOfTraversedURL().size();
+		// if maximum crawl depth or maximum number of url crawled then stop
+		// commented for considering only depth 5
+		/*if (pageInfo.getDepth() > CrawlerConstants.MAX_CRAWLING_DEPTH
+				|| countOfTraversedPages > CrawlerConstants.MAX_CRAWLING_URL) {
+			return pageInfo;
+		}
+		 */
+		
+		
+		Map<String, Integer> needToTraverse = new HashMap<String, Integer>();
+		// get list of urls need to be crawled
+		Set<String> urls = pageInfo.getListOfURLNeedToTraverse().keySet();
+		for (String url : urls) {
+			// if maximum url has been crawled then no need to crawl further
+			if (countOfTraversedPages > CrawlerConstants.MAX_CRAWLING_URL) {
+				break;
+			}
+			// check  if the url is already crawled
+			if (!pageInfo.getListOfTraversedURL().containsKey(url)) {
+				cw = new Crawler(new URL(url), keyPhrase);
+				// crawl the url
+				cw.crawl();
+				// introduce delay between web request
+				/*try {
+					Thread.sleep(CrawlerConstants.REQUEST_DELAY);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}*/
+				// add url which need to crawled
+				needToTraverse.putAll(cw.getListOfURLNeedToTraverse());
+				// update list of crawled urls
+				pageInfo.getListOfTraversedURL().putAll(cw.getListOfTraversedURL());
+				// increase the total number of crawl url by 1
+				countOfTraversedPages++;
+			}
+		}
+		// clear list of url need to traversed
+		pageInfo.getListOfURLNeedToTraverse().clear();
+		// update url need to traversed with new list
+		pageInfo.getListOfURLNeedToTraverse().putAll(needToTraverse);
+		// increase crawler depth by 1
+		pageInfo.setDepth(pageInfo.getDepth() + 1);
+		Crawler myCrawler = new Crawler();
+		// call crawlThrougWeb method recursively if there are still more pages to crawl
+		if (pageInfo.getListOfURLNeedToTraverse().size() > 0) {
+			return crawlThroughWeb(myCrawler, keyPhrase, pageInfo);
+		}
+		return pageInfo;
+	}
+
+}

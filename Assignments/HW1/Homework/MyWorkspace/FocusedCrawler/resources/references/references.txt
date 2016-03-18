@@ -1,0 +1,5 @@
+http://commons.apache.org/
+http://www.stackoverflow.com
+https://docs.oracle.com/javase/tutorial/networking
+http://jsoup.org/cookbook/input/parse-document-from-string
+
