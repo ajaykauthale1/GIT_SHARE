@@ -1,0 +1,357 @@
+Birmingham	KBHM
+Dothan	KDHN
+Huntsville	KHSV
+Mobile	KMOB
+Montgomery	KMGM
+Bullhead City	KIFP
+Flagstaff	KFLG
+Grand Canyon / Tusayan	KGCN
+Mesa	KIWA
+Page	KPGA
+Phoenix	KPHX
+Tucson	KTUS
+Yuma	KNYL
+Fayetteville	KXNA
+Fort Smith	KFSM
+Little Rock	KLIT
+Texarkana	KTXK
+Arcata / Eureka	KACV
+Bakersfield	KBFL
+Burbank	KBUR
+Carlsbad	KCRQ
+Chico	KCIC
+Crescent City	KCEC
+Fresno	KFAT
+Long Beach	KLGB
+Los Angeles	KLAX
+Mammoth Lakes	KMMH
+Modesto	KMOD
+Monterey	KMRY
+Oakland	KOAK
+Ontario	KONT
+Palm Springs	KPSP
+Redding	KRDD
+Sacramento	KSMF
+San Diego	KSAN
+San Francisco	KSFO
+San Jose	KSJC
+San Luis Obispo	KSBP
+Santa Ana	KSNA
+Santa Barbara	KSBA
+Santa Maria	KSMX
+Santa Rosa	KSTS
+Stockton	KSCK
+Aspen	KASE
+Colorado Springs	KCOS
+Denver	KDEN
+Durango	KDRO
+Eagle	KEGE
+Grand Junction	KGJT
+Gunnison	KGUC
+Hayden	KHDN
+Montrose	KMTJ
+Hartford	KBDL
+New Haven	KHVN
+Daytona Beach	KDAB
+Fort Lauderdale	KFLL
+Fort Myers	KRSW
+Gainesville	KGNV
+Jacksonville	KJAX
+Key West	KEYW
+Melbourne	KMLB
+Miami	KMIA
+Orlando	KMCO
+Orlando/Sanford	KSFB
+Panama City Beach	KECP
+Pensacola	KPNS
+Punta Gorda	KPGD
+Sarasota / Bradenton	KSRQ
+St. Augustine	KSGJ
+St. Petersburg/Clearwater	KPIE
+Tallahassee	KTLH
+Tampa	KTPA
+Valparaiso	KVPS
+West Palm Beach	KPBI
+Albany	KABY
+Atlanta	KATL
+Augusta	KAGS
+Brunswick	KBQK
+Columbus	KCSG
+Savannah	KSAV
+Valdosta	KVLD
+Hilo	PHTO
+Honolulu	PHNL
+Kahului	PHOG
+Kailua/Kona	PHKO
+Kaunakakai	PHMK
+Lanai City (Lānaʻi City)	PHNY
+Lihue (Līhuʻe)	PHLI
+Boise	KBOI
+Hailey	KSUN
+Idaho Falls	KIDA
+Lewiston	KLWS
+Pocatello / Arbon Valley	KPIH
+Twin Falls	KTWF
+Belleville	KBLV
+Bloomington / Normal	KBMI
+Champaign / Urbana	KCMI
+Chicago	KORD
+Chicago	KMDW
+Marion	KMWA
+Moline	KMLI
+Peoria	KPIA
+Quincy	KUIN
+Rockford	KRFD
+Springfield	KSPI
+Evansville	KEVV
+Fort Wayne	KFWA
+Indianapolis	KIND
+South Bend	KSBN
+Cedar Rapids	KCID
+Des Moines	KDSM
+Dubuque	KDBQ
+Sioux City	KSUX
+Waterloo	KALO
+Garden City	KGCK
+Manhattan	KMHK
+Wichita	KICT
+Covington	KCVG
+Lexington	KLEX
+Louisville	KSDF
+Owensboro	KOWB
+Paducah	KPAH
+Alexandria	KAEX
+Baton Rouge	KBTR
+Lafayette	KLFT
+Lake Charles	KLCH
+Monroe	KMLU
+New Orleans	KMSY
+Shreveport	KSHV
+Bangor	KBGR
+Bar Harbor	KBHB
+Portland	KPWM
+Presque Isle	KPQI
+Rockland	KRKD
+Baltimore / Glen Burnie	KBWI
+Salisbury	KSBY
+Hagerstown	KHGR
+Boston	KBOS
+Hyannis	KHYA
+Nantucket	KACK
+New Bedford	KEWB
+Provincetown	KPVC
+Vineyard Haven	KMVY
+Alpena	KAPN
+Charlevoix	KCVX
+Detroit / Romulus	KDTW
+Escanaba	KESC
+Flint	KFNT
+Grand Rapids	KGRR
+Hancock / Calumet	KCMX
+Iron Mountain / Kingsford	KIMT
+Kalamazoo / Battle Creek	KAZO
+Lansing	KLAN
+Marquette / Gwinn	KSAW
+Muskegon	KMKG
+Pellston	KPLN
+Saginaw	KMBS
+Sault Ste. Marie	KCIU
+Traverse City	KTVC
+Bemidji	KBJI
+Brainerd	KBRD
+Duluth	KDLH
+Hibbing	KHIB
+International Falls	KINL
+Minneapolis	KMSP
+Rochester	KRST
+St. Cloud	KSTC
+Columbus / West Point / Starkville	KGTR
+Gulfport / Biloxi	KGPT
+Hattiesburg / Laurel	KPIB
+Jackson	KJAN
+Columbia	KCOU
+Joplin	KJLN
+Kansas City	KMCI
+Springfield	KSGF
+St. Louis	KSTL
+Billings	KBIL
+Bozeman	KBZN
+Butte	KBTM
+Great Falls	KGTF
+Helena	KHLN
+Kalispell	KGPI
+Missoula	KMSO
+Grand Island	KGRI
+Kearney	KEAR
+Lincoln	KLNK
+Omaha	KOMA
+Scottsbluff	KBFF
+Boulder City	KBVU
+Elko	KEKO
+Las Vegas	KLAS
+Reno	KRNO
+Lebanon	KLEB
+Manchester	KMHT
+Atlantic City	KACY
+Trenton	KTTN
+Newark	KEWR
+Albuquerque	KABQ
+Farmington	KFMN
+Hobbs	KHOB
+Roswell	KROW
+Santa Fe	KSAF
+Albany	KALB
+Binghamton	KBGM
+Buffalo	KBUF
+Elmira / Corning	KELM
+Islip	KISP
+Ithaca	KITH
+New York	KJFK
+New York	KLGA
+Newburgh	KSWF
+Niagara Falls	KIAG
+Plattsburgh	KPBG
+Rochester	KROC
+Syracuse	KSYR
+Watertown	KART
+White Plains	KHPN
+Asheville	KAVL
+Charlotte	KCLT
+Fayetteville	KFAY
+Greensboro	KGSO
+Greenville	KPGV
+Jacksonville	KOAJ
+New Bern	KEWN
+Raleigh	KRDU
+Wilmington	KILM
+Bismarck	KBIS
+Dickinson	KDIK
+Fargo	KFAR
+Grand Forks	KGFK
+Minot	KMOT
+Williston	KISN
+Akron / Canton	KCAK
+Cleveland	KCLE
+Columbus	KCMH
+Columbus	KLCK
+Dayton	KDAY
+Toledo	KTOL
+Youngstown / Warren	KYNG
+Lawton	KLAW
+Oklahoma City	KOKC
+Tulsa	KTUL
+Eugene	KEUG
+Klamath Falls	KLMT
+Medford	KMFR
+North Bend	KOTH
+Portland	KPDX
+Redmond	KRDM
+Allentown	KABE
+Erie	KERI
+Harrisburg / Middletown	KMDT
+Latrobe	KLBE
+Philadelphia	KPHL
+Pittsburgh	KPIT
+State College	KUNV
+Wilkes-Barre / Scranton	KAVP
+Williamsport	KIPT
+Providence / Warwick	KPVD
+Westerly	KWST
+Charleston	KCHS
+Columbia	KCAE
+Florence	KFLO
+Greer	KGSP
+Hilton Head Island	KHXD
+Myrtle Beach	KMYR
+Aberdeen	KABR
+Pierre	KPIR
+Rapid City	KRAP
+Sioux Falls	KFSD
+Bristol / Johnson City / Kingsport	KTRI
+Chattanooga	KCHA
+Knoxville	KTYS
+Memphis	KMEM
+Nashville	KBNA
+Abilene	KABI
+Amarillo	KAMA
+Austin	KAUS
+Beaumont / Port Arthur	KBPT
+Brownsville	KBRO
+College Station	KCLL
+Corpus Christi / Kingsville	KCRP
+Dallas	KDAL
+Dallas-Fort Worth	KDFW
+Del Rio	KDRT
+El Paso	KELP
+Fort Hood / Killeen / Temple	KGRK
+Harlingen	KHRL
+Houston	KIAH
+Houston	KHOU
+Laredo	KLRD
+Longview	KGGG
+Lubbock	KLBB
+McAllen	KMFE
+Midland	KMAF
+San Angelo	KSJT
+San Antonio	KSAT
+Tyler	KTYR
+Waco	KACT
+Wichita Falls	KSPS
+Provo	KPVU
+Salt Lake City	KSLC
+St. George / Beaver	KSGU
+Wendover	KENV
+Burlington	KBTV
+Charlottesville	KCHO
+Lynchburg	KLYH
+Newport News	KPHF
+Norfolk	KORF
+Richmond	KRIC
+Roanoke	KROA
+Staunton / Waynesboro / Harrisonburg	KSHD
+Washington, D.C. / Arlington County	KDCA
+Washington, D.C. / Dulles / Chantilly	KIAD
+Bellingham	KBLI
+Friday Harbor	KFHR
+Pasco	KPSC
+Port Angeles	KCLM
+Pullman / Moscow, Idaho	KPUW
+Seattle	KBFI
+Seattle / Tacoma (SeaTac)	KSEA
+Spokane	KGEG
+Walla Walla	KALW
+Wenatchee	KEAT
+Yakima	KYKM
+Charleston	KCRW
+Clarksburg	KCKB
+Huntington	KHTS
+Lewisburg	KLWB
+Morgantown	KMGW
+Appleton	KATW
+Eau Claire	KEAU
+Green Bay	KGRB
+La Crosse	KLSE
+Madison	KMSN
+Milwaukee	KMKE
+Wausau	KCWA
+Rhinelander	KRHI
+Casper	KCPR
+Cheyenne	KCYS
+Cody	KCOD
+Gillette	KGCC
+Jackson	KJAC
+Laramie	KLAR
+Riverton	KRIW
+Rock Springs	KRKS
+Sheridan	KSHR
+Pago Pago, Tutuila	NSTU
+Agana / Tamuning	PGUM
+Obyan, Saipan Island	PGSN
+Rota Island	PGRO
+Aguadilla	TJBQ
+Ponce	TJPS
+San Juan / Carolina	TJSJ
+San Juan / Miramar	TJIG
+Vieques	TJVQ
+Charlotte Amalie, St. Thomas	TIST
+Christiansted, St. Croix	TISX
