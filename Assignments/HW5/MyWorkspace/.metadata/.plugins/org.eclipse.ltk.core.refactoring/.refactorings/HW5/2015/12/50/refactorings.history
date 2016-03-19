@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;dcmap&apos; in &apos;HW5.getNDCG(...)&apos; to &apos;dit&apos;&#x0D;&#x0A;- Original project: &apos;HW5&apos;&#x0D;&#x0A;- Original element: &apos;HW5.getNDCG(Map&lt;Integer, List&lt;String&gt;&gt;, Map&lt;Integer, List&lt;String&gt;&gt;).dcmap&apos;&#x0D;&#x0A;- Renamed element: &apos;dcmap&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;dcmap&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{HW5.java[HW5~getNDCG~QMap\&lt;QInteger;QList\&lt;QString;&gt;;&gt;;~QMap\&lt;QInteger;QList\&lt;QString;&gt;;&gt;;@dcmap!7631!7690!7648!7652!QIterator\&lt;QString;&gt;;!0!false" name="dit" references="true" stamp="1449462590120" version="1.0"/>
+</session>

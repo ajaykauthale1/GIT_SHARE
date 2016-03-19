@@ -1,0 +1,298 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
+
+/**
+ * 
+ */
+
+/**
+ * @author AjayBaban
+ *
+ */
+public class HW5 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Map<Integer, List<String>> judgementMap = getRelevantDocIds("resources\\input\\cacm.rel");
+		Map<Integer, List<String>> actualMap12 = getActualResultMap("resources\\input\\q1.txt", 12);
+		Map<Integer, List<String>> actualMap13 = getActualResultMap("resources\\input\\q2.txt", 13);
+		Map<Integer, List<String>> actualMap19 = getActualResultMap("resources\\input\\q3.txt", 19);
+	
+		System.out.println("RESULTS FOR HW4:");
+		System.out.println("Precision:");
+		System.out.println("Query 12: " + getPrecision(actualMap12, judgementMap));
+		System.out.println("Query 13: " + getPrecision(actualMap13, judgementMap));
+		System.out.println("Query 19: " + getPrecision(actualMap19, judgementMap));
+		
+		System.out.println("Recall:");
+		System.out.println("Query 12: " + getRecall(actualMap12, judgementMap));
+		System.out.println("Query 13: " + getRecall(actualMap13, judgementMap));
+		System.out.println("Query 19: " + getRecall(actualMap19, judgementMap));
+		
+		System.out.println("P@20");
+		System.out.println("Query 12: " + getPatK(actualMap12, judgementMap));
+		System.out.println("Query 13: " + getPatK(actualMap13, judgementMap));
+		System.out.println("Query 19: " + getPatK(actualMap19, judgementMap));
+
+		System.out.println("MAP:");
+		Double avg = (getAvgPrecision(actualMap12, judgementMap) + getAvgPrecision(actualMap13, judgementMap)
+				+ getAvgPrecision(actualMap19, judgementMap)) / new Double(3);
+		System.out.println(avg);
+	}
+
+	public static Double getPrecision(Map<Integer, List<String>> actualMap, Map<Integer, List<String>> judgementMap) {
+		Iterator<Integer> it = actualMap.keySet().iterator();
+		int totalRelelevantDocsRetrieved = 0;
+		int totalRetrieved = 0;
+		while (it.hasNext()) {
+			int qid = it.next();
+			
+			List<String> retrievedDocs = actualMap.get(qid);
+ 			List<String> relevantDocs = judgementMap.get(qid);
+ 			
+ 			totalRetrieved = retrievedDocs.size();
+			
+ 			for (String doc : retrievedDocs) {
+ 				if (relevantDocs.contains(doc)) {
+ 					totalRelelevantDocsRetrieved ++;
+ 				}
+ 			}
+		}
+		
+		Double precison = new Double(totalRelelevantDocsRetrieved) / new Double(totalRetrieved);
+		
+		return precison;
+	}
+
+	public static Double getRecall(Map<Integer, List<String>> actualMap, Map<Integer, List<String>> judgementMap) {
+		Iterator<Integer> it = actualMap.keySet().iterator();
+		int totalRelelevantDocsRetrieved = 0;
+		int totalRelevant = 0;
+		while (it.hasNext()) {
+			int qid = it.next();
+			
+			List<String> retrievedDocs = actualMap.get(qid);
+ 			List<String> relevantDocs = judgementMap.get(qid);
+ 			
+ 			totalRelevant = relevantDocs.size();
+			
+ 			for (String doc : retrievedDocs) {
+ 				if (relevantDocs.contains(doc)) {
+ 					totalRelelevantDocsRetrieved ++;
+ 				}
+ 			}
+		}
+		
+		Double recall = new Double(totalRelelevantDocsRetrieved) / new Double(totalRelevant);
+		
+		return recall;
+	}
+	
+	public static double getPatK(Map<Integer, List<String>> actualMap, Map<Integer, List<String>> judgementMap	) {
+		Iterator<Integer> it = actualMap.keySet().iterator();
+		int totalRelelevantDocsRetrieved = 0;
+		//int totalRetrieved = 0;
+		int cnt = 0;
+		while (it.hasNext()) {
+			int qid = it.next();
+
+			List<String> retrievedDocs = actualMap.get(qid);
+			List<String> relevantDocs = judgementMap.get(qid);
+
+			//totalRetrieved = retrievedDocs.size();
+
+			for (String doc : retrievedDocs) {
+				cnt++;
+				if (cnt == 20) {
+					break;
+				}
+				if (relevantDocs.contains(doc)) {
+					totalRelelevantDocsRetrieved++;
+				}
+			}
+		}
+
+		Double precison = new Double(totalRelelevantDocsRetrieved) / new Double(20);
+		return precison;
+	}
+	
+	public static Double getNDCG(Map<Integer, List<String>> actualMap, Map<Integer, List<String>> judgementMap) {
+		Map<String, Integer> relevanceScale = new HashMap<String, Integer>();
+		Map<String, Double> discountedGain = new HashMap<String, Double>();
+		
+		Iterator<Integer> it = actualMap.keySet().iterator();
+		
+		// relevance scale
+		while (it.hasNext()) {
+			int qid = it.next();
+			List<String> retrievedDocs = actualMap.get(qid);
+			List<String> relevantDocs = judgementMap.get(qid);
+			
+			for (String doc : retrievedDocs) {
+				if (relevantDocs.contains(doc)) {
+					relevanceScale.put(doc, 1);
+				} else {
+					relevanceScale.put(doc, 0);
+				}
+			}
+		}
+		
+		// discounted gain
+		Iterator<String> rel = relevanceScale.keySet().iterator();
+		int i = 0;
+		while (rel.hasNext()) {
+			String doc = rel.next();
+			int relevance = relevanceScale.get(doc);
+			Double dc = new Double(relevance) / getLogBase2(i);
+			discountedGain.put(doc, dc);
+			i++;
+		}
+		
+		// dcg
+		Iterator<String> dcmap = discountedGain.keySet().iterator();
+		int total = 0;
+		while (dcmap.hasNext()) {
+			String doc = dcmap.next();
+			Double dc = discountedGain.get(doc);
+			discountedGain.put(doc, dc);
+			i++;
+		}
+		
+		return 0.0;
+	}
+	
+	public static Double getLogBase2(int number) {
+		return new Double(Math.log(number)) / new Double(Math.log(2));
+	}
+	
+	public static Double getAvgPrecision(Map<Integer, List<String>> actualMap, Map<Integer, List<String>> judgementMap) {
+		Iterator<Integer> it = actualMap.keySet().iterator();
+		Double totalPrecision = 0.0;
+		int currentRetrieved  = 0;
+		int currentRelevant = 0;
+		
+		while(it.hasNext()) {
+			int qid = it.next();
+			List<String> retrievedDocs = actualMap.get(qid);
+ 			List<String> relevantDocs = judgementMap.get(qid);
+ 			
+ 			for (String doc : retrievedDocs) {
+ 				if (relevantDocs.size() == currentRelevant) {
+ 					break;
+ 				}
+ 				if (relevantDocs.contains(doc)) {
+ 					currentRetrieved++;
+ 					currentRelevant++;
+ 					totalPrecision += getCurrentPrecision(currentRelevant, currentRetrieved);
+ 				} else {
+ 					currentRetrieved++;
+ 				}
+ 			}
+		}
+		
+		return totalPrecision / new Double(currentRelevant);
+	}
+	
+	public static Double getCurrentPrecision(int relevantDocsRetrieved, int retrievedDocs) {
+		return (new Double(relevantDocsRetrieved)/ new Double(retrievedDocs));
+	}
+	
+	public static Map<Integer, List<String>> getRelevantDocIds(String inputFile) {
+		Map<Integer, List<String>> judgementMap = new HashMap<Integer, List<String>>();
+		try {
+			LineIterator it = FileUtils.lineIterator(new File(inputFile), "UTF-8");
+			
+			// iterate over each line
+			while (it.hasNext()) {
+				// read line
+				String line = it.nextLine();
+				// scanner for reading each word
+				Scanner sc = new Scanner(line);
+				
+				while(sc.hasNext()) {
+					String id = sc.next();
+					
+					if (!id.equals("12") && !id.equals("13") && !id.equals("19")) {
+						break;
+					}
+					// skip Q0
+					sc.next();
+					
+					String document = sc.next();
+					String flag = sc.next();
+					int queryId = Integer.parseInt(id);
+					List<String> docList = new LinkedList<String>();
+					
+					if (flag.equals("1")) {
+						if (judgementMap.containsKey(queryId)) {
+							docList = judgementMap.get(queryId);
+							docList.add(document);
+							judgementMap.put(queryId, docList);
+						} else {
+							docList.add(document);
+							judgementMap.put(queryId, docList);	
+						}
+					}
+				}
+				
+				sc.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return judgementMap;
+	}
+	
+	public static Map<Integer, List<String>> getActualResultMap(String resultFile, int queryId) {
+		Map<Integer, List<String>> actualMap = new HashMap<Integer, List<String>>();
+		
+		try {
+			LineIterator it = FileUtils.lineIterator(new File(resultFile), "UTF-8");
+			
+			while (it.hasNext()) {
+				// read line
+				String line = it.nextLine();
+				// scanner for reading each word
+				Scanner sc = new Scanner(line);
+				
+				while(sc.hasNext()) {
+					sc.next();
+					if (sc.hasNext()) {
+						String document = sc.next();
+						document = truncateDocumentName(document);
+						List<String> docList = new LinkedList<String>();
+						
+						if (actualMap.containsKey(queryId)) {
+							docList = actualMap.get(queryId);
+							docList.add(document);
+							actualMap.put(queryId, docList);
+						} else {
+							docList.add(document);
+							actualMap.put(queryId, docList);	
+						}
+					}
+				}
+				sc.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+		return actualMap;
+	}
+	
+	public static String truncateDocumentName(String document) {
+		return document.substring(document.lastIndexOf("\\") + 1, document.lastIndexOf("."));
+	}
+}

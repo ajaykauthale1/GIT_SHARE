@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;HW5.getMAP(...)&apos; to &apos;getAvgPrecision&apos;&#x0D;&#x0A;- Original project: &apos;HW5&apos;&#x0D;&#x0A;- Original element: &apos;HW5.getMAP(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;HW5.getAvgPrecision(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;getMAP&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{HW5.java[HW5~getMAP~QMap\&lt;QInteger;QList\&lt;QString;&gt;;&gt;;~QMap\&lt;QInteger;QList\&lt;QString;&gt;;&gt;;" name="getAvgPrecision" references="true" stamp="1448773745484" version="1.0"/>
+</session>
