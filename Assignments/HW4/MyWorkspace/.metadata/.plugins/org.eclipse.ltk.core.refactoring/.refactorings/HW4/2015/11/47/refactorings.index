@@ -1,0 +1,3 @@
+1447732067639	Rename type 'BM25Comparator'
+1447732600653	Rename local variable 'sortedDocScore'
+1447732838669	Rename local variable 'rankedDocsByQuery'
