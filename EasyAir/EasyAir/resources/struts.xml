@@ -12,17 +12,32 @@
 		value="ApplicationResources" />
  
 	<package name="default" extends="struts-default" namespace="/">
- 
-		<action name="login" method="authenticate"
+		<action name="login" method="init"
 			class="com.easyair.view.actions.LoginAction">
-			<result name="success">jsp/pages/Welcome.jsp</result>
+			<result name="login">jsp/pages/Login.jsp</result>
+			<result type="redirect" name="success">schedule.action</result>
 			<result name="error">jsp/pages/Login.jsp</result>
+			<result type="redirect" name="book">ticketbook.action</result>
 		</action>
 		
 		<action name="schedule" method="init"
 			class="com.easyair.view.actions.ScheduleAction">
 			<result name="success">jsp/pages/Schedules.jsp</result>
+			<result name="login">jsp/pages/Login.jsp</result>
+			<result type="redirect" name="book">ticketbook.action</result>
 			<result name="error">jsp/pages/Schedules.jsp</result>
+		</action>
+		
+		<action name="ticketbook" method="init"
+			class="com.easyair.view.actions.TicketBookAction">
+				<result name="success">jsp/pages/BookTicket.jsp</result>
+				<result name="confirm" type="redirect">payment.action</result>
+				<result name="error">jsp/pages/Schedules.jsp</result>
+		</action>
+		
+		<action name="payment" method="init"
+			class="com.easyair.view.actions.PaymentAction">
+				<result name="success">jsp/pages/PaymentConfirmation.jsp</result>
 		</action>
 	</package>
 </struts>

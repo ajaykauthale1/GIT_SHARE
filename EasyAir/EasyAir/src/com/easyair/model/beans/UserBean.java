@@ -1,11 +1,19 @@
 package com.easyair.model.beans;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +37,12 @@ public class UserBean implements Serializable {
 	private boolean emailNotify;
 	/** admin flag */
 	private boolean isAdmin;
+	/** date of birth */
+	private Date dateOfBirth;
+	/** date of birth */
+	private String gender;
+	/** Payment */
+	private Set<PaymentDataBean> payment;
 
 	/**
 	 * @return the userId
@@ -126,5 +140,57 @@ public class UserBean implements Serializable {
 	 */
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+
+	/**
+	 * @return the payment
+	 */
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	public Set<PaymentDataBean> getPayment() {
+		return payment;
+	}
+
+	/**
+	 * @param payment the payment to set
+	 */
+	public void setPayment(Set<PaymentDataBean> payment) {
+		this.payment = payment;
+	}
+
+	/**
+	 * @return the dateOfBirth
+	 */
+	@Column(name="date_of_birth", nullable=false)
+	public Date getDateOfBirth() {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+		try {
+			dateOfBirth = sdf.parse(sdf.format(dateOfBirth));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return dateOfBirth;
+	}
+
+	/**
+	 * @param dateOfBirth the dateOfBirth to set
+	 */
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	/**
+	 * @return the gender
+	 */
+	@Column(name="gender", nullable=false)
+	@Enumerated(EnumType.STRING)
+	public String getGender() {
+		return gender;
+	}
+
+	/**
+	 * @param gender the gender to set
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 }

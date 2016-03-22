@@ -34,7 +34,7 @@ public class scheduleMapper {
 					dto.setDestination(manager.getAirport(destination));
 					dto.setSource(manager.getAirport(source));
 					dto.setFlightId(flight.getFlightId());
-					dto.setPrice(200);
+					dto.setPrice(schedule.getPrice());
 					dto.setScheduleId(schedule.getScheduleId());
 					dto.setTripHours(schedule.getTripHours());
 					Long airlineId = flight.getAirline().getAirlineId();

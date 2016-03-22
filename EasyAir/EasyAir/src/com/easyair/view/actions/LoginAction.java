@@ -2,14 +2,16 @@ package com.easyair.view.actions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.easyair.controller.LoginManager;
 import com.easyair.model.beans.UserBean;
+import com.easyair.utils.Constants;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport {
+public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * 
 	 */
@@ -20,8 +22,11 @@ public class LoginAction extends ActionSupport {
 	private String password;
 	/** Manager for database access */
 	private LoginManager loginManager;
+	/** users */
 	private List<UserBean> users = new ArrayList<>();
-	
+	/** session map for user */
+	private Map<String, Object> sessionMap;
+
 	/**
 	 * 
 	 */
@@ -30,25 +35,39 @@ public class LoginAction extends ActionSupport {
 	}
 
 	/**
+	 * 
+	 * @return
+	 */
+	public String init() {
+		return "login";
+	}
+	/**
 	 * Method to authenticate the login
 	 * 
 	 * @return success when user authenticated
 	 */
 	public String authenticate() {
-		System.out.println("started...");
-		
-		boolean isFound = loginManager.authenticate(this.username, this.password);
-		
-		if (isFound) {
+		UserBean user = loginManager.getUser(this.username, this.password);
+
+		if (user != null) {
+			sessionMap.put(Constants.USER, user);
+			if (sessionMap.get(Constants.BOOK_FORWARD) != null) {
+				return "book";
+			}
 			return "success";
 		} else {
 			addActionError(getText("error.login"));
 			return "error";
 		}
 	}
-
-	public String execute() {
-		return authenticate();
+	
+	public String logout() {
+		if (sessionMap.get(Constants.USER) != null) {
+			sessionMap.remove(Constants.USER);
+		} else {
+			addActionError(getText("error.logout"));
+		}
+		return "success";
 	}
 
 	/**
@@ -81,4 +100,11 @@ public class LoginAction extends ActionSupport {
 		this.password = password;
 	}
 
+	@Override
+	/**
+	 * set session map
+	 */
+	public void setSession(Map sessionMap) {
+		this.sessionMap = sessionMap;
+	}
 }

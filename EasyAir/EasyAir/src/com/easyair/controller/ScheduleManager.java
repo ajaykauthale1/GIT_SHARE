@@ -21,6 +21,7 @@ import com.easyair.mapper.scheduleMapper;
 import com.easyair.model.beans.AirlineDataBean;
 import com.easyair.model.beans.FlightDataBean;
 import com.easyair.model.beans.ScheduleDataBean;
+import com.easyair.model.beans.UserBean;
 import com.easyair.utils.HibernateUtil;
 
 /**
@@ -150,5 +151,22 @@ public class ScheduleManager extends HibernateUtil {
 			session.getTransaction().commit();
 		}
 		return airport;
+	}
+	
+	public ScheduleDataBean getSchedule(Long scheduleId) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		ScheduleDataBean schedule = null;
+		session.beginTransaction();
+		try {
+				String queryString = "from ScheduleDataBean where scheduleId = :id";
+				Query query = session.createQuery(queryString);
+				query.setLong("id", scheduleId);
+				schedule = (ScheduleDataBean) query.uniqueResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		session.getTransaction().commit();
+		return schedule;
 	}
 }

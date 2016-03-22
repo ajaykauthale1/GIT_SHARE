@@ -8,16 +8,20 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.easyair.controller.ScheduleManager;
 import com.easyair.dto.ScheduleDto;
+import com.easyair.utils.Constants;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Ajay
  *
  */
-public class ScheduleAction extends ActionSupport {
+public class ScheduleAction extends ActionSupport implements SessionAware {
 	/**
 	 * 
 	 */
@@ -44,6 +48,8 @@ public class ScheduleAction extends ActionSupport {
 	private Long selectedSchedule;
 	/** */
 	ScheduleManager mgr = new ScheduleManager();
+	/** session map for user */
+	private Map<String, Object> sessionMap;
 	
 	/**
 	 * 
@@ -58,7 +64,12 @@ public class ScheduleAction extends ActionSupport {
 	 * @return
 	 */
 	public String bookTicket() {
-		return "success";
+		sessionMap.put(Constants.BOOK_FORWARD, selectedSchedule);
+		if (sessionMap.get(Constants.USER) == null) {
+			return "login";
+		} else {
+			return "book";
+		}
 	}
 	
 	public void resetDateFormat() {
@@ -252,4 +263,11 @@ public class ScheduleAction extends ActionSupport {
 		this.selectedSchedule = selectedSchedule;
 	}
 	
+	@Override
+	/**
+	 * set session map
+	 */
+	public void setSession(Map sessionMap) {
+		this.sessionMap = sessionMap;
+	}
 }

@@ -44,6 +44,8 @@ public class ScheduleDataBean implements Serializable {
 	/** */
 	private double tripHours;
 	/** */
+	private double price;
+	/** */
 	private FlightDataBean flight;
 
 	/**
@@ -161,5 +163,20 @@ public class ScheduleDataBean implements Serializable {
 	 */
 	public void setFlight(FlightDataBean flight) {
 		this.flight = flight;
+	}
+
+	/**
+	 * @return the price
+	 */
+	@Column(name = "price")
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(double price) {
+		this.price = price;
 	}
 }

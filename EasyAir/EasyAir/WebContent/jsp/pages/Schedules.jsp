@@ -14,6 +14,7 @@
 <link
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/style.css">
 <style>
 #schedule_label_searchFlights {
 	background: #9AC462;
@@ -124,18 +125,10 @@ heading {
 <body>
 	<s:actionerror />
 	<s:set name="theme" value="'simple'" scope="page" />
+	<jsp:include page="header.jsp"></jsp:include>
 	<s:form action="schedule.action" method="post">
 		<table id="scheduleTable" style="border: 1 solid balck;"
 			align="center">
-			<thead>
-				<tr>
-					<td colspan="4" align="center">
-						<div class="ui-widget">
-							<h3 style="color: #8FBA56;">EasyAir</h3>
-						</div>
-					</td>
-				</tr>
-			</thead>
 			<tbody>
 				<tr>
 					<td colspan="1" align="left" width="100">
@@ -243,10 +236,7 @@ heading {
 						<td colspan="4" align="center"><input type="submit" id="book_btn"
 							name="method:bookTicket" value="Book"
 							onclick="setScheduleId('<s:property value="scheduleId" />');" />  
-							<%-- <div class="ui-widget">
-							<s:submit method="hold" value="Hold" id="book_btn1"
-								align="center" />
-						</div> --%></td>
+						</td>
 					</tr>
 				</s:iterator>
 			</tbody>
