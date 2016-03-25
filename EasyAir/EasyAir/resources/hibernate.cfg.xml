@@ -30,6 +30,7 @@
         <mapping class="com.easyair.model.beans.ScheduleDataBean" />
         <mapping class="com.easyair.model.beans.AirlineDataBean" />
         <mapping class="com.easyair.model.beans.PaymentDataBean" />
+        <mapping class="com.easyair.model.beans.TicketDataBean" />
  
     </session-factory>
 </hibernate-configuration>

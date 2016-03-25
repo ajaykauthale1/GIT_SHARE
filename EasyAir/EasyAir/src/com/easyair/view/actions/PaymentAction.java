@@ -39,6 +39,11 @@ public class PaymentAction extends ActionSupport implements SessionAware {
 		return "success";
 	}
 
+	public String purchase() {
+		
+		return "print_ticket";
+	}
+	
 	/**
 	 * @return the user
 	 */

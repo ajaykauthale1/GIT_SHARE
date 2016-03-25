@@ -1,6 +1,8 @@
 package com.easyair.utils;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 public class HibernateUtil {
@@ -18,5 +20,28 @@ public class HibernateUtil {
 
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
+	}
+	
+	/**
+	 * 
+	 * @param obj
+	 */
+	public static void persist(Object obj) {
+		 Session sess = HibernateUtil.getSessionFactory().getCurrentSession();
+		 Transaction tx = null;
+		 try {
+		     tx = sess.beginTransaction();
+		     sess.update(obj);
+		     tx.commit();
+		 }
+		 catch (Exception e) {
+		     if (tx != null) { 
+		    	 tx.rollback();
+		     }
+		     throw e;
+		 }
+		 finally {
+		     sess.close();
+		 }
 	}
 }

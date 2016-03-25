@@ -107,7 +107,6 @@
 					<td>
 						<div class="ui-widget">
 							<input type="button" onclick="window.history.back();" id='ticketbook_label_back' value="Back"/> 
-							<%-- <s:submit method="back" key="label.back" align="center" /> --%>
 						</div>
 					</td>
 				</tr>
