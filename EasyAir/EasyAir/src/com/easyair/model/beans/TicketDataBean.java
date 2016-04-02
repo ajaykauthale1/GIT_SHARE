@@ -13,6 +13,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -53,17 +54,20 @@ public class TicketDataBean implements Serializable {
 	 * @return the ticketId
 	 */
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ticket_id")
 	public Long getTicketId() {
 		return ticketId;
 	}
+
 	/**
-	 * @param ticketId the ticketId to set
+	 * @param ticketId
+	 *            the ticketId to set
 	 */
 	public void setTicketId(Long ticketId) {
 		this.ticketId = ticketId;
 	}
+
 	/**
 	 * @return the ticketNumber
 	 */
@@ -71,12 +75,15 @@ public class TicketDataBean implements Serializable {
 	public String getTicketNumber() {
 		return ticketNumber;
 	}
+
 	/**
-	 * @param ticketNumber the ticketNumber to set
+	 * @param ticketNumber
+	 *            the ticketNumber to set
 	 */
 	public void setTicketNumber(String ticketNumber) {
 		this.ticketNumber = ticketNumber;
 	}
+
 	/**
 	 * @return the pnrNumber
 	 */
@@ -84,12 +91,15 @@ public class TicketDataBean implements Serializable {
 	public String getPnrNumber() {
 		return pnrNumber;
 	}
+
 	/**
-	 * @param pnrNumber the pnrNumber to set
+	 * @param pnrNumber
+	 *            the pnrNumber to set
 	 */
 	public void setPnrNumber(String pnrNumber) {
 		this.pnrNumber = pnrNumber;
 	}
+
 	/**
 	 * @return the price
 	 */
@@ -97,62 +107,78 @@ public class TicketDataBean implements Serializable {
 	public double getPrice() {
 		return price;
 	}
+
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
 	/**
 	 * @return the chosenClass
 	 */
-	@Column(name="class", nullable=false)
+	@Column(name = "class", nullable = false)
 	@Enumerated(EnumType.STRING)
 	public String getChosenClass() {
 		return chosenClass;
 	}
+
 	/**
-	 * @param chosenClass the chosenClass to set
+	 * @param chosenClass
+	 *            the chosenClass to set
 	 */
 	public void setChosenClass(String chosenClass) {
 		this.chosenClass = chosenClass;
 	}
+
 	/**
 	 * @return the boardingTime
 	 */
 	@Temporal(TemporalType.DATE)
-	@Column(name="boarding_time")
+	@Column(name = "boarding_time")
 	public Date getBoardingTime() {
 		return boardingTime;
 	}
+
 	/**
-	 * @param boardingTime the boardingTime to set
+	 * @param boardingTime
+	 *            the boardingTime to set
 	 */
 	public void setBoardingTime(Date boardingTime) {
 		this.boardingTime = boardingTime;
 	}
+
 	/**
 	 * @return the user
 	 */
 	@JoinColumn(name = "user_id")
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public UserBean getUser() {
 		return user;
 	}
+
 	/**
-	 * @param user the user to set
+	 * @param user
+	 *            the user to set
 	 */
 	public void setUser(UserBean user) {
 		this.user = user;
 	}
+
 	/**
 	 * @return the schedule
 	 */
+	@JoinColumn(name = "schedule_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public ScheduleDataBean getSchedule() {
 		return schedule;
 	}
+
 	/**
-	 * @param schedule the schedule to set
+	 * @param schedule
+	 *            the schedule to set
 	 */
 	public void setSchedule(ScheduleDataBean schedule) {
 		this.schedule = schedule;

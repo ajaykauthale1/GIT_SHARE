@@ -44,7 +44,7 @@ public class UserBean implements Serializable {
 	/** Payment */
 	private Set<PaymentDataBean> payment;
 	/** Tickets */
-	//private Set<TicketDataBean> tickets;
+	private Set<TicketDataBean> tickets;
 
 	
 	/**
@@ -197,18 +197,18 @@ public class UserBean implements Serializable {
 		this.gender = gender;
 	}
 
-/*	*//**
+	/**
 	 * @return the tickets
-	 *//*
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ticket")
+	 */
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<TicketDataBean> getTickets() {
 		return tickets;
 	}
 
-	*//**
+	/**
 	 * @param tickets the tickets to set
-	 *//*
+	 */
 	public void setTickets(Set<TicketDataBean> tickets) {
 		this.tickets = tickets;
-	}*/
+	}
 }

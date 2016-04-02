@@ -5,8 +5,8 @@ package com.easyair.model.beans;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -47,6 +48,8 @@ public class ScheduleDataBean implements Serializable {
 	private double price;
 	/** */
 	private FlightDataBean flight;
+	/** Tickets */
+	private Set<TicketDataBean> tickets;
 
 	/**
 	 * @return the scheduleId
@@ -174,9 +177,26 @@ public class ScheduleDataBean implements Serializable {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	/**
+	 * @return the tickets
+	 */
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule")
+	public Set<TicketDataBean> getTickets() {
+		return tickets;
+	}
+
+	/**
+	 * @param tickets
+	 *            the tickets to set
+	 */
+	public void setTickets(Set<TicketDataBean> tickets) {
+		this.tickets = tickets;
 	}
 }

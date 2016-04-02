@@ -31,8 +31,7 @@ public class HibernateUtil {
 		 Transaction tx = null;
 		 try {
 		     tx = sess.beginTransaction();
-		     sess.update(obj);
-		     tx.commit();
+		     sess.save(obj);
 		 }
 		 catch (Exception e) {
 		     if (tx != null) { 
@@ -41,7 +40,31 @@ public class HibernateUtil {
 		     throw e;
 		 }
 		 finally {
-		     sess.close();
+		     tx.commit();
 		 }
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static Object getBean(Object objClass) {
+		 Session sess = HibernateUtil.getSessionFactory().getCurrentSession();
+		 Transaction tx = null;
+		 Object obj = null;
+		 try {
+		     tx = sess.beginTransaction();
+		     obj = sess.load(objClass.getClass(), new Long(10));
+		 }
+		 catch (Exception e) {
+		     if (tx != null) { 
+		    	 tx.rollback();
+		     }
+		     throw e;
+		 }
+		 finally {
+			 tx.commit();
+		 }
+		return obj;
 	}
 }

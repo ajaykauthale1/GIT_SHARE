@@ -111,11 +111,12 @@ background: #9AC462;
 				<tr>
 					<td><select
 						onchange="print_state('state',this.selectedIndex);" id="country"
-						name="country"></select></td>
-					<td><select name="state" id="state"></select> <script
+						name="payment.country"></select></td>
+					<td><select name="payment.state" id="state"></select> <script
 							language="javascript">
 						print_country("country");
-					</script></td>
+					</script>
+					</td>
 				</tr>
 				<tr height="3px">
 				</tr>
@@ -140,7 +141,7 @@ background: #9AC462;
 				<tr>
 					<td colspan="2" align="center">
 						<div class="ui-widget">
-							<s:submit method="pruchase" key="label.purchaseTicket"
+							<s:submit method="purchase" key="label.purchaseTicket"
 								align="center" />
 						</div>
 					</td>

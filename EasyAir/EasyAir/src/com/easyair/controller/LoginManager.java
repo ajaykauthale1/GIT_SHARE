@@ -13,7 +13,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.classic.Session;
 
-import com.easyair.model.beans.AirlineDataBean;
 import com.easyair.model.beans.UserBean;
 import com.easyair.utils.HibernateUtil;
 
@@ -52,8 +51,6 @@ public class LoginManager extends HibernateUtil {
 	 * @return
 	 */
 	public boolean authenticate(String email, String password, Session session) throws SQLException{
-		//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		//session.beginTransaction();
 		Connection con = session.connection();
 			PreparedStatement stmt = con.prepareStatement("select count(*) from user where email=? and password=?");
 			stmt.setString(1, email);

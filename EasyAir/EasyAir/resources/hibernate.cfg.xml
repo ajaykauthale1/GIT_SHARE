@@ -31,6 +31,7 @@
         <mapping class="com.easyair.model.beans.AirlineDataBean" />
         <mapping class="com.easyair.model.beans.PaymentDataBean" />
         <mapping class="com.easyair.model.beans.TicketDataBean" />
+        <mapping class="com.easyair.model.beans.OrderDataBean" />
  
     </session-factory>
 </hibernate-configuration>

@@ -30,7 +30,7 @@ public class PaymentDataBean implements Serializable {
 	/** */
 	private Long payementId;
 	/** */
-	private Long cardNumber;
+	private String cardNumber;
 	/** */
 	private String expiryMonth;
 	/** */
@@ -66,13 +66,13 @@ public class PaymentDataBean implements Serializable {
 	 * @return the cardNumber
 	 */
 	@Column(name = "card_number", nullable=false, unique=true)
-	public Long getCardNumber() {
+	public String getCardNumber() {
 		return cardNumber;
 	}
 	/**
 	 * @param cardNumber the cardNumber to set
 	 */
-	public void setCardNumber(Long cardNumber) {
+	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 	/**

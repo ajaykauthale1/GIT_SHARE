@@ -7,8 +7,10 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.easyair.controller.PaymentManager;
 import com.easyair.controller.ScheduleManager;
 import com.easyair.model.beans.ScheduleDataBean;
+import com.easyair.model.beans.TicketDataBean;
 import com.easyair.model.beans.UserBean;
 import com.easyair.utils.Constants;
 import com.opensymphony.xwork2.ActionSupport;
@@ -28,6 +30,8 @@ public class TicketBookAction extends ActionSupport implements SessionAware {
 	private ScheduleDataBean schedule;
 	/** */
 	ScheduleManager mgr = new ScheduleManager();
+	/** */
+	PaymentManager paymentManager = new PaymentManager();
 	
 	@Override
 	/**
@@ -56,6 +60,18 @@ public class TicketBookAction extends ActionSupport implements SessionAware {
 	 * @return
 	 */
 	public String confirm() {
+		Long scheduleId = (Long) sessionMap.get(Constants.BOOK_FORWARD);
+		schedule = mgr.getSchedule(scheduleId); 
+		// store ticket info
+		TicketDataBean ticket = new TicketDataBean();
+		ticket.setUser((UserBean) sessionMap.get(Constants.USER));
+		ticket.setSchedule(schedule);
+		ticket.setPrice(schedule.getPrice());
+		ticket.setBoardingTime(schedule.getDepartureDate());
+		// Default is economy, user can further select the class at while doing payment
+		ticket.setChosenClass("Economy");
+		paymentManager.storeTicketInfo(ticket);
+		
 		return "confirm";
 	}
 	

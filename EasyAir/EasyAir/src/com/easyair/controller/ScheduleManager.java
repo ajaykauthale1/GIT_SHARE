@@ -153,6 +153,11 @@ public class ScheduleManager extends HibernateUtil {
 		return airport;
 	}
 	
+	/**
+	 * 
+	 * @param scheduleId
+	 * @return
+	 */
 	public ScheduleDataBean getSchedule(Long scheduleId) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		ScheduleDataBean schedule = null;
