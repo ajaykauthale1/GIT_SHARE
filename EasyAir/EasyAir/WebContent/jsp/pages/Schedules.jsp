@@ -139,7 +139,7 @@ heading {
 	}
 </script>
 </head>
-<body>
+<body background = "images/bg.jpg">
 	<s:set name="theme" value="'simple'" scope="page" />
 	<jsp:include page="header.jsp"></jsp:include>
 	<s:actionerror />
@@ -166,20 +166,20 @@ heading {
 					</td>
 				</tr>
 				<tr height="10"></tr>
-				<tr>
-					<th><div class="ui-widget">
-							<font style="color: #36c">Fly from</font>
-						</div></th>
-					<th><div class="ui-widget">
-							<font style="color: #36c">To</font>
-						</div></th>
-					<th><div class="ui-widget">
-							<font style="color: #36c">Departure Date</font>
-						</div></th>
-					<th><div class="ui-widget">
-							<font style="color: #36c">Arrival Date</font>
-						</div></th>
-				</tr>
+					<tr>
+						<th><div class="ui-widget">
+								<font style="color: #36c">Fly from</font>
+							</div></th>
+						<th><div class="ui-widget">
+								<font style="color: #36c">To</font>
+							</div></th>
+						<th><div class="ui-widget">
+								<font style="color: #36c">Departure Date</font>
+							</div></th>
+						<th><div class="ui-widget">
+								<font style="color: #36c">Arrival Date</font>
+							</div></th>
+					</tr>
 				<tr height="10"></tr>
 				<tr>
 					<td>
@@ -289,15 +289,15 @@ heading {
 							</div></td>
 						<td align="left" style="padding-right: 5px;"><div
 								class="ui-widget" style="font-size: 14px;">
-								<s:textfield name="schedules[%{#stat.index}].airlineName" />
+								<s:property value="airlineName" />
 							</div></td>
 						<td style="padding-right: 10px;"><div class="ui-widget"
 								style="font-size: 14px;">
-								<s:textfield name="schedules[%{#stat.index}].fromSource" />
+								<s:property value="fromSource" />
 							</div></td>
 						<td style="padding-right: 5px;"><div class="ui-widget"
 								style="font-size: 14px;">
-								<s:textfield name="schedules[%{#stat.index}].toDestination" />
+								<s:property value="toDestination" />
 							</div></td>
 						<td align="center"><div class="ui-widget"
 								style="font-size: 14px;">

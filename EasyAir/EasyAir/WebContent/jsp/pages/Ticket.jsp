@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body background = "images/bg.jpg">
 	<s:actionerror />
 	<s:set name="theme" value="'simple'" scope="page" />
 	<jsp:include page="header.jsp"></jsp:include>

@@ -14,7 +14,7 @@
  
 	</filter-mapping>
 	<welcome-file-list>
-		<welcome-file>jsp/pages/Schedules.jsp</welcome-file>
+		<welcome-file>jsp/pages/index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<servlet>

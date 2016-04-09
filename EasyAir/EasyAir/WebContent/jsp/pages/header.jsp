@@ -22,16 +22,17 @@
 </head>
 <body>
 	<s:set name="theme" value="'simple'" scope="page" />
-	<div align="left">
+	<div align="left" style = "background-color: #02153F;">
 		<s:form action="login.action">
 			<table>
 				<tr>
+					<td width="50px"></td>
 					<td colspan="4" align="center">
 						<div class="ui-widget">
-							<h3 style="color: #8FBA56;">EasyAir</h3>
+							<h3 style="color: #A5BFFE;">EasyAir</h3>
 						</div>
 					</td>
-					<td width="900px"></td>
+					<td width="850px"></td>
 					<td colspan="5" align="right">
 						<div class="ui-widget">
 							<%

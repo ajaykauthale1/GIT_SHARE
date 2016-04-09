@@ -225,6 +225,45 @@ public class ScheduleManager extends HibernateUtil {
 	
 	/**
 	 * 
+	 * @return
+	 */
+	public Long getNextFlightId() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Long id = new Long(1);
+		session.beginTransaction();
+		Connection con = session.connection();
+		try {
+			PreparedStatement stmt = con.prepareStatement("select max(flight_id) from flight");
+
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				Long max = rs.getLong(1);
+				if (max != 0) {
+					id = max + 1;
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		} finally {
+			session.getTransaction().commit();
+		}
+
+		return id;
+	}
+	
+	/**
+	 * 
+	 * @param dto
+	 * @return
+	 */
+	public void saveFlight(FlightDataBean bean) {
+		HibernateUtil.persist(bean);
+	}
+	
+	/**
+	 * 
 	 * @param dto
 	 * @return
 	 */

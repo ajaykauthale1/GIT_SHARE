@@ -49,6 +49,12 @@ public class scheduleMapper {
 		return schedules;
 	}
 	
+	/**
+	 * 
+	 * @param dto
+	 * @param bean
+	 * @return
+	 */
 	public static ScheduleDataBean mapDtoToBean(ScheduleDto dto, ScheduleDataBean bean) {
 		ScheduleManager mgr = new ScheduleManager();
 		FlightDataBean flight = mgr.getFlight(dto.getFlightId());
@@ -60,6 +66,20 @@ public class scheduleMapper {
 		flight.setAirline(airline);
 		bean.setFlight(flight);
 		bean.setPrice(dto.getPrice());
+		double prevTripHours = (bean.getArrivalTime() - bean.getDepartureTime());
+		if (prevTripHours != dto.getTripHours()) {
+			double diff = bean.getDepartureTime() + dto.getTripHours();
+			if (diff >= 24) {
+				if (diff % 24 != 0)
+				{
+					diff = diff % 24;
+				} else {
+					diff = 0;
+				}
+				
+			}
+			bean.setArrivalTime(diff);
+		}
 		bean.setTripHours(dto.getTripHours());
 		return bean;
 	}

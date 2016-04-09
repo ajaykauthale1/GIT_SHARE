@@ -33,7 +33,7 @@ background: #9AC462;
 }
 </style>
 </head>
-<body>
+<body background = "images/bg.jpg">
 	<s:actionerror />
 	<s:set name="theme" value="'simple'" scope="page" />
 	<jsp:include page="header.jsp"></jsp:include>
@@ -100,7 +100,7 @@ background: #9AC462;
 							 '2019' : '2019', '2020' : '2020', '2021' : '2021', '2022' : '2022',
 							 '2023' : '2023', '2024' : '2024', '2025' : '2025'}"></s:select>
 					</td>
-					<td><s:textfield name="payment.cvv" size="5"></s:textfield></td>
+					<td><s:textfield name="payment.cvv" size="5" maxlength="3"></s:textfield></td>
 				</tr>
 				<tr height="3px">
 				</tr>

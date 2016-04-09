@@ -22,7 +22,7 @@
 </style>
 <title>EasyAir Login</title>
 </head>
-<body>
+<body background = "images/bg.jpg">
 	<s:set name="theme" value="'simple'" scope="page" />
 	<jsp:include page="LoginHeader.jsp"></jsp:include>
 	<s:form action="login.action" method="post">
