@@ -46,6 +46,50 @@ public class HibernateUtil {
 	
 	/**
 	 * 
+	 * @param obj
+	 */
+	public static void update(Object obj) {
+		 Session sess = HibernateUtil.getSessionFactory().getCurrentSession();
+		 Transaction tx = null;
+		 try {
+		     tx = sess.beginTransaction();
+		     sess.update(obj);
+		 }
+		 catch (Exception e) {
+		     if (tx != null) { 
+		    	 tx.rollback();
+		     }
+		     throw e;
+		 }
+		 finally {
+		     tx.commit();
+		 }
+	}
+	
+	/**
+	 * 
+	 * @param obj
+	 */
+	public static void delete(Object obj) {
+		 Session sess = HibernateUtil.getSessionFactory().getCurrentSession();
+		 Transaction tx = null;
+		 try {
+		     tx = sess.beginTransaction();
+		     sess.delete(obj);
+		 }
+		 catch (Exception e) {
+		     if (tx != null) { 
+		    	 tx.rollback();
+		     }
+		     throw e;
+		 }
+		 finally {
+		     tx.commit();
+		 }
+	}
+	
+	/**
+	 * 
 	 * @return
 	 */
 	public static Object getBean(Object objClass) {

@@ -12,8 +12,8 @@ public class ScheduleDto {
 	private Long flightId;
 	private Long airlineId;
 	private String airlineName;
-	private String source;
-	private String destination;
+	private String fromSource;
+	private String toDestination;
 	private double tripHours;
 	private double price;
 	/**
@@ -65,28 +65,28 @@ public class ScheduleDto {
 		this.airlineName = airlineName;
 	}
 	/**
-	 * @return the source
+	 * @return the fromSource
 	 */
-	public String getSource() {
-		return source;
+	public String getFromSource() {
+		return fromSource;
 	}
 	/**
-	 * @param source the source to set
+	 * @param fromSource the fromSource to set
 	 */
-	public void setSource(String source) {
-		this.source = source;
+	public void setFromSource(String fromSource) {
+		this.fromSource = fromSource;
 	}
 	/**
-	 * @return the destination
+	 * @return the toDestination
 	 */
-	public String getDestination() {
-		return destination;
+	public String getToDestination() {
+		return toDestination;
 	}
 	/**
-	 * @param destination the destination to set
+	 * @param toDestination the toDestination to set
 	 */
-	public void setDestination(String destination) {
-		this.destination = destination;
+	public void setToDestination(String toDestination) {
+		this.toDestination = toDestination;
 	}
 	/**
 	 * @return the tripHours

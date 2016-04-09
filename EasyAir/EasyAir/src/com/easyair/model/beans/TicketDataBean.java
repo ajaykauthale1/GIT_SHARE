@@ -49,7 +49,9 @@ public class TicketDataBean implements Serializable {
 	private UserBean user;
 	/** */
 	private ScheduleDataBean schedule;
-
+	/** */
+	private String seatNo;
+	
 	/**
 	 * @return the ticketId
 	 */
@@ -182,5 +184,18 @@ public class TicketDataBean implements Serializable {
 	 */
 	public void setSchedule(ScheduleDataBean schedule) {
 		this.schedule = schedule;
+	}
+	/**
+	 * @return the seatNo
+	 */
+	@Column(name = "seat_no", nullable=true)
+	public String getSeatNo() {
+		return seatNo;
+	}
+	/**
+	 * @param seatNo the seatNo to set
+	 */
+	public void setSeatNo(String seatNo) {
+		this.seatNo = seatNo;
 	}
 }

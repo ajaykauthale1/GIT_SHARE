@@ -38,7 +38,12 @@
 		<action name="payment" method="init"
 			class="com.easyair.view.actions.PaymentAction">
 				<result name="success">jsp/pages/PaymentConfirmation.jsp</result>
-				<result name="print_ticket">jsp/pages/Welcome.jsp</result>
+				<result name="print_ticket">jsp/pages/Ticket.jsp</result>
+		</action>
+		
+		<action name="signup" method="init"
+			class="com.easyair.view.actions.SignupAction">
+			<result name="success">jsp/pages/PaymentConfirmation.jsp</result>
 		</action>
 	</package>
 </struts>

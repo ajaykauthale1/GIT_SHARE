@@ -1,9 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@page import="com.easyair.model.beans.UserBean"%>
+<%@page import="com.easyair.utils.Constants"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%
+	UserBean user = (UserBean) request.getSession().getAttribute(Constants.USER);
+	boolean isAdmin = false;
+	if (user != null) {
+		isAdmin = user.isAdmin();
+	}
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Search Flight Schedules</title>
 <script src="http://code.jquery.com/jquery-1.7.js"
@@ -30,15 +40,23 @@ heading {
 	color: #36c;
 }
 
-#book_btn {
+#book_btn2 {
 	background: #7DC25D;
 	border: 0;
 	border-radius: 5px;
-	height: 25px; 
+	height: 25px;
+	width: 65px;
+}
+
+#book_btn, #book_btn1, #book_btn3 {
+	background: #7DC25D;
+	border: 0;
+	border-radius: 5px;
+	height: 25px;
 	width: 50px;
 }
 
-#book_btn:hover {
+#book_btn:hover, #book_btn1:hover, #book_btn2:hover, #book_btn3:hover {
 	background: #A5D190;
 }
 </style>
@@ -114,18 +132,17 @@ heading {
 			$("#schedule_arrivalDate").removeAttr("disabled");
 		}
 	}
-	
 
 	function setScheduleId(scheduleId) {
 		document.getElementById("selectedSchedule").value = scheduleId;
-	    document.forms[0].submit();
+		document.forms[0].submit();
 	}
 </script>
 </head>
 <body>
-	<s:actionerror />
 	<s:set name="theme" value="'simple'" scope="page" />
 	<jsp:include page="header.jsp"></jsp:include>
+	<s:actionerror />
 	<s:form action="schedule.action" method="post">
 		<table id="scheduleTable" style="border: 1 solid balck;"
 			align="center">
@@ -200,16 +217,34 @@ heading {
 		<table id="results" style="border: 10px solid balck;" align="center"
 			cellpadding="5" cellspacing="5">
 			<thead>
-				<tr>
-					<th><div class="ui-widget">Price</div></th>
-					<th style="padding-right: 5px;"><div class="ui-widget">Airline</div></th>
-					<th style="padding-right: 10px;"><div class="ui-widget">From</div></th>
-					<th style="padding-right: 5px;"><div class="ui-widget">To</div></th>
-					<th><div class="ui-widget">Trip Hours</div></th>
-					<th>&nbsp;</th>
-				</tr>
+				<s:if test="%{getSchedules().isEmpty()}">
+					<tr>
+						<td>Schedules are empty.</td>
+					</tr>
+				</s:if>
+				<s:else>
+					<tr>
+						<td></td>
+						<td colspan="4" align="center"><font color="green"><s:iterator
+									value="actionMessages">
+									<s:property />
+									<br />
+								</s:iterator> </font></td>
+					</tr>
+					<tr>
+						<th><div class="ui-widget">Price</div></th>
+						<th style="padding-right: 5px;"><div class="ui-widget">Airline</div></th>
+						<th style="padding-right: 10px;"><div class="ui-widget">From</div></th>
+						<th style="padding-right: 5px;"><div class="ui-widget">To</div></th>
+						<th><div class="ui-widget">Trip Hours</div></th>
+						<th>&nbsp;</th>
+					</tr>
+				</s:else>
 			</thead>
 			<tbody>
+				<%
+					if (!isAdmin) {
+				%>
 				<s:iterator value="schedules">
 					<tr>
 						<td align="left"><div class="ui-widget"
@@ -223,22 +258,68 @@ heading {
 							</div></td>
 						<td style="padding-right: 10px;"><div class="ui-widget"
 								style="font-size: 14px;">
-								<s:property value="source" />
+								<s:property value="fromSource" />
 							</div></td>
 						<td style="padding-right: 5px;"><div class="ui-widget"
 								style="font-size: 14px;">
-								<s:property value="destination" />
+								<s:property value="toDestination" />
 							</div></td>
 						<td align="center"><div class="ui-widget"
 								style="font-size: 14px;">
 								<s:property value="tripHours" />
 							</div></td>
-						<td colspan="4" align="center"><input type="submit" id="book_btn"
-							name="method:bookTicket" value="Book"
-							onclick="setScheduleId('<s:property value="scheduleId" />');" />  
+						<td colspan="4" align="center"><input type="submit"
+							id="book_btn" name="method:bookTicket" value="Book"
+							onclick="setScheduleId('<s:property value="scheduleId" />');" />
 						</td>
 					</tr>
 				</s:iterator>
+				<%
+					} else {
+				%>
+				<s:iterator value="schedules" id="shdl" status="stat">
+					<tr>
+						<td align="left"><div class="ui-widget"
+								style="font-size: 14px;">
+								<s:textfield name="schedules[%{#stat.index}].price" />
+								<s:hidden name="schedules[%{#stat.index}].scheduleId" />
+								<s:hidden name="schedules[%{#stat.index}].flightId" />
+								<s:hidden name="schedules[%{#stat.index}].airlineId" />
+								$
+							</div></td>
+						<td align="left" style="padding-right: 5px;"><div
+								class="ui-widget" style="font-size: 14px;">
+								<s:textfield name="schedules[%{#stat.index}].airlineName" />
+							</div></td>
+						<td style="padding-right: 10px;"><div class="ui-widget"
+								style="font-size: 14px;">
+								<s:textfield name="schedules[%{#stat.index}].fromSource" />
+							</div></td>
+						<td style="padding-right: 5px;"><div class="ui-widget"
+								style="font-size: 14px;">
+								<s:textfield name="schedules[%{#stat.index}].toDestination" />
+							</div></td>
+						<td align="center"><div class="ui-widget"
+								style="font-size: 14px;">
+								<s:textfield name="schedules[%{#stat.index}].tripHours" />
+							</div></td>
+						<td colspan="4" align="center"><input type="submit"
+							id="book_btn1" name="method:updateSchedule" value="Update"
+							onclick="setScheduleId('<s:property value="scheduleId" />');" />
+						</td>
+						<td colspan="4" align="center"><input type="submit"
+							id="book_btn3" name="method:deleteSchedule" value="Delete"
+							onclick="setScheduleId('<s:property value="scheduleId" />');" />
+						</td>
+					</tr>
+				</s:iterator>
+				<tr>
+					<td colspan="6" align="center"><input type="submit"
+						id="book_btn2" name="method:addSchedule" value="Add New" /></td>
+				</tr>
+				<%
+					}
+				%>
 			</tbody>
 		</table>
 		<s:hidden name="selectedSchedule" id="selectedSchedule"></s:hidden>

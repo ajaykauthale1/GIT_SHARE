@@ -21,7 +21,6 @@ import com.easyair.mapper.scheduleMapper;
 import com.easyair.model.beans.AirlineDataBean;
 import com.easyair.model.beans.FlightDataBean;
 import com.easyair.model.beans.ScheduleDataBean;
-import com.easyair.model.beans.UserBean;
 import com.easyair.utils.HibernateUtil;
 
 /**
@@ -100,6 +99,50 @@ public class ScheduleManager extends HibernateUtil {
 	
 	/**
 	 * 
+	 * @param flightId
+	 * @return
+	 */
+	public FlightDataBean getFlight(Long flightId) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		FlightDataBean flight = null;
+		try {
+			String queryString = "from FlightDataBean where flightId = :id";
+			Query query = session.createQuery(queryString);
+			query.setLong("id", flightId);
+			flight = (FlightDataBean) query.uniqueResult();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		session.getTransaction().commit();
+		return flight;
+	}
+	
+	/**
+	 * 
+	 * @param airlineId
+	 * @return
+	 */
+	public AirlineDataBean getAirline(Long airlineId) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		AirlineDataBean airline = null;
+		try {
+			String queryString = "from AirlineDataBean where airlineId = :id";
+			Query query = session.createQuery(queryString);
+			query.setLong("id", airlineId);
+			airline = (AirlineDataBean) query.uniqueResult();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		session.getTransaction().commit();
+		return airline;
+	}
+	
+	/**
+	 * 
 	 * @param airlineId
 	 * @return
 	 */
@@ -131,6 +174,11 @@ public class ScheduleManager extends HibernateUtil {
 		return mapper.getScheduleDtoList(source, destination, departureDate);
 	}
 	
+	/**
+	 * 
+	 * @param code
+	 * @return
+	 */
 	public String getAirport(String code) {
 		String airport = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -173,5 +221,27 @@ public class ScheduleManager extends HibernateUtil {
 		}
 		session.getTransaction().commit();
 		return schedule;
+	}
+	
+	/**
+	 * 
+	 * @param dto
+	 * @return
+	 */
+	public String updateSchedule(ScheduleDto dto) {
+		ScheduleDataBean bean = new ScheduleDataBean();
+		bean = scheduleMapper.mapDtoToBean(dto, bean);
+		HibernateUtil.update(bean);
+		return "success";
+	}
+	
+	/**
+	 * 
+	 * @param dto
+	 * @return
+	 */
+	public String deleteSchedule(ScheduleDto dto) {
+		HibernateUtil.delete(getSchedule(dto.getScheduleId()));
+		return "success";
 	}
 }

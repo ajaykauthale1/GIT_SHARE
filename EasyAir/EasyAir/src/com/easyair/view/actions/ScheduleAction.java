@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.easyair.controller.ScheduleManager;
@@ -72,6 +73,67 @@ public class ScheduleAction extends ActionSupport implements SessionAware {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public String updateSchedule() {
+		String source = this.source.substring(this.source.indexOf("-")+2);
+		String destination = this.destination.substring(this.destination.indexOf("-")+2);
+		//this.schedules = mgr.getSchedules(source, destination, this.departureDate);
+		ScheduleDto updateSchedule = null;
+		for (ScheduleDto schedule : schedules) {
+			if (schedule.getScheduleId().equals(this.selectedSchedule))
+			{
+				updateSchedule = schedule;
+				break;
+			}
+		}
+		String msg = mgr.updateSchedule(updateSchedule);
+		if (StringUtils.equals("success", msg)) {
+			addActionMessage(getText("schedule.update.success"));
+		} else {
+			addActionError(getText("schedule.update.error"));
+		}
+		return search();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String deleteSchedule() {
+		String source = this.source.substring(this.source.indexOf("-")+2);
+		String destination = this.destination.substring(this.destination.indexOf("-")+2);
+		//this.schedules = mgr.getSchedules(source, destination, this.departureDate);
+		ScheduleDto scheduleToDelete = null;
+		for (ScheduleDto schedule : schedules) {
+			if (schedule.getScheduleId().equals(this.selectedSchedule))
+			{
+				scheduleToDelete = schedule;
+				break;
+			}
+		}
+		String msg = mgr.deleteSchedule(scheduleToDelete);
+		if (StringUtils.equals("success", msg)) {
+			addActionMessage(getText("schedule.delete.success"));
+		} else {
+			addActionError(getText("schedule.delete.error"));
+		}
+		return search();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String addSchedule() {
+		return "success";
+	}
+	
+	/**
+	 * 
+	 */
 	public void resetDateFormat() {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 		
@@ -113,14 +175,6 @@ public class ScheduleAction extends ActionSupport implements SessionAware {
 	 * @return
 	 */
 	public String addNewSchedule() {
-		return null;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public String updateSchedule() {
 		return null;
 	}
 	

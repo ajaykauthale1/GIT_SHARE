@@ -4,7 +4,6 @@
 package com.easyair.datainsert;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +22,7 @@ public class AirportDataInsert {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		try {
+		/*try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/easyair";
 
 			// Database credentials
@@ -48,7 +47,7 @@ public class AirportDataInsert {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }

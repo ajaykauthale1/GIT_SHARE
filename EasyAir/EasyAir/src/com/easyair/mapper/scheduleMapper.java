@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.easyair.controller.ScheduleManager;
 import com.easyair.dto.ScheduleDto;
+import com.easyair.model.beans.AirlineDataBean;
 import com.easyair.model.beans.FlightDataBean;
 import com.easyair.model.beans.ScheduleDataBean;
 
@@ -31,8 +32,8 @@ public class scheduleMapper {
 			for (ScheduleDataBean schedule : schedulesSet) {
 				if (departureDate.equals(schedule.getDepartureDate())) {
 					ScheduleDto dto = new ScheduleDto();
-					dto.setDestination(manager.getAirport(destination));
-					dto.setSource(manager.getAirport(source));
+					dto.setToDestination(manager.getAirport(destination));
+					dto.setFromSource(manager.getAirport(source));
 					dto.setFlightId(flight.getFlightId());
 					dto.setPrice(schedule.getPrice());
 					dto.setScheduleId(schedule.getScheduleId());
@@ -46,5 +47,20 @@ public class scheduleMapper {
 		}
 		
 		return schedules;
+	}
+	
+	public static ScheduleDataBean mapDtoToBean(ScheduleDto dto, ScheduleDataBean bean) {
+		ScheduleManager mgr = new ScheduleManager();
+		FlightDataBean flight = mgr.getFlight(dto.getFlightId());
+		AirlineDataBean airline = mgr.getAirline(dto.getAirlineId());
+		bean = mgr.getSchedule(dto.getScheduleId());
+		
+		flight.setSource(dto.getFromSource());
+		flight.setDestination(dto.getToDestination());
+		flight.setAirline(airline);
+		bean.setFlight(flight);
+		bean.setPrice(dto.getPrice());
+		bean.setTripHours(dto.getTripHours());
+		return bean;
 	}
 }
