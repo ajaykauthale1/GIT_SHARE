@@ -9,12 +9,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.easyair.controller.ScheduleManager;
 import com.easyair.dto.ScheduleDto;
+import com.easyair.model.beans.UserBean;
 import com.easyair.utils.Constants;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -78,9 +88,6 @@ public class ScheduleAction extends ActionSupport implements SessionAware {
 	 * @return
 	 */
 	public String updateSchedule() {
-		String source = this.source.substring(this.source.indexOf("-")+2);
-		String destination = this.destination.substring(this.destination.indexOf("-")+2);
-		//this.schedules = mgr.getSchedules(source, destination, this.departureDate);
 		ScheduleDto updateSchedule = null;
 		for (ScheduleDto schedule : schedules) {
 			if (schedule.getScheduleId().equals(this.selectedSchedule))
@@ -103,9 +110,6 @@ public class ScheduleAction extends ActionSupport implements SessionAware {
 	 * @return
 	 */
 	public String deleteSchedule() {
-		String source = this.source.substring(this.source.indexOf("-")+2);
-		String destination = this.destination.substring(this.destination.indexOf("-")+2);
-		//this.schedules = mgr.getSchedules(source, destination, this.departureDate);
 		ScheduleDto scheduleToDelete = null;
 		for (ScheduleDto schedule : schedules) {
 			if (schedule.getScheduleId().equals(this.selectedSchedule))
@@ -114,13 +118,50 @@ public class ScheduleAction extends ActionSupport implements SessionAware {
 				break;
 			}
 		}
-		String msg = mgr.deleteSchedule(scheduleToDelete);
-		if (StringUtils.equals("success", msg)) {
-			addActionMessage(getText("schedule.delete.success"));
-		} else {
-			addActionError(getText("schedule.delete.error"));
-		}
+		Set<UserBean> users = mgr.deleteSchedule(scheduleToDelete);
+		//sendEmail(users);
+		
+		addActionMessage(getText("schedule.delete.success"));
 		return search();
+	}
+	
+	/**
+	 * 
+	 * @param from
+	 * @param to
+	 * @param ticketNo
+	 * @param departureDate
+	 * @param seatNo
+	 * @param pnr
+	 */
+	public String sendEmail(Set<UserBean> users) {
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+
+		Authenticator auth = new GMailAuthenticator(getText("email.username"), getText("email.password"));
+		Session session = Session.getInstance(props, auth);
+		String msgBody = "Dear Subscriber,";
+		msgBody += "\n\n\tYour ticket has been cancelled by the Admin.";
+		msgBody += "\n\n\t You can visit EasyAir for further information.";
+		msgBody += "\n\n\nRegards," + "\nEasyAir Team.";
+
+		try {
+			Message msg = new MimeMessage(session);
+			msg.setFrom(new InternetAddress("kauthaleajay40@gmail.com", "EasyAir"));
+			for (UserBean user : users) {
+				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
+			}
+			msg.setSubject("EasyAir Ticket Cancellation Alert!!!");
+			msg.setText(msgBody);
+			Transport.send(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "success";
 	}
 	
 	/**
@@ -128,7 +169,7 @@ public class ScheduleAction extends ActionSupport implements SessionAware {
 	 * @return
 	 */
 	public String addSchedule() {
-		return "success";
+		return "addNew";
 	}
 	
 	/**

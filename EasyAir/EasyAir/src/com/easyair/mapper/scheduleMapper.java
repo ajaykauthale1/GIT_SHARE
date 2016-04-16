@@ -11,7 +11,7 @@ import com.easyair.model.beans.AirlineDataBean;
 import com.easyair.model.beans.FlightDataBean;
 import com.easyair.model.beans.ScheduleDataBean;
 
-public class scheduleMapper {
+public class ScheduleMapper {
 
 	/**
 	 * 

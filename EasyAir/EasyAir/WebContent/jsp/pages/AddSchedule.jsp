@@ -19,21 +19,20 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Add Schedule</title>
 <style>
-#addSchedule_label_addSchedule {
-	background: #7DC25D;
+#addSchedule_label_addSchedule, #ticketbook_label_back {
+	background: #AEC3F5;
 	border: 0;
 	border-radius: 5px;
 	height: 30px;
-	width: 70px;
+	width: 200px;
 }
 
-#addSchedule_label_addSchedule:hover {
-	background: #A5D190;
+#addSchedule_label_addSchedule:hover, #ticketbook_label_back:hover {
+	background: #6286DE;
 }
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#addSchedule_schedule_arrivalTime").attr("disabled", "true");
 
 		$("input#addSchedule_schedule_flight_source").autocomplete({
 			width : 300,
@@ -63,35 +62,119 @@
 		});
 	});
 
-	$(document).ready(function() {
-		$("input#addSchedule_schedule_flight_destination").autocomplete({
-			width : 300,
-			max : 10,
-			delay : 100,
-			minLength : 1,
-			autoFocus : true,
-			cacheLength : 1,
-			scroll : true,
-			highlight : false,
-			source : function(request, response) {
-				$.ajax({
-					url : "AjaxAirportRequest",
-					dataType : "json",
-					data : request,
-					success : function(data, textStatus, jqXHR) {
-						console.log(data);
-						var items = data;
-						response(items);
-					},
-					error : function(jqXHR, textStatus, errorThrown) {
-						console.log(textStatus);
-					}
-				});
-			}
+	$(document)
+			.ready(
+					function() {
+						$("input#addSchedule_schedule_flight_destination")
+								.autocomplete(
+										{
+											width : 300,
+											max : 10,
+											delay : 100,
+											minLength : 1,
+											autoFocus : true,
+											cacheLength : 1,
+											scroll : true,
+											highlight : false,
+											source : function(request, response) {
+												$
+														.ajax({
+															url : "AjaxAirportRequest",
+															dataType : "json",
+															data : request,
+															success : function(
+																	data,
+																	textStatus,
+																	jqXHR) {
+																console
+																		.log(data);
+																var items = data;
+																response(items);
+															},
+															error : function(
+																	jqXHR,
+																	textStatus,
+																	errorThrown) {
+																console
+																		.log(textStatus);
+															}
+														});
+											}
 
-		});
+										});
 
-	});
+						$("#addSchedule_schedule_departureDate").datepicker();
+						$("#addSchedule_schedule_arrivalDate").datepicker();
+
+						$('#addSchedule_label_addSchedule')
+								.click(
+										function() {
+											if ($(
+													'#addSchedule_schedule_flight_source')
+													.val() == '') {
+												alert('Fly from can not be left blank');
+												$(
+														'#addSchedule_schedule_flight_source')
+														.focus();
+												return false;
+											} else if ($(
+													'#addSchedule_schedule_flight_destination')
+													.val() == '') {
+												alert('To can not be left blank');
+												$(
+														'#addSchedule_schedule_flight_destination')
+														.focus();
+												return false;
+											} else if ($(
+													'#addSchedule_schedule_departureDate')
+													.val() == '') {
+												alert('Departure date can not be left blank');
+												$(
+														'#addSchedule_schedule_departureDate')
+														.focus();
+												return false;
+											} else if ($(
+													'#addSchedule_schedule_arrivalDate')
+													.val() == '') {
+												alert('Arrival date can not be left blank');
+												$(
+														'#addSchedule_schedule_arrivalDate')
+														.focus();
+												return false;
+											} else if ($(
+													'#addSchedule_schedule_departureTime')
+													.val() == '') {
+												alert('Departure time can not be left blank');
+												$(
+														'#addSchedule_schedule_departureTime')
+														.focus();
+												return false;
+											} else if ($(
+													'#addSchedule_schedule_tripHours')
+													.val() == '0.0'
+													|| $(
+															'#addSchedule_schedule_tripHours')
+															.val() == '') {
+												alert('Trip hours can not zero');
+												$(
+														'#addSchedule_schedule_tripHours')
+														.focus();
+												return false;
+											} else if (parseFloat($(
+													'#addSchedule_schedule_price')
+													.val()) <= 0
+													|| $(
+															'#addSchedule_schedule_price')
+															.val() == '') {
+												alert('Price should be greater than zero.');
+												$('#addSchedule_schedule_price')
+														.focus();
+												return false;
+											}
+											return true;
+										});
+
+					});
 
 	function changeArrivalTime() {
 		var tripHours = document
@@ -100,7 +183,10 @@
 				.getElementById("addSchedule_schedule_arrivalTime");
 		var departureTime = document
 				.getElementById("addSchedule_schedule_departureTime");
-		arrivaleTime.value = ((parseInt(departureTime.value) + parseInt(tripHours.value)) % 24);
+		arrivaleTime.value = ((parseFloat(departureTime.value) + parseFloat(tripHours.value)) % 24).toString();
+		
+		document.getElementById("arrivalTime").value = ((parseFloat(departureTime.value) + parseFloat(tripHours.value)) % 24).toString();
+		;
 	}
 </script>
 </head>
@@ -132,7 +218,8 @@
 					<tr height="10px"></tr>
 					<tr>
 						<td>Airline:&nbsp;</td>
-						<td><s:select list="airlines" name="schedule.flight.airline"></s:select></td>
+						<td><s:select list="airlines"
+								name="schedule.flight.airline.airlineId"></s:select></td>
 					<tr>
 					<tr height="10px"></tr>
 					<tr>
@@ -145,7 +232,7 @@
 						<td><s:textfield name="schedule.departureDate" size="30" /></td>
 						<td>&nbsp;&nbsp;&nbsp;</td>
 						<td>Arrival Date:&nbsp;</td>
-						<td><s:textfield name="schedule.arrivaleDate" size="30" /></td>
+						<td><s:textfield name="schedule.arrivalDate" size="30" /></td>
 					</tr>
 					<tr height="10px"></tr>
 					<tr>
@@ -161,13 +248,33 @@
 						<td>Trip Hours:&nbsp;</td>
 						<td><s:textfield name="schedule.tripHours"
 								onchange="changeArrivalTime();" /></td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td>Price:&nbsp;</td>
+						<td><s:textfield name="schedule.price" /></td>
+					</tr>
+					<tr height="10px"></tr>
+					<tr>
+						<td colspan="2" align="right">
+							<div class="ui-widget">
+								<s:submit method="addSchedule" key="label.addSchedule"
+									align="center" />
+							</div>
+						</td>
+						<td colspan="3" align="left">
+							<div class="ui-widget">
+								<input type="button" onclick="window.history.back();"
+									id='ticketbook_label_back' value="Back" />
+							</div>
+						</td>
 					</tr>
 					<tr height="10px"></tr>
 					<tr>
 						<td colspan="5" align="center">
 							<div class="ui-widget">
-								<s:submit method="addSchedule" key="label.addSchedule"
-									align="center" />
+								<font color="green"><s:iterator value="actionMessages">
+										<s:property />
+										<br />
+									</s:iterator></font>
 							</div>
 						</td>
 					</tr>
@@ -175,6 +282,8 @@
 			</table>
 		</div>
 	</s:form>
+
+	<s:hidden name="arrivalTime" id="arrivalTime"></s:hidden>
 
 </body>
 </html>

@@ -38,5 +38,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-log4j12-1.7.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/java-json.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javamail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

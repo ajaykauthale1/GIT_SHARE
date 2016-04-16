@@ -92,4 +92,9 @@ public class LoginManager extends HibernateUtil {
 		session.getTransaction().commit();
 		return user;
 	}
+	
+	public String storeUser(UserBean bean) {
+		HibernateUtil.persist(bean);
+		return "success";
+	}
 }

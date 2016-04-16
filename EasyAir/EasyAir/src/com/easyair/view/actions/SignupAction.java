@@ -5,6 +5,10 @@ package com.easyair.view.actions;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
+
+import com.easyair.controller.LoginManager;
+import com.easyair.model.beans.UserBean;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -31,6 +35,23 @@ public class SignupAction extends ActionSupport {
 	
 	
 	public String init() {
+		return "success";
+	}
+	
+	public String signUp() {
+		UserBean user = new UserBean();
+		user.setFirstname(firstName);
+		user.setLastname(lastName);
+		user.setEmail(email);
+		user.setGender(gender);
+		user.setDateOfBirth(dateOfBirth);
+		user.setPassword(password);
+		String result = new LoginManager().storeUser(user);
+		if (StringUtils.equals("success", result)) {
+			addActionMessage(getText("label.signup.success"));
+		} else {
+			addActionError(getText("label.signup.error"));
+		}
 		return "success";
 	}
 	

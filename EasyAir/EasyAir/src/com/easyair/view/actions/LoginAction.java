@@ -64,6 +64,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public String logout() {
 		if (sessionMap.get(Constants.USER) != null) {
 			sessionMap.remove(Constants.USER);
+			sessionMap.remove(Constants.BOOK_FORWARD);
 		} else {
 			addActionError(getText("error.logout"));
 		}

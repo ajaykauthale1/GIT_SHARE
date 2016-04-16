@@ -22,7 +22,7 @@
 </head>
 <body>
 	<s:set name="theme" value="'simple'" scope="page" />
-	<div align="left" style = "background-color: #02153F;">
+	<div align="left" style="background-color: #02153F;">
 		<s:form action="login.action">
 			<table>
 				<tr>
@@ -32,22 +32,42 @@
 							<h3 style="color: #A5BFFE;">EasyAir</h3>
 						</div>
 					</td>
-					<td width="850px"></td>
+					<%
+						if (user != null) {
+								if (!user.isAdmin()) {
+					%>
+					<td width="800px"></td>
+					<%
+						} else {
+					%>
+					<td width="950px"></td>
+					<%
+						}
+					%>
 					<td colspan="5" align="right">
-						<div class="ui-widget">
-							<%
-								if (user != null) {
-							%>
+						<div class="ui-widget" style="color: #A5BFFE">
+						<font color="#A5BFFE">
 							Welcome
 							<%=username%>
+						</font>
 							|
+							<%
+							if (!user.isAdmin()) {
+						%><a href="order.action" style="color: #A5BFFE;">My Orders</a> |<%
+							}
+						%>
 							<s:submit method="logout" key="label.logout" align="center"
 								cssStyle=" background-color: transparent; text-decoration: underline;
- 									 border: none; color: blue; cursor: pointer;" />
-							<%
-								} else {
-							%>
-							<a href="login.action">Log In</a> | <a href="signup.action">Sign
+ 									 border: none; color: #A5BFFE; cursor: pointer;" />
+						</div>
+					</td>
+					<%
+						} else {
+					%>
+					<td width="1000"></td>
+					<td colspan="5" align="right">
+						<div class="ui-widget" style="color: #A5BFFE">
+							<a href="login.action" style="color: #A5BFFE">Log In</a> | <a href="signup.action" style="color: #A5BFFE;">Sign
 								Up</a>
 							<%
 								}

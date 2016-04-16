@@ -32,10 +32,11 @@
 							<h3 style="color: #A5BFFE;">EasyAir</h3>
 						</div>
 					</td>
-					<td width="950px"></td>
+					<td width="1000px"></td>
 					<td colspan="5" align="right">
-						<div class="ui-widget">
-							<a href="signup.action">Sign Up</a>
+						<div class="ui-widget" style="color: #A5BFFE">
+							<a href="login.action" style="color: #A5BFFE">Log In</a> | <a
+								href="signup.action" style="color: #A5BFFE;">Sign Up</a>
 						</div>
 					</td>
 				</tr>

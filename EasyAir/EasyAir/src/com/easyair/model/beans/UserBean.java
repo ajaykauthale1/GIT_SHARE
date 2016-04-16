@@ -41,10 +41,14 @@ public class UserBean implements Serializable {
 	private Date dateOfBirth;
 	/** date of birth */
 	private String gender;
+	/** */
+	private String password;
 	/** Payment */
 	private Set<PaymentDataBean> payment;
 	/** Tickets */
 	private Set<TicketDataBean> tickets;
+	/** Baggages */
+	private Set<BaggageDataBean> baggages;
 
 	
 	/**
@@ -210,5 +214,35 @@ public class UserBean implements Serializable {
 	 */
 	public void setTickets(Set<TicketDataBean> tickets) {
 		this.tickets = tickets;
+	}
+
+	/**
+	 * @return the baggages
+	 */
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	public Set<BaggageDataBean> getBaggages() {
+		return baggages;
+	}
+
+	/**
+	 * @param baggages the baggages to set
+	 */
+	public void setBaggages(Set<BaggageDataBean> baggages) {
+		this.baggages = baggages;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	@Column(name="password", nullable=false)
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

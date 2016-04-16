@@ -16,19 +16,20 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 #ticketbook_label_confirmToContinue, #ticketbook_label_back {
-	background: #9AC462;
+	background: #AEC3F5;
 	border: 0;
 	border-radius: 5px;
+	width: 200px;
 }
 
 #ticketbook_label_confirmToContinue:hover, #ticketbook_label_back:hover
 	{
-	background: #383;
+	background: #6286DE;
 }
 </style>
 <title>Confirmation</title>
 </head>
-<body>
+<body background="images/bg.jpg">
 	<s:actionerror />
 	<s:set name="theme" value="'simple'" scope="page" />
 	<jsp:include page="header.jsp"></jsp:include>
@@ -36,77 +37,98 @@
 		<div class="ui-widget" align="center">
 			<table id="bookingTable" style="border: 1 solid balck;">
 				<tr>
-					<td colspan="4">Price Details</td>
+					<td colspan="4"><h4 style="color: #36c;">Price Details</h4></td>
 				</tr>
 				<tr>
-					<td>Base Fare</td>
-					<td>Tax Fee</td>
-					<td>Total</td>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black">Base Fare</font>
+						</div></th>
+					<th>&nbsp;</th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black">Tax Fee</font>
+						</div></th>
+					<th>&nbsp;</th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black">Total</font>
+						</div></th>
 				</tr>
 				<tr>
 					<td><s:property value="schedule.price" /></td>
+					<td>&nbsp;</td>
 					<td>$0</td>
+					<td>&nbsp;</td>
 					<td><s:property value="schedule.price" /></td>
 				</tr>
 				<tr height="20px"></tr>
 				<tr>
-					<td colspan="4">Trip Details</td>
+					<td colspan="4"><h4 style="color: #36c;">Trip Details</h4></td>
 				</tr>
 				<tr>
-					<th><div class="ui-widget">
-							<font style="color: #36c" size="3px">Fly from</font>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black" size="3px">Fly from</font>
 						</div></th>
-					<th><div class="ui-widget">
-							<font style="color: #36c" size="3px">To</font>
+					<th>&nbsp;</th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black" size="3px">To</font>
 						</div></th>
-					<th><div class="ui-widget">
-							<font style="color: #36c" size="3px">Departure Date</font>
+					<th>&nbsp;</th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black" size="3px">Departure Date</font>
 						</div></th>
-					<th><div class="ui-widget">
-							<font style="color: #36c" size="3px">Arrival Date</font>
+					<th>&nbsp;</th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black" size="3px">Arrival Date</font>
 						</div></th>
-					<th><div class="ui-widget">
-							<font style="color: #36c" size="3px">Departure Time</font>
+					<th>&nbsp;</th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black" size="3px">Departure Time</font>
 						</div></th>
 				</tr>
-				<tr height="10"></tr>
+				<tr height="5px"></tr>
 				<tr>
 					<td>
 						<div class="ui-widget">
 							<s:property value="schedule.flight.source" />
 						</div>
 					</td>
+					<td>&nbsp;</td>
 					<td>
 						<div class="ui-widget">
 							<s:property value="schedule.flight.destination" />
 						</div>
 					</td>
+					<td>&nbsp;</td>
 					<td>
 						<div class="ui-widget">
 							<s:property value="schedule.departureDate" />
 						</div>
 					</td>
+					<td>&nbsp;</td>
 					<td>
 						<div class="ui-widget">
 							<s:property value="schedule.arrivalDate" />
 						</div>
 					</td>
+					<td>&nbsp;</td>
 					<td>
 						<div class="ui-widget">
 							<s:property value="schedule.departureTime" />
 						</div>
 					</td>
 				</tr>
+				<tr height="20px"></tr>
 				<tr align="center">
-					<td>
+					<td colspan="2"></td>
+					<td colspan="1" align="center">
 						<div class="ui-widget">
 							<s:submit method="confirm" key="label.confirmToContinue"
 								align="center" />
 						</div>
 					</td>
-					<td>
+					<td colspan="2" align="left">
 						<div class="ui-widget">
-							<input type="button" onclick="window.history.back();" id='ticketbook_label_back' value="Back"/> 
+							<input type="button" onclick="window.history.back();"
+								id='ticketbook_label_back' value="Back" />
 						</div>
 					</td>
 				</tr>

@@ -27,13 +27,14 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 #schedule_label_searchFlights {
-	background: #9AC462;
+	background: #AEC3F5;
 	border: 0;
 	border-radius: 5px;
+	width: 200px;
 }
 
 #schedule_label_searchFlights:hover {
-	background: #383;
+	background: #6286DE;
 }
 
 heading {
@@ -41,23 +42,23 @@ heading {
 }
 
 #book_btn2 {
-	background: #7DC25D;
+	background: #AEC3F5;
 	border: 0;
 	border-radius: 5px;
 	height: 25px;
-	width: 65px;
+	width: 200px;
 }
 
 #book_btn, #book_btn1, #book_btn3 {
-	background: #7DC25D;
+	background: #AEC3F5;
 	border: 0;
 	border-radius: 5px;
 	height: 25px;
-	width: 50px;
+	width: 200px;
 }
 
 #book_btn:hover, #book_btn1:hover, #book_btn2:hover, #book_btn3:hover {
-	background: #A5D190;
+	background: #6286DE;
 }
 </style>
 
@@ -122,14 +123,42 @@ heading {
 		$("#schedule_departureDate").datepicker();
 		$("#schedule_arrivalDate").datepicker();
 
-		onChangeRadio();
+		$('#schedule_label_searchFlights').click(function() {
+			if ($('#schedule_source').val() == '') {
+				alert('Fly from can not be left blank');
+				$('#schedule_source').focus();
+				return false;
+			} else if ($('#schedule_destination').val() == '') {
+				alert('To can not be left blank');
+				$('#schedule_destination').focus();
+				return false;
+			} else if ($('#schedule_departureDate').val() == '') {
+				alert('Departure date can not be left blank');
+				$('#schedule_departureDate').focus();
+				return false;
+			}
+
+			isPrevDate($('#schedule_departureDate').val());
+			return true;
+		});
 	});
 
-	function onChangeRadio() {
-		if ($("#schedule_tripType1").is(':checked')) {
-			$("#schedule_arrivalDate").attr("disabled", "true");
-		} else {
-			$("#schedule_arrivalDate").removeAttr("disabled");
+	function isPrevDate(Startdate) {
+		if (Startdate.length != 0 && Startdate != '') {
+			var start_date = Startdate.split('-');
+			start_date = start_date[1] + "/" + start_date[2] + "/"
+					+ start_date[0];
+			var a = new Date(start_date);
+			var today = new Date();
+			var day = today.getDate();
+			var mon = today.getMonth() + 1;
+			var year = today.getFullYear();
+			today = (mon + "/" + day + "/" + year);
+			var today = new Date(today);
+			if (today.getTime() > a.getTime()) {
+				alert("Departure date can not be in the past.");
+				return false;
+			}
 		}
 	}
 
@@ -139,7 +168,7 @@ heading {
 	}
 </script>
 </head>
-<body background = "images/bg.jpg">
+<body background="images/bg.jpg">
 	<s:set name="theme" value="'simple'" scope="page" />
 	<jsp:include page="header.jsp"></jsp:include>
 	<s:actionerror />
@@ -148,38 +177,24 @@ heading {
 			align="center">
 			<tbody>
 				<tr>
-					<td colspan="1" align="left" width="100">
-						<table>
-							<tr>
-								<td colspan="2">
-									<div class="ui-widget">
-										<h4 style="color: #9AC462;">Search Flights</h4>
-									</div>
-									<div class="ui-widget">
-										<s:radio label="TripType" name="tripType"
-											list="#{'1':'One way','2':'Round'}" value="1"
-											onchange="onChangeRadio()" />
-									</div>
-								</td>
-							</tr>
-						</table>
+					<td colspan="2" align="left">
+						<div class="ui-widget">
+							<h4 style="color: #36c;">Search Flights</h4>
+						</div>
 					</td>
 				</tr>
 				<tr height="10"></tr>
-					<tr>
-						<th><div class="ui-widget">
-								<font style="color: #36c">Fly from</font>
-							</div></th>
-						<th><div class="ui-widget">
-								<font style="color: #36c">To</font>
-							</div></th>
-						<th><div class="ui-widget">
-								<font style="color: #36c">Departure Date</font>
-							</div></th>
-						<th><div class="ui-widget">
-								<font style="color: #36c">Arrival Date</font>
-							</div></th>
-					</tr>
+				<tr>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black">Fly from</font>
+						</div></th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black">To</font>
+						</div></th>
+					<th align="left"><div class="ui-widget">
+							<font style="color: black">Departure Date</font>
+						</div></th>
+				</tr>
 				<tr height="10"></tr>
 				<tr>
 					<td>
@@ -197,11 +212,13 @@ heading {
 							<s:textfield name="departureDate" size="15"></s:textfield>
 						</div>
 					</td>
-					<td>
+					<%-- <td>
 						<div class="ui-widget">
 							<s:textfield name="arrivalDate" size="15"></s:textfield>
 						</div>
-					</td>
+					</td> --%>
+				</tr>
+				<tr height="10px">
 				</tr>
 				<tr>
 					<td colspan="4" align="center">
@@ -249,8 +266,8 @@ heading {
 					<tr>
 						<td align="left"><div class="ui-widget"
 								style="font-size: 14px;">
-								<s:property value="price" />
 								$
+								<s:property value="price" />
 							</div></td>
 						<td align="left" style="padding-right: 5px;"><div
 								class="ui-widget" style="font-size: 14px;">
@@ -268,7 +285,7 @@ heading {
 								style="font-size: 14px;">
 								<s:property value="tripHours" />
 							</div></td>
-						<td colspan="4" align="center"><input type="submit"
+						<td colspan="3" align="center"><input type="submit"
 							id="book_btn" name="method:bookTicket" value="Book"
 							onclick="setScheduleId('<s:property value="scheduleId" />');" />
 						</td>
@@ -313,15 +330,21 @@ heading {
 						</td>
 					</tr>
 				</s:iterator>
-				<tr>
-					<td colspan="6" align="center"><input type="submit"
-						id="book_btn2" name="method:addSchedule" value="Add New" /></td>
-				</tr>
 				<%
 					}
 				%>
 			</tbody>
 		</table>
+		<%
+			if (isAdmin) {
+		%>
+		<div align="center" class="ui-widget">
+			<input type="submit" id="book_btn2" name="method:addSchedule"
+				value="Add New" />
+		</div>
+		<%
+			}
+		%>
 		<s:hidden name="selectedSchedule" id="selectedSchedule"></s:hidden>
 	</s:form>
 </body>

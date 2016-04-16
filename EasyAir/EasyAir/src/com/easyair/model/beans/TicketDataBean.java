@@ -5,6 +5,7 @@ package com.easyair.model.beans;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -51,7 +53,11 @@ public class TicketDataBean implements Serializable {
 	private ScheduleDataBean schedule;
 	/** */
 	private String seatNo;
-	
+	/** Baggages */
+	private Set<BaggageDataBean> baggages;
+	/** */
+	private boolean deleted;
+
 	/**
 	 * @return the ticketId
 	 */
@@ -156,7 +162,7 @@ public class TicketDataBean implements Serializable {
 	 * @return the user
 	 */
 	@JoinColumn(name = "user_id")
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	public UserBean getUser() {
 		return user;
 	}
@@ -173,9 +179,25 @@ public class TicketDataBean implements Serializable {
 	 * @return the schedule
 	 */
 	@JoinColumn(name = "schedule_id")
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	public ScheduleDataBean getSchedule() {
 		return schedule;
+	}
+
+	/**
+	 * @return the baggages
+	 */
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ticket")
+	public Set<BaggageDataBean> getBaggages() {
+		return baggages;
+	}
+
+	/**
+	 * @param baggages
+	 *            the baggages to set
+	 */
+	public void setBaggages(Set<BaggageDataBean> baggages) {
+		this.baggages = baggages;
 	}
 
 	/**
@@ -185,17 +207,37 @@ public class TicketDataBean implements Serializable {
 	public void setSchedule(ScheduleDataBean schedule) {
 		this.schedule = schedule;
 	}
+
 	/**
 	 * @return the seatNo
 	 */
-	@Column(name = "seat_no", nullable=true)
+	@Column(name = "seat_no", nullable = true)
 	public String getSeatNo() {
 		return seatNo;
 	}
+
 	/**
-	 * @param seatNo the seatNo to set
+	 * @param seatNo
+	 *            the seatNo to set
 	 */
 	public void setSeatNo(String seatNo) {
 		this.seatNo = seatNo;
 	}
+
+	/**
+	 * @return the deleted
+	 */
+	@Column(name = "deleted", nullable = false)
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	/**
+	 * @param deleted
+	 *            the deleted to set
+	 */
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
 }

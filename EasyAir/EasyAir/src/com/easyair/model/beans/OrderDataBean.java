@@ -6,13 +6,11 @@ package com.easyair.model.beans;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +35,8 @@ public class OrderDataBean implements Serializable {
 	private Long ticket;
 	/** */
 	private Date lastUpdatedOn;
+	/** */
+	private boolean cancelled;
 	/**
 	 * @return the orderId
 	 */
@@ -92,5 +92,18 @@ public class OrderDataBean implements Serializable {
 	 */
 	public void setLastUpdatedOn(Date lastUpdatedOn) {
 		this.lastUpdatedOn = lastUpdatedOn;
+	}
+	/**
+	 * @return the cancelled
+	 */
+	@Column(name = "is_cancelled", nullable = false)
+	public boolean isCancelled() {
+		return cancelled;
+	}
+	/**
+	 * @param cancelled the cancelled to set
+	 */
+	public void setCancelled(boolean cancelled) {
+		this.cancelled = cancelled;
 	}
 }

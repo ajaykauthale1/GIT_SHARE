@@ -9,15 +9,15 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 #login_label_login {
-	background: #9AC462;
+	background: #AEC3F5;
 	border: 0;
 	border-radius: 5px;
-	width: 5em;
+	width: 200px;
 	height: 2em;
 }
 
 #login_label_login:hover {
-	background: #383;
+	background: #6286DE;
 }
 </style>
 <title>EasyAir Login</title>

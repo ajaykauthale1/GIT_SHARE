@@ -2,15 +2,13 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
- 
+
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation"
-		value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
- 
-	<constant name="struts.custom.i18n.resources"
-		value="ApplicationResources" />
- 
+
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+
 	<package name="default" extends="struts-default" namespace="/">
 		<action name="login" method="init"
 			class="com.easyair.view.actions.LoginAction">
@@ -19,31 +17,51 @@
 			<result name="error">jsp/pages/Login.jsp</result>
 			<result type="redirect" name="book">ticketbook.action</result>
 		</action>
-		
+
 		<action name="schedule" method="init"
 			class="com.easyair.view.actions.ScheduleAction">
 			<result name="success">jsp/pages/Schedules.jsp</result>
 			<result name="login">jsp/pages/Login.jsp</result>
 			<result type="redirect" name="book">ticketbook.action</result>
+			<result type="redirect" name="addNew">addSchedule.action</result>
 			<result name="error">jsp/pages/Schedules.jsp</result>
 		</action>
-		
+
+		<action name="order" method="init"
+			class="com.easyair.view.actions.OrderAction">
+			<result name="success">jsp/pages/Orders.jsp</result>
+			<result type="redirect" name="orderUpdate">orderUpdate.action</result>
+			<result type="redirect" name="schedule">schedule.action</result>
+			<result name="printTicket">jsp/pages/Ticket.jsp</result>
+		</action>
+
+		<action name="orderUpdate" method="init"
+			class="com.easyair.view.actions.OrderUpdateAction">
+			<result name="success">jsp/pages/UpdateOrder.jsp</result>
+			<result type="redirect" name="schedule">schedule.action</result>
+		</action>
+
+		<action name="addSchedule" method="init"
+			class="com.easyair.view.actions.AddScheduleAction">
+			<result name="success">jsp/pages/AddSchedule.jsp</result>
+		</action>
+
 		<action name="ticketbook" method="init"
 			class="com.easyair.view.actions.TicketBookAction">
-				<result name="success">jsp/pages/BookTicket.jsp</result>
-				<result name="confirm" type="redirect">payment.action</result>
-				<result name="error">jsp/pages/Schedules.jsp</result>
+			<result name="success">jsp/pages/BookTicket.jsp</result>
+			<result name="confirm" type="redirect">payment.action</result>
+			<result name="error">jsp/pages/Schedules.jsp</result>
 		</action>
-		
+
 		<action name="payment" method="init"
 			class="com.easyair.view.actions.PaymentAction">
-				<result name="success">jsp/pages/PaymentConfirmation.jsp</result>
-				<result name="print_ticket">jsp/pages/Ticket.jsp</result>
+			<result name="success">jsp/pages/PaymentConfirmation.jsp</result>
+			<result name="print_ticket">jsp/pages/Ticket.jsp</result>
 		</action>
 		
 		<action name="signup" method="init"
 			class="com.easyair.view.actions.SignupAction">
-			<result name="success">jsp/pages/PaymentConfirmation.jsp</result>
+			<result name="success">jsp/pages/Signup.jsp</result>
 		</action>
 	</package>
 </struts>
