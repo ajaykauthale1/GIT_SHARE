@@ -1,0 +1,145 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname class-lists) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp")) #f)))
+;; Author: Ajay Baban Kauthale
+;; Date: 10/07/2015
+;; Program for class lists
+
+(check-location "04" "class-lists.rkt")
+
+(require rackunit)
+(require "extras.rkt")
+
+(provide felleisen-roster shivers-roster)
+
+;==========================================================================================================================
+;                                      CONSTANTS
+;==========================================================================================================================
+(define YELLOW "yellow")
+(define BLUE "blue")
+
+;==========================================================================================================================
+;                                      DATA DEFINITIONS
+;==========================================================================================================================
+(define-struct slip (color name1 name2))
+;; A slip is a (make-slip Color String String)
+;; INTERPRETATION:
+;; A Color is one of
+;; -- "yellow"
+;; -- "blue"
+;; name1 is either first name or last name of student
+;; name2 is either first name or last name of student
+
+;; slips for testing purpose
+(define felleisen-slip (make-slip YELLOW "Ajay" "Kauthale"))
+(define felleisen-slip-duplicate (make-slip YELLOW "Kauthale" "Ajay"))
+(define felleisen-slip-not-duplicate (make-slip YELLOW "Sam" "Johnson"))
+(define shivers-slip (make-slip BLUE "Ajay" "Kauthale"))
+(define shivers-slip-duplicate (make-slip BLUE "Kauthale" "Ajay"))
+(define shivers-slip-not-duplicate (make-slip BLUE "Sam" "Johnson"))
+
+;; TEMPLATE:
+;; slip-fn -> ??
+#|(define (slip-fn s)
+  ....
+  (slip-color s)
+  (slip-name1 s)
+  (slip-name2 s)
+  ....))|#
+
+;; A List of Slip (ListOfSlip) is one of:
+;; -- empty
+;; -- (cons s ListOfSlip)
+;; INTERPRETATION:
+;; empty represents the empty list
+;; (cons s ListOfSlip) represents the list of slips with newly added slip s
+
+;; TEMPLATE:
+;; ListOfSlip-fn -> ??
+#|(define (ListOfSlip-fn slips)
+  (cond
+    [(empty? slips) ... ]
+    [else (... (first slips)
+               (ListOfSlip-fn (rest slips)))]))|#
+
+;; ListOfSlip for testing purpose
+(define list-felleisen (list felleisen-slip felleisen-slip-not-duplicate))
+(define list-felleisen-repeated (list felleisen-slip felleisen-slip-duplicate))
+(define list-felleisen-same-repeated (list felleisen-slip felleisen-slip))
+(define list-shivers (list shivers-slip shivers-slip-not-duplicate))
+(define list-shivers-repeated (list shivers-slip shivers-slip-duplicate))
+(define mixed-list-of-slips (list (make-slip YELLOW "Ajay" "Kauthale")
+                                  (make-slip BLUE "Wang" "Xi")
+                                  (make-slip BLUE "Sam" "Johnson")
+                                  (make-slip YELLOW "Ajay" "Kauthale")
+                                  (make-slip YELLOW "Kauthale" "Ajay")
+                                  (make-slip YELLOW "Wang" "Xi")
+                                  (make-slip BLUE "Xi" "Wang")
+                                  (make-slip YELLOW "Wang" "Xi")
+                                  (make-slip YELLOW "Xi" "Wang")
+                                  (make-slip BLUE "Kauthale" "Ajay")
+                                  (make-slip YELLOW "abc" "cde")
+                                  (make-slip YELLOW "cde" "abc")))
+
+;===========================================================================================================================
+;                                      FUNCTIONS
+;===========================================================================================================================
+;; felleisen-roster : ListOfSlip -> ListOfSlip
+;; GIVEN: a list of slips
+;; RETURNS: a list of slips containing all the students in Professor 
+;; Felleisen's class, without duplication.
+;; EXAMPLES:
+;; (felleisen-roster list-felleisen-repeated) = (list felleisen-slip empty)
+;; (felleisen-roster list-felleisen-same-repeated) = (list felleisen-slip empty)
+;; (felleisen-roster list-felleisen) = (list felleisen-slip felleisen-slip-not-duplicate)
+
+;; STRATEGY: using template of ListOfSlip on slips
+(define (felleisen-roster slips)
+  (cond
+    [(empty? slips) empty]
+    [else (if (and
+               (string=? (slip-color (first slips)) YELLOW)
+               (not (already-exist? (rest slips) (first slips) YELLOW)))
+              (cons (first slips) (felleisen-roster (rest slips))) (felleisen-roster (rest slips)))]))
+
+;; shivers-roster : ListOfSlip -> ListOfSlip
+;; GIVEN: a list of slips
+;; RETURNS: a list of slips containing all the students in Professor
+;; Shivers' class, without duplication.
+;; EXAMPLES:
+;; (shivers-roster list-shivers-repeated) = (list shivers-slip empty)
+;; (shivers-roster list-shivers) = (list shivers-slip shivers-slip-not-duplicate)
+
+;; STRATEGY: using template of ListOfSlip on slips
+(define (shivers-roster slips)
+  (cond
+    [(empty? slips) empty]
+    [else (if (and
+               (string=? (slip-color (first slips)) BLUE)
+               (not (already-exist? (rest slips) (first slips) BLUE)))
+              (cons (first slips) (shivers-roster (rest slips))) (shivers-roster (rest slips)))]))
+
+;;;; Helper function ;;;;;
+
+;; already-exist? : ListOfSlip slip String -> Boolean
+;; GIVEN: a ListOfSlip, a slip and color of the slip
+;; RETURN: true iff the slip is present in the ListOfSlip
+
+;; STRATEGY: using template of ListOfSlip on slips
+(define (already-exist? slips s color)
+  (cond
+    [(empty? slips) false]
+    [else (if (and (string=? (slip-color (first slips)) color)
+                   (or
+                    (and (string=? (slip-name1 s) (slip-name1 (first slips))) (string=? (slip-name2 s) (slip-name2 (first slips))))
+                    (and (string=? (slip-name1 s) (slip-name2 (first slips))) (string=? (slip-name2 s) (slip-name1 (first slips))))))
+              true
+              (already-exist? (rest slips) s color))]))
+
+;; TESTS:
+(begin-for-test
+  (check-equal? (felleisen-roster list-felleisen-repeated) (list felleisen-slip-duplicate))
+  (check-equal? (felleisen-roster list-felleisen-same-repeated) (list felleisen-slip))
+  (check-equal? (felleisen-roster list-felleisen) (list felleisen-slip felleisen-slip-not-duplicate))
+  (check-equal? (shivers-roster list-shivers-repeated) (list shivers-slip-duplicate))
+  (check-equal? (shivers-roster list-shivers) (list shivers-slip shivers-slip-not-duplicate)))

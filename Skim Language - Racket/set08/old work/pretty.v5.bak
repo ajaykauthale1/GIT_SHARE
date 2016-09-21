@@ -1,0 +1,249 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-intermediate-lambda-reader.ss" "lang")((modname pretty.v5) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+;(check-location "08" "outlines.rkt")
+
+(require rackunit)
+(require "extras.rkt")
+(require "sets.rkt")
+
+(provide expr-to-strings)
+(provide make-sum-exp)
+(provide sum-exp-exprs)
+(provide make-diff-exp)
+(provide diff-exp-exprs)
+
+;=========================================================================================
+;                                      DATA DEFINITIONS
+;=========================================================================================
+(define-struct sum-exp (exprs))
+;; Sum-Exp is a (make-sum-exp LOExpr)
+;; ITNERPRETATION:
+;; LOExpr is the list of expressions
+
+;; TEMPLATE:
+;;sum-exp-fn : Sum-Exp -> ??
+#;(define (sum-exp-fn ex)
+  ....
+  (sum-exp-exprs ex)
+  ...)
+
+(define-struct diff-exp (exprs))
+;; Diff-Exp is a (make-diff-exp LOExpr)
+;; ITNERPRETATION:
+;; LOExpr is the list of expressions
+
+;; TEMPLATE:
+;; diff-exp-fn : Diff-Exp -> ??
+#;(define (diff-exp-fn ex)
+  ....
+  (diff-exp-exprs ex)
+  ...)
+
+;; An Expr is one of
+;; -- Integer
+;; -- (make-sum-exp NELOExpr)
+;; -- (make-diff-exp NELOExpr)
+;; ITNERPRETATION:
+;; a sum-exp represents a sum and a diff-exp represents a difference calculation.
+
+;; A LOExpr is one of
+;; -- empty
+;; -- (cons Expr LOExpr)
+;; ITNERPRETATION:
+;; empty represents empty LOExpr
+;; (cons Expr LOExpr) represents the LOExpr with newly added Expr
+
+;; A NELOExpr is a non-empty LOExpr.
+
+;=========================================================================================
+;                                      FUNCTIONS
+;=========================================================================================
+;; expr-to-strings : Expr NonNegInt -> ListOfString
+;; GIVEN: An expression and a width
+;; RETURNS: A representation of the expression as a sequence of lines, with
+;; each line represented as a string of length not greater than the width.
+;; EXAMPLES:
+
+;; STRATEGY:
+(define (expr-to-strings expr w)
+  (get-expr-to-strings expr w "" 0 0))
+ 
+;;
+(define (get-expr-to-strings expr w pre hi lo)
+  (cond
+    [(sum-exp? expr)
+     (local
+       ((define exp-str (get-exp expr))
+        (define sub-exp-str
+          (get-sub-exprs
+           (sum-exp-exprs expr) w
+           (string-append pre "(+ ")
+           (length (sum-exp-exprs expr)) 1)))
+       (if (= lo hi)
+           (if (<= (+ (string-length exp-str) (string-length pre) 1) w)
+               (list (string-append pre exp-str ")"))
+               sub-exp-str)
+           (if (<= (+ (string-length exp-str) (string-length pre)) w)
+               (list (string-append pre exp-str))
+               sub-exp-str)))]
+    [(diff-exp? expr)
+     (local
+       ((define exp-str (get-exp expr))
+        (define sub-exp-str
+          (get-sub-exprs
+           (diff-exp-exprs expr) w
+           (string-append pre "(- ")
+           (length (diff-exp-exprs expr)) 1)))
+       (if (= lo hi)
+           (if (<= (+ (string-length exp-str) (string-length pre) 1) w)
+               (list (string-append pre exp-str ")"))
+               sub-exp-str)
+           (if (<= (+ (string-length exp-str) (string-length pre)) w)
+               (list (string-append pre exp-str))
+               sub-exp-str)))]
+    [(number? expr)
+     (if (= hi lo )
+         (list (string-append pre (number->string expr) ")"))
+         (list (string-append pre (number->string expr))))]))
+
+;; get-sub-exprs : LOExpr -> ListOfString
+(define (get-sub-exprs exprs w pre hi lo)
+  (cond
+    [(empty? exprs) empty]
+    [else
+     (local
+       ((define firstexp (get-expr-to-strings (first exprs) w pre hi lo)))
+       (append
+        firstexp
+        (get-sub-exprs (rest exprs) w (get-empty-string pre 1) hi (+ lo 1))))]))
+
+;;
+(define (get-empty-string pre cnt)
+  (if (not (special-char? (string-last pre)))
+      (get-empty-string (substring pre 0 (- (string-length pre) 1)) cnt)
+      (get-pre-string pre "")))
+
+;;
+(define (get-pre-string pre str)
+  (cond
+    [(= 0 (string-length pre)) str]
+    [else
+     (get-pre-string (string-rest pre) (string-append " " str))]))
+
+;;
+(define (special-char? ch)
+  (or (string=? ch "(")
+      (string=? ch "+")
+      (string=? ch "-")
+      (string=? ch " ")
+      (string=? ch ")")))
+
+;;
+(define (string-last input-string)
+  (substring input-string (- (string-length input-string) 1)))
+
+
+;; string-rest: NonEmptyString -> String
+;; GIVEN: the non empty string
+;; RETURNS: the string after removing first char
+;; EXAMPLE:
+;; (string-rest "Hello I am Ajay") = "ello I am Ajay"
+;; (string-rest "Good to see you") = "ood to see you"
+(define (string-rest input-string)
+  (substring input-string 1))
+
+;; TESTS:
+#;(begin-for-test
+  (check-equal? (string-rest "Hello I am Ajay") "ello I am Ajay"
+                "should return rest string by removing 'H'")
+  (check-equal? (string-rest "Good to see you") "ood to see you"
+                "should return rest string by removing 'G'"))
+
+;; get-exp : Expr -> String
+(define (get-exp expr)
+  (cond
+    [(number? expr) (number->string expr)]
+    [(sum-exp? expr)
+     (get-sum-exps (sum-exp-exprs expr) 1 (length (sum-exp-exprs expr)))]
+    [(diff-exp? expr)
+     (get-diff-exps (diff-exp-exprs expr) 1 (length (diff-exp-exprs expr)))]))
+
+;; TESTS:
+;; constants for tests
+#;(define sum-exp-1
+  (make-sum-exp
+   (list (make-sum-exp (list 3 4 5 6))
+         (make-diff-exp
+          (list 2 5
+                (make-sum-exp (list 10 5
+                                    (make-diff-exp (list 10 4 8)))))))))
+
+(define sum-exp-1
+  (make-sum-exp
+   (list 1
+         (make-diff-exp
+          (list 2 5
+                (make-sum-exp (list 10 5
+                                    (make-diff-exp (list 10 4 8)))))))))
+
+(define sum-exp-3
+  (make-sum-exp
+   (list
+    (make-diff-exp (list 22 3333 44))
+    (make-diff-exp
+     (list
+      (make-sum-exp (list 66 67 68))
+      (make-diff-exp (list 42 43))))
+    (make-diff-exp (list 77 88)))))
+
+;; get-sum-exp : Expr NonNegInt NonNegInt -> String
+(define (get-sum-exp expr lo hi)
+  (cond
+    [(= 1 lo)
+     (string-append "(+ " (get-exp expr) " ")]
+    [(= hi lo)
+     (string-append (get-exp expr) ")")]
+    [else
+     (string-append (get-exp expr) " ")]))
+
+;; get-sum-exps : LOExpr -> String
+(define (get-sum-exps exprs lo hi)
+  (cond
+    [(empty? exprs) ""]
+    [else
+     (string-append
+      (get-sum-exp (first exprs) lo hi)
+     (get-sum-exps (rest exprs) (+ lo 1) hi))]))
+
+;; get-diff-exp : Expr NonNegInt NonNegInt -> String
+(define (get-diff-exp expr lo hi)
+  (cond
+    [(= 1 lo)
+     (string-append "(- " (get-exp expr) " ")]
+    [(= hi lo)
+     (string-append (get-exp expr) ")")]
+    [else
+     (string-append (get-exp expr) " ")]))
+
+;; get-sum-exps : LOExpr -> String
+(define (get-diff-exps exprs lo hi)
+  (cond
+    [(empty? exprs) ""]
+    [else
+     (string-append
+      (get-diff-exp (first exprs) lo hi)
+      (get-diff-exps (rest exprs) (+ lo 1) hi))]))
+
+(define hw-example-2
+  (make-sum-exp
+   (list
+    (make-diff-exp (list 22 3333 44))
+    (make-diff-exp
+     (list
+      (make-sum-exp (list 66 67 68))
+      (make-diff-exp (list 42 43))))
+    (make-diff-exp (list 77 88)))))
+
+(define (display-expr expr n)
+    (display-strings! (expr-to-strings expr n)))

@@ -1,0 +1,19 @@
+; Program to calculate distance of a point (x, y) from the origin
+; Author: Ajay Kauthale
+; Date: 09/12/2015
+
+; Indicate that we are using racket language
+#lang racket
+
+; Functions
+
+; distance-to-origin: Function to calculate distance of point (x, y) from the origin
+; Parameters
+;           x-coordinate: x coordinate of the point
+;           y-coordinate: y coordinate of the point
+(define (distance-to-origin x-coordinate y-coordinate)
+  (sqrt
+   (+ (sqr x-coordinate) (sqr y-coordinate)
+   )
+  )
+ )

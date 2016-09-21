@@ -1,0 +1,17 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname coffee-machine) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp")) #f)))
+A CustomerInput is one of
+-- a PosInt          interp: insert the specified amount of money, in cents
+-- "coffee"          interp: request a coffee
+-- "hot chocolate"   interp: request a hot chocolate
+-- "change"          interp: return all the unspent money that the
+                             customer has inserted
+
+A MachineOutput is one of
+-- "coffee"         interp: machine dispenses a cup of coffee
+-- "hot chocolate"  interp: machine dispenses a cup of hot chocolate
+-- "Out of Item"    interp: machine displays "Out of Item"
+-- a PosInt         interp: machine releases the specified amount of
+                            money, in cents
+-- "Nothing"        interp: the machine does nothing

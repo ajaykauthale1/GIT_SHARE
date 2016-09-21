@@ -1,0 +1,54 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-intermediate-lambda-reader.ss" "lang")((modname rem-successive-rep) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+;; remove-rep : Plan -> Plan
+;; GIVEN:   A Plan of the robot moves
+;; WHERE:   plan contains the repetative moves if robot moved single direction multiple
+;;          times
+;; RETURNS: A plan similar to original one, but successive moves on single direction
+;;          are combined together
+;; EXAMPLES: see tests below
+
+;; STRATEGY: call more general function
+(define (remove-rep plan)
+  (remove-successive-rep (first plan) (rest plan)))
+
+;; TESTS:
+;; constants for testing
+(define plan
+  (list '("ne" 1) '("ne" 1) '("ne" 1)
+        '("se" 1) '("se" 1) '("se" 1)
+        '("ne" 1) '("se" 1) '("sw" 1)
+        '("se" 1) '("nw" 1) '("nw" 1)))
+(define result-plan
+  (list '("ne" 3) '("se" 3) '("ne" 1)
+        '("se" 1) '("sw" 1) '("se" 4)
+        '("nw" 2)))
+
+#;(begin-for-test
+  (check-equal? (remove-rep plan) result-plan))
+
+;; remove-successive-rep : Move Plan -> Plan
+;; GIVEN:
+;;          1. Previous move pre
+;;          2. Plan representing the next moves done by robot
+;; WHERE:   pre represent previous move before the plan
+;; RETURNS: plan after removing successive repetation of move in same direction
+;; EXAMPLES: see tests below
+
+;; STRATEGY: general recursion on plan
+;; HALTING MEASURE:
+;; TERMINATION ARGUMENT:
+(define (remove-successive-rep pre plan)
+  (cond
+    [(empty? plan) (list pre)]
+    [else
+     (if (equal? (move-dir pre) (move-dir (first plan)))
+         (remove-successive-rep (first plan) (rest plan))
+         (append (list pre) (remove-successive-rep (first plan) (rest plan))))]))
+
+;; TESTS:
+(begin-for-test
+  (check-equal? (remove-successive-rep '("ne" 1) (list '("ne" 2) '("ne" 3)))
+                (list '("ne" 3)))
+  (check-equal? (remove-successive-rep '("ne" 1) '()) (list '("ne" 1))))

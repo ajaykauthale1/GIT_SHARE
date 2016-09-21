@@ -1,0 +1,98 @@
+;=========================================================================================
+;                                      DATA DEFINITIONS
+;=========================================================================================
+(define-struct node (posn dx dy selected?))
+;; A Node is a (make-node Posn Integer Integer Boolean)
+;; INTERPRETATION:
+;; posn is Posn (x, y) of the node
+;; dx is a distance between x and x-coordinate mouse drag event (inside node)
+;; dy is a distance between y and y-coordinate mouse drag event (inside node)
+;; selected? represents whether the node is selected or not
+
+;; TEMPLATE:
+;; node-fn : Node -> ??
+#|(define (node-fn n)
+  ....
+  (node-posn n)
+  (node-dx n)
+  (node-dy n)
+  (node-selected? n)
+  ....)|#
+
+;; Nodes for testing
+(define node-selected (make-node (make-posn 150 150) 0 0 true))
+(define node-added-son (make-node (make-posn 150 150) 0 0 true))
+(define node-added-two-sons (make-node (make-posn 150 150) 0 0 true))
+
+(define node-1-selected (make-node (make-posn 250 10) 0 0 true))
+(define node-2-selected (make-node (make-posn 280 40) 0 0 true))
+(define node-3-selected (make-node (make-posn 310 40) 0 0 true))
+(define node-1-unselected (make-node (make-posn 250 10) 0 0 false))
+(define node-2-unselected (make-node (make-posn 280 40) 0 0 false))
+(define node-3-unselected (make-node (make-posn 310 40) 0 0 false))
+(define node-2-unselected-with-rel-dist (make-node (make-posn 280 40) 30 30 false))
+(define node-3-unselected-with-rel-dist (make-node (make-posn 310 40) 60 30 false))
+
+;; A List of Node (ListOfNode) is one of:
+;; -- empty
+;; -- (cons n ListOfNode)
+;; INTERPRETATION:
+;; empty represents the empty list
+;; (cons n ListOfNode) represents the list of Node with newly added node n
+
+;; TEMPLATE:
+;; listOfNode-fn : ListOfNode -> ??
+#|(define (listOfNode-fn nodes)
+  (cond
+    [(empty? nodes) ... ]
+    [else (... (first nodes)
+               (listOfNode-fn (rest nodes)))]))|#
+
+(define-struct tree (root sons))
+;; A Tree is a (make-tree Node ListOfNode)
+;; INTERPRETATION:
+;; root is a root node of the tree
+;; sons is a ListOfTree for reprenting the children of the root
+
+;; TEMPLATE:
+;; tree-fn : Tree -> ??
+#|(define (tree-fn t)
+  ....
+  (tree-root t)
+  (tree-sons t)
+  ....)|#
+
+;; A List of Tree (ListOfTree) is one of:
+;; -- empty
+;; -- (cons t ListOfTree)
+;; INTERPRETATION:
+;; empty ListOfTree the empty list
+;; (cons t ListOfTree) represents the list of Tree with newly added tree t
+
+;; TEMPLATE:
+;; listOfTree-fn : ListOfTree -> ??
+#|(define (listOfTree-fn trees)
+  (cond
+    [(empty? trees) ... ]
+    [else (... (first trees)
+               (listOfTree-fn (rest trees)))]))|#
+
+
+;; constants for testing
+(define tree-1-selected (make-tree node-1-selected (list node-2-selected node-3-selected)))
+(define tree-1-unselected (make-tree node-1-unselected (list node-2-unselected node-3-unselected)))
+(define tree-1-root-selected (make-tree node-1-selected (list node-2-unselected-with-rel-dist
+                                                              node-3-unselected-with-rel-dist)))
+(define tree-2-selected (make-tree node-1-selected (list node-3-selected node-2-selected)))
+
+(define-struct world (trees))
+;; A World is a (make-world ListOfTree)
+;; INTERPRETATION:
+;; trees is the list of Trees present in the world
+
+;; TEMPLATE:
+;; world-fn : World -> ??
+#|(define (world-fn ws)
+    ....
+    (world-trees ws)
+    ....)|#

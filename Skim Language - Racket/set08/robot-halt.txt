@@ -1,0 +1,5 @@
+- go to next dir until we find the occupied block
+- when occ block
+            -- check other directions which are not yet explored
+            -- if explored + blocked = all next positions
+                 -- backtrack and check if previous pos has some dir till to explored
