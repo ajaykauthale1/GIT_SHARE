@@ -1,0 +1,4 @@
+# Author: Ajay Kauthale
+# Date: 09/25/2016
+Objective of this project is to create the web application like WorldPress which will allow
+it's user to create the reponsive websites for all devices.

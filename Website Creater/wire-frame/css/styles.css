@@ -1,0 +1,91 @@
+body {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.navbar-default {
+    background-color: #337ab7;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-text {
+    margin-right: 20px;
+    margin-left: 15px;
+}
+
+.navbar-default .page-brand {
+    color: black;
+}
+
+.navbar-page {
+    background-color: #F0F0F0;
+}
+
+.glyphicon {
+    color: white;
+}
+
+.list-group .list-group-item {
+    border: none;
+    color: #337ab7;
+    padding-right: 0px;
+}
+
+.glyphicon-cog {
+    color: #337ab7;
+}
+
+.badge {
+    background-color: white;
+    margin-left: 15px;
+}
+
+.badge-justify {
+    color: black;
+}
+
+.form-group {
+    padding: 4px;
+}
+
+.margin-bottom {
+    margin-bottom: 15px;
+}
+
+.page-glyphicon {
+    color: black;
+}
+
+.page-glyphicon-blue {
+    color: #337ab7;
+}
+
+.header-color {
+    color: black;
+}
+
+.block1 {
+    position: relative;
+    margin-right: 5px;
+}
+
+.video-frame {
+    width:100%;
+    height:auto;
+    padding: 0px;
+}
+
+.block2 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+}
+
+.file {
+    background-color: white;
+}
